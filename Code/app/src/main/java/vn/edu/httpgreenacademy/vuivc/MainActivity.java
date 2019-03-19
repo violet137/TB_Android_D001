@@ -2,7 +2,6 @@ package vn.edu.httpgreenacademy.vuivc;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,9 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
         //asdasdfqwfqwfqfqwfw
 
-
-        Log.d("123","ahihihi");
-
-
+        String duy = "duy";
     }
 }
