@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
         String myname = "My NAME: CƯỜNG" + "\n" + "Class: Android";
         //phong
 
-
         String duy = "abcnd";
 
 
