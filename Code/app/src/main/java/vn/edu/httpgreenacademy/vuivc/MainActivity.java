@@ -9,8 +9,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
         //Tung
 
         //asdasdfqwfqwfqfqwfw
+=======
+
+>>>>>>> 57cc538e296eb025917da2bb9da4f39f8858adfe
     }
 }
