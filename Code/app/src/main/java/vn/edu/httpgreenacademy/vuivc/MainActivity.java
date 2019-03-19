@@ -11,5 +11,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         String myname = "My NAME: CƯỜNG" + "\n" + "Class: Android";
         //phong
+
+        //Tung
+
+        //asdasdfqwfqwfqfqwfw
+
     }
 }
