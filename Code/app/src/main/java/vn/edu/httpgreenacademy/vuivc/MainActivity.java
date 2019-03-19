@@ -9,6 +9,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String myname = "My NAME: CƯỜNG" + "\n" + "Class: Android";
+        //phong
+
+        //Tung
+
+        //asdasdfqwfqwfqfqwfw
 
         String duy = "ABC";
     }
