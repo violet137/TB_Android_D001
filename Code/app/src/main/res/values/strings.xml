@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">vuivc</string>
+    <string name="Txt_Facebook">Login With Facebook</string>
+    <string name="Txt_Google">Login With Google+</string>
+    <string name="Txt_Login">Login</string>
+    <string name="Txt_Register">Register</string>
+    <string name="Ed_UserName">UserName</string>
+    <string name="Ed_Password">Password</string>
+    <string name="Bt_Back">Back</string>
+    <string name="Error">Invalid UserName of Password</string>
+    <string name="Thanhcong">Login Thanh cong</string>
+    <string name="Error_Register">Tài Khoản Tồn Tại</string>
+
 </resources>

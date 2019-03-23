@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="Txt_Facebook">#1cd2fd</color>
+    <color name="Txt_Google">#d84736</color>
+    <color name="Txt_Chu">#ffffff</color>
+    <color name="Bt_Login">#1f7bf4</color>
+    <color name="Bt_Register">#b52e1c</color>
+    <color name="Txt_Error">#fa0000</color>
 </resources>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/Bt_Login"
+        android:id="@+id/Bt_Login_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
@@ -17,13 +17,13 @@
         android:background="@color/Bt_Login"
         android:text="@string/Txt_Login"
         android:textColor="@color/Txt_Chu"
-        app:layout_constraintEnd_toStartOf="@+id/Bt_Register"
+        app:layout_constraintEnd_toStartOf="@+id/Bt_Register_Home"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Txt_FaceBook"
+        android:id="@+id/Txt_FaceBook_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -39,14 +39,14 @@
         android:text="@string/Txt_Facebook"
         android:textColor="@color/Txt_Chu"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Txt_GoogLe"
+        app:layout_constraintEnd_toStartOf="@+id/Txt_GoogLe_Home"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Bt_Login"
+        app:layout_constraintTop_toBottomOf="@+id/Bt_Login_Home"
         app:layout_constraintVertical_bias="0.135" />
 
     <TextView
-        android:id="@+id/Txt_GoogLe"
+        android:id="@+id/Txt_GoogLe_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -64,12 +64,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Txt_FaceBook"
-        app:layout_constraintTop_toBottomOf="@+id/Bt_Register"
+        app:layout_constraintStart_toEndOf="@+id/Txt_FaceBook_Home"
+        app:layout_constraintTop_toBottomOf="@+id/Bt_Register_Home"
         app:layout_constraintVertical_bias="0.135" />
 
     <Button
-        android:id="@+id/Bt_Register"
+        android:id="@+id/Bt_Register_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -82,6 +82,6 @@
         android:textColor="@color/Txt_Chu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/Bt_Login"
+        app:layout_constraintStart_toEndOf="@+id/Bt_Login_Home"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

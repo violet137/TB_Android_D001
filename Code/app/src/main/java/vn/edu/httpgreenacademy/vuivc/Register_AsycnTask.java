@@ -12,11 +12,11 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class RegisterAsycnTask extends AsyncTask<String,Void,Boolean> {
+public class Register_AsycnTask extends AsyncTask<String,Void,Boolean> {
 
     Register_Statis register_statis;
 
-    public RegisterAsycnTask(Register_Statis register_statis) {
+    public Register_AsycnTask(Register_Statis register_statis) {
         this.register_statis = register_statis;
     }
 
@@ -26,7 +26,7 @@ public class RegisterAsycnTask extends AsyncTask<String,Void,Boolean> {
         String Username = strings[0];
         String password = strings[1];
         try{
-            URL url = new URL("http://tamod.vn:8080/api/Auth/Login");
+            URL url = new URL("http://tamod.vn:8080/api/Auth/Registern");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
 
