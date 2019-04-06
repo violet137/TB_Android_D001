@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">vuivc</string>
+    <string name="Txt_Google">Đăng Nhập bằng Google+</string>
+    <string name="Txt_Facebook" translatable="false">Đăng Nhập Bằng Facebook</string>
+    <string name="Txt_Login">Đăng Nhập</string>
+    <string name="Txt_Register">Đăng Ký</string>
+    <string name="Ed_UserName">Nhập Tài Khoản</string>
+    <string name="Ed_Password">Nhập Password</string>
+    <string name="Bt_Back">Quay Trở Về</string>
+    <string name="Error">Sai Tài Khoản Hoặc Mật Khẩu</string>
+    <string name="Thanhcong">Thành Công</string>
+</resources>

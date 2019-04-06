@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">vuivc</string>
+    <string name="Txt_Facebook" translatable="false">Login With Facebook</string>
+    <string name="Txt_Google" translatable="false">Login With Google+</string>
+    <string name="Txt_Login">Login</string>
+    <string name="Txt_Register">Register</string>
+    <string name="Ed_UserName">UserName</string>
+    <string name="Ed_Password">Password</string>
+    <string name="Bt_Back">Back</string>
+    <string name="Error">Invalid UserName of Password</string>
+    <string name="Thanhcong">Comit</string>
+</resources>
