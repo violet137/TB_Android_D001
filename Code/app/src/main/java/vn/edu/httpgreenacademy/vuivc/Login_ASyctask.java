@@ -25,15 +25,15 @@ public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
         String Username = strings[0];
         String password = strings[1];
         try{
-            URL url = new URL("http://tamod.vn:8080/api/Auth/Login");
+            URL url = new URL("http://13.229.117.90:8012/Auth/Login");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
 
             JSONObject jsonObject =new JSONObject();
             jsonObject.put("Username", Username);
             jsonObject.put("Pwd", password);
-            jsonObject.put("AccountType", "Google");
-            jsonObject.put("NenTang", "Android");
+            jsonObject.put("Token", "");
+            jsonObject.put("AccountType", "Thuong");
 
             OutputStream outputStream =  httpURLConnection.getOutputStream();
             outputStream.write(jsonObject.toString().getBytes());

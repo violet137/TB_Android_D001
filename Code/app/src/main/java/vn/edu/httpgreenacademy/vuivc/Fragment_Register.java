@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class Fragment_Register extends Fragment implements View.OnClickListener,Register_Statis{
 
     EditText Ed_UserName,Ed_Password;
-    Button Bt_Register,Bt_Back;
+    Button Bt_Register,Bt_Back,Bt_Home_Register;
     TextView Txt_Error_Register;
 
     @Nullable
@@ -27,11 +27,12 @@ public class Fragment_Register extends Fragment implements View.OnClickListener,
         Ed_UserName = view.findViewById(R.id.Ed_UserName_Resgister);
         Bt_Back = view.findViewById(R.id.BT_Back_Register);
         Bt_Register = view.findViewById(R.id.Bt_Register_Register);
+        Bt_Home_Register = view.findViewById(R.id.BT_Home_Register);
         Txt_Error_Register = view.findViewById(R.id.Txt_Error_Register);
 
         Bt_Register.setOnClickListener(this);
         Bt_Back.setOnClickListener(this);
-
+        Bt_Home_Register.setOnClickListener(this);
 
         return view;
     }
@@ -47,6 +48,11 @@ public class Fragment_Register extends Fragment implements View.OnClickListener,
                 break;
             case R.id.BT_Back_Register:
                 getActivity().onBackPressed();
+                break;
+            case R.id.BT_Home_Register:
+                Fragment_Home fragment_home = new Fragment_Home();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(android.R.id.content,fragment_home).commit();
                 break;
         }
     }
