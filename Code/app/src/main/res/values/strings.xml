@@ -2,6 +2,8 @@
     <string name="app_name">vuivc</string>
     <string name="Txt_Facebook">Login With Facebook</string>
     <string name="Txt_Google">Login With Google+</string>
+    <string name="facebook_app_id">2260493494173421</string> <string name="fb_login_protocol_scheme">fb2260493494173421</string>
+    <string name="dangnhapfacebook">Đăng nhập bằng Facebook</string>
     <string name="Txt_Login">Login</string>
     <string name="Txt_Register">Register</string>
     <string name="Ed_UserName">UserName</string>
