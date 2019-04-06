@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.Network;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -12,11 +12,14 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
-    Login_Status login_status;
+import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Register_Statis;
 
-    public Login_ASyctask(Login_Status login_status) {
-        this.login_status = login_status;
+public class Register_AsycnTask extends AsyncTask<String,Void,Boolean> {
+
+    Register_Statis register_statis;
+
+    public Register_AsycnTask(Register_Statis register_statis) {
+        this.register_statis = register_statis;
     }
 
     @Override
@@ -25,15 +28,15 @@ public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
         String Username = strings[0];
         String password = strings[1];
         try{
-            URL url = new URL("http://13.229.117.90:8012/Auth/Login");
+            URL url = new URL("http://tamod.vn:8080/api/Auth/Registern");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
 
             JSONObject jsonObject =new JSONObject();
             jsonObject.put("Username", Username);
             jsonObject.put("Pwd", password);
-            jsonObject.put("Token", "");
-            jsonObject.put("AccountType", "Thuong");
+            jsonObject.put("AccountType", "Google");
+            jsonObject.put("NenTang", "Android");
 
             OutputStream outputStream =  httpURLConnection.getOutputStream();
             outputStream.write(jsonObject.toString().getBytes());
@@ -69,10 +72,10 @@ public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
         }
 
         return false;
-        }
+    }
 
     @Override
     protected void onPostExecute(Boolean aBoolean) {
-        login_status.LoginStatus(aBoolean);
+        register_statis.RegisterStatus(aBoolean);
     }
 }

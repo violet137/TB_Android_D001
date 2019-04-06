@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.UI.Login;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,6 +18,10 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import vn.edu.httpgreenacademy.vuivc.Network.Login_ASyctask;
+import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
+import vn.edu.httpgreenacademy.vuivc.R;
 
 public class Fragment_Login extends Fragment implements View.OnClickListener, Login_Status {
     TextView Txt_Error;

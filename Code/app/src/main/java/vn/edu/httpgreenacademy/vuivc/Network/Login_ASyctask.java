@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.Network;
 
 import android.os.AsyncTask;
 import android.util.Log;
@@ -12,12 +12,13 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Register_AsycnTask extends AsyncTask<String,Void,Boolean> {
+import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 
-    Register_Statis register_statis;
+public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
+    Login_Status login_status;
 
-    public Register_AsycnTask(Register_Statis register_statis) {
-        this.register_statis = register_statis;
+    public Login_ASyctask(Login_Status login_status) {
+        this.login_status = login_status;
     }
 
     @Override
@@ -26,15 +27,15 @@ public class Register_AsycnTask extends AsyncTask<String,Void,Boolean> {
         String Username = strings[0];
         String password = strings[1];
         try{
-            URL url = new URL("http://tamod.vn:8080/api/Auth/Registern");
+            URL url = new URL("http://13.229.117.90:8012/Auth/Login");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
 
             JSONObject jsonObject =new JSONObject();
             jsonObject.put("Username", Username);
             jsonObject.put("Pwd", password);
-            jsonObject.put("AccountType", "Google");
-            jsonObject.put("NenTang", "Android");
+            jsonObject.put("Token", "");
+            jsonObject.put("AccountType", "Thuong");
 
             OutputStream outputStream =  httpURLConnection.getOutputStream();
             outputStream.write(jsonObject.toString().getBytes());
@@ -70,10 +71,10 @@ public class Register_AsycnTask extends AsyncTask<String,Void,Boolean> {
         }
 
         return false;
-    }
+        }
 
     @Override
     protected void onPostExecute(Boolean aBoolean) {
-        register_statis.RegisterStatus(aBoolean);
+        login_status.LoginStatus(aBoolean);
     }
 }

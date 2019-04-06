@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.UI.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,8 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import vn.edu.httpgreenacademy.vuivc.R;
+
 public class Fragment_Home extends Fragment implements View.OnClickListener {
     TextView Txt_Google;
     Button Bt_Login, Bt_Register;
@@ -35,6 +37,8 @@ public class Fragment_Home extends Fragment implements View.OnClickListener {
         Txt_Google = view.findViewById(R.id.Txt_GoogLe_Home);
         Bt_Login = view.findViewById(R.id.Bt_Login_Home);
         Bt_Register = view.findViewById(R.id.Bt_Register_Home);
+
+        btn_login_facebook = view.findViewById(R.id.btn_login_facebook);
 
         Txt_Google.setOnClickListener(this);
         Bt_Register.setOnClickListener(this);

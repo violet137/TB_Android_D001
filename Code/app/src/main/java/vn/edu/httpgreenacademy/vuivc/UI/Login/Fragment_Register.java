@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.UI.Login;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class Fragment_Register extends Fragment implements View.OnClickListener,Register_Statis{
+import vn.edu.httpgreenacademy.vuivc.R;
+import vn.edu.httpgreenacademy.vuivc.Network.Register_AsycnTask;
+import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Register_Statis;
+
+public class Fragment_Register extends Fragment implements View.OnClickListener, Register_Statis {
 
     EditText Ed_UserName,Ed_Password;
     Button Bt_Register,Bt_Back,Bt_Home_Register;
