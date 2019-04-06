@@ -38,6 +38,7 @@ public class Fragment_Home extends Fragment implements View.OnClickListener {
         Bt_Login = view.findViewById(R.id.Bt_Login_Home);
         Bt_Register = view.findViewById(R.id.Bt_Register_Home);
 
+        
         btn_login_facebook = view.findViewById(R.id.btn_login_facebook);
 
         Txt_Google.setOnClickListener(this);
