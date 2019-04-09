@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ProfileUser</string>
+    <string name="follow">Follow +</string>
+    <string name="videos">VIDEOS</string>
+    <string name="followers">FOLLOWERS</string>
+    <string name="following">FOLLOWING</string>
+    <string name="image_user">image_user</string>
+    <string name="image_leftarrow">left_arrow</string>
+    <string name="image_setting">setting</string>
+    <string name="like">Liked</string>
+
+
+</resources>
