@@ -2,9 +2,12 @@
     <string name="app_name">vuivc</string>
     <string name="Txt_Facebook">Login With Facebook</string>
     <string name="Txt_Google">Login With Google+</string>
-    <string name="facebook_app_id">2260493494173421</string> <string name="fb_login_protocol_scheme">fb2260493494173421</string>
+    <string name="facebook_app_id">2260493494173421</string>
+    <string name="fb_login_protocol_scheme">fb2260493494173421</string>
     <string name="dangnhapfacebook">Đăng nhập bằng Facebook</string>
-    <string name="Txt_Login">Login</string>
+    <string name="Txt_Login">Bạn đã có tài khoản? Sign in</string>
+    <string name="Sign_up">Đăng ký</string>
+    <string name="Sign_in">Đăng nhập</string>
     <string name="Txt_Register">Register</string>
     <string name="Ed_UserName">UserName</string>
     <string name="Ed_Password">Password</string>
@@ -12,5 +15,10 @@
     <string name="Error">Invalid UserName of Password</string>
     <string name="Thanhcong">Login Thanh cong</string>
     <string name="Error_Register">Tài Khoản Tồn Tại</string>
-
+    <string name="camket">Thông qua việt đắng ký, bạn xác nhận rằng bạn đồng ý với Điều khoản sử dụng của chúng tôi và đã đọc và hiểu Chính sách về Quyền riêng tư của Chúng tôi</string>
+    <string name="Title">Bạn cần một tài khoản Vuivc để tiếp tục</string>
+    <string name="yeuthich">Yêu Thích</string>
+    <string name="video">Video</string>
+    <string name="hashtag">Hashtag</string>
+    <string name="hinhanh">Hình Ảnh</string>
 </resources>

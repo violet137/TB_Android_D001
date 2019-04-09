@@ -18,9 +18,9 @@ import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Register_Statis;
 
 public class Fragment_Register extends Fragment implements View.OnClickListener, Register_Statis {
 
-    EditText Ed_UserName,Ed_Password;
-    Button Bt_Register,Bt_Back,Bt_Home_Register;
-    TextView Txt_Error_Register;
+    EditText edUserName,Ed_Password;
+    Button btRegister, btBack, btHomeRegister;
+    TextView txtErrorRegister;
 
     @Nullable
     @Override
@@ -28,15 +28,15 @@ public class Fragment_Register extends Fragment implements View.OnClickListener,
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
         Ed_Password = view.findViewById(R.id.Ed_Password_Register);
-        Ed_UserName = view.findViewById(R.id.Ed_UserName_Resgister);
-        Bt_Back = view.findViewById(R.id.BT_Back_Register);
-        Bt_Register = view.findViewById(R.id.Bt_Register_Register);
-        Bt_Home_Register = view.findViewById(R.id.BT_Home_Register);
-        Txt_Error_Register = view.findViewById(R.id.Txt_Error_Register);
+        edUserName = view.findViewById(R.id.Ed_UserName_Resgister);
+        btBack = view.findViewById(R.id.BT_Back_Register);
+        btRegister = view.findViewById(R.id.Bt_Register_Register);
+        btHomeRegister = view.findViewById(R.id.BT_Home_Register);
+        txtErrorRegister = view.findViewById(R.id.Txt_Error_Register);
 
-        Bt_Register.setOnClickListener(this);
-        Bt_Back.setOnClickListener(this);
-        Bt_Home_Register.setOnClickListener(this);
+        btRegister.setOnClickListener(this);
+        btBack.setOnClickListener(this);
+        btHomeRegister.setOnClickListener(this);
 
         return view;
     }
@@ -48,7 +48,7 @@ public class Fragment_Register extends Fragment implements View.OnClickListener,
         {
             case R.id.Bt_Register_Register:
                 Register_AsycnTask register_asycnTask = new Register_AsycnTask(this);
-                register_asycnTask.execute(Ed_UserName.getText().toString(),Ed_Password.getText().toString());
+                register_asycnTask.execute(edUserName.getText().toString(),Ed_Password.getText().toString());
                 break;
             case R.id.BT_Back_Register:
                 getActivity().onBackPressed();
@@ -71,7 +71,7 @@ public class Fragment_Register extends Fragment implements View.OnClickListener,
         }
         else
         {
-            Txt_Error_Register.setText(getResources().getString(R.string.Error_Register));
+            txtErrorRegister.setText(getResources().getString(R.string.Error_Register));
         }
 
     }
