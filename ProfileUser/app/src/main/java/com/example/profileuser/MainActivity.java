@@ -1,7 +1,6 @@
 package com.example.profileuser;
 
 
-import android.media.Image;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
-import com.example.profileuser.Adapter.ViewPager_Adapter;
+import com.example.profileuser.Adapter.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.vp);
         imgbtn_setting = findViewById(R.id.imgbtn_setting);
         tabLayout = findViewById(R.id.tabLayout);
-        ViewPager_Adapter viewPager_adapter = new ViewPager_Adapter(getSupportFragmentManager());
+        ViewPagerAdapter viewPager_adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPager_adapter);
         tabLayout.setupWithViewPager(viewPager);
         imgbtn_setting.setOnClickListener(new View.OnClickListener() {
