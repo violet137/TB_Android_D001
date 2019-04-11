@@ -8,6 +8,6 @@
     <color name="Txt_Chu">#FFFFFF</color>
     <color name="Bt_Login">#1f7bf4</color>
     <color name="Bt_Register">#b52e1c</color>
-    <color name="Txt_Error">#fa0000</color>
+    <color name="Txt_Error">#FA0000</color>
     <color name="Mau_Button">#32aea2a2</color>
 </resources>

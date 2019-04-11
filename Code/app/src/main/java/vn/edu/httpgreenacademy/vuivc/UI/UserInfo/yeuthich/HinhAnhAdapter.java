@@ -38,4 +38,5 @@ public class HinhAnhAdapter extends RecyclerView.Adapter<HinhAnhHolder> {
     public int getItemCount() {
         return hinhAnhModelArrayList.size();
     }
+
 }

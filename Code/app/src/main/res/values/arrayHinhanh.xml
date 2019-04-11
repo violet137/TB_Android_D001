@@ -11,5 +11,13 @@
      <item>@drawable/anh8</item>
      <item>@drawable/anh9</item>
      <item>@drawable/anh10</item>
+     <item>@drawable/anhgif1</item>
+     <item>@drawable/anhgif2</item>
+     <item>@drawable/anhgif3</item>
+     <item>@drawable/anhgif4</item>
+     <item>@drawable/anhgif5</item>
+     <item>@drawable/anhgif6</item>
+     <item>@drawable/anhgif7</item>
+     <item>@drawable/anhgif8</item>
  </array>
 </resources>
