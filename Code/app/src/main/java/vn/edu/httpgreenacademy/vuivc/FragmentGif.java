@@ -29,11 +29,9 @@ public class FragmentGif extends Fragment {
         edt_gif=view.findViewById(R.id.edt_gif);
         bt_search_gif=view.findViewById(R.id.bt_search_gif);
         recyclerView=view.findViewById(R.id.recyclerView_gif);
-<<<<<<< HEAD
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-=======
+
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
->>>>>>> fa1bde0819fdd6b8df11f95311319189f5f0f0eb
+
 
         adapter = new GifAdapter(getActivity(), new ArrayList<Gif>());
         recyclerView.setAdapter(adapter);
@@ -42,11 +40,8 @@ public class FragmentGif extends Fragment {
             @Override
             public void onClick(View v) {
                 new GiphyTask(Helper.getGiphyQueryUrl(edt_gif.getText().toString(),
-<<<<<<< HEAD
-                        20, GiphyQueryBuilder.EndPoint.SEARCH, ""), new GiphyTask.Callback() {
-=======
+
                         100, GiphyQueryBuilder.EndPoint.SEARCH, ""), new GiphyTask.Callback() {
->>>>>>> fa1bde0819fdd6b8df11f95311319189f5f0f0eb
                     @Override
                     public void onResponse(List<Gif> gifs) {
                         adapter.setGifs(gifs);
