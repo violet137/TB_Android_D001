@@ -16,7 +16,7 @@ import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.Network.Register_AsycnTask;
 import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Register_Statis;
 
-public class Fragment_Register extends Fragment implements View.OnClickListener, Register_Statis {
+public class FragmentRegister extends Fragment implements View.OnClickListener, Register_Statis {
 
     EditText edUserName,Ed_Password;
     Button btRegister, btBack, btHomeRegister;
@@ -54,7 +54,7 @@ public class Fragment_Register extends Fragment implements View.OnClickListener,
                 getActivity().onBackPressed();
                 break;
             case R.id.BT_Home_Register:
-                Fragment_Home fragment_home = new Fragment_Home();
+                FragmentHome fragment_home = new FragmentHome();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(android.R.id.content,fragment_home).commit();
                 break;
@@ -65,7 +65,7 @@ public class Fragment_Register extends Fragment implements View.OnClickListener,
     public void RegisterStatus(Boolean isThanhCong) {
         if(isThanhCong)
         {
-            Fragment_Login fragment_login = new Fragment_Login();
+            FragmentLogin fragment_login = new FragmentLogin();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(android.R.id.content,fragment_login).commit();
         }

@@ -1,6 +1,6 @@
 package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich;
 
-public class HinhAnh_Model {
+public class HinhAnhModel {
     int duongdanhinh;
 
     public int getDuongdanhinh() {
@@ -11,7 +11,7 @@ public class HinhAnh_Model {
         this.duongdanhinh = duongdanhinh;
     }
 
-    public HinhAnh_Model(int duongdanhinh) {
+    public HinhAnhModel(int duongdanhinh) {
         this.duongdanhinh = duongdanhinh;
     }
 }

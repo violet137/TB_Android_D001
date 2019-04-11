@@ -19,7 +19,7 @@ import com.facebook.login.widget.LoginButton;
 import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class Fragment_Login extends Fragment implements  Login_Status {
+public class FragmentLogin extends Fragment implements  Login_Status {
     TextView Txt_Error;
 
     LoginButton btnloginfacebook;

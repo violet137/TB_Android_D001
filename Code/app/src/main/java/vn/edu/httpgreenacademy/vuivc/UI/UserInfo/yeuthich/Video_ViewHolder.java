@@ -1,6 +1,5 @@
 package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich;
 
-import android.provider.MediaStore;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.VideoView;
@@ -15,7 +14,7 @@ public class Video_ViewHolder extends RecyclerView.ViewHolder {
         this.itemView= itemView;
         item_video = itemView.findViewById(R.id.item_video);
     }
-    public void setdatavideo(Video_Model video_model)
+    public void setdatavideo(VideoModel video_model)
     {
 
     }

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class Fragment_YeuThich extends Fragment implements View.OnClickListener {
+public class FragmentYeuThich extends Fragment implements View.OnClickListener {
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPargerAdapter PargerAdapter;

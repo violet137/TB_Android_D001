@@ -16,7 +16,7 @@ import vn.edu.httpgreenacademy.vuivc.Network.Login_ASyctask;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 
-public class Fragment_dialog_login extends Fragment implements View.OnClickListener, Login_Status {
+public class FragmentDialogLogin extends Fragment implements View.OnClickListener, Login_Status {
     TextView txtError;
     EditText edUserName, edPassword;
     Button btLogin, btRegister;
@@ -52,7 +52,7 @@ public class Fragment_dialog_login extends Fragment implements View.OnClickListe
                 login_aSyctask.execute(edUserName.getText().toString(), edPassword.getText().toString());
                 break;
             case R.id.BT_Register:
-                Fragment_Register fragment_register = new Fragment_Register();
+                FragmentRegister fragment_register = new FragmentRegister();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(android.R.id.content, fragment_register).addToBackStack("s").commit();
                 break;

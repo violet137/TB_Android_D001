@@ -7,15 +7,15 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class ViewPargerAdapter extends FragmentPagerAdapter {
 
-    Fragment_Video fragment_video;
-    Fragment_Hashtag fragment_hashtag;
-    Fragment_HinhAnh fragment_hinhAnh;
+    FragmentVideo fragment_video;
+    FragmentHashtag fragment_hashtag;
+    FragmentHinhAnh fragment_hinhAnh;
 
     public ViewPargerAdapter(FragmentManager fm) {
         super(fm);
-        fragment_hashtag = new Fragment_Hashtag();
-        fragment_hinhAnh = new Fragment_HinhAnh();
-        fragment_video = new Fragment_Video();
+        fragment_hashtag = new FragmentHashtag();
+        fragment_hinhAnh = new FragmentHinhAnh();
+        fragment_video = new FragmentVideo();
     }
 
     @Override

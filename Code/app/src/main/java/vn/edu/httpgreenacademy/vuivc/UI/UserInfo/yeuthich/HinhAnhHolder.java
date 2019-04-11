@@ -6,15 +6,15 @@ import android.widget.ImageView;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class HinhAnh_Holder extends RecyclerView.ViewHolder {
+public class HinhAnhHolder extends RecyclerView.ViewHolder {
     ImageView duongdanhinh;
     View itemView;
-    public HinhAnh_Holder(View itemView) {
+    public HinhAnhHolder(View itemView) {
         super(itemView);
         this.itemView = itemView;
         duongdanhinh = itemView.findViewById(R.id.Item_HinhAnh);
     }
-    public void setdataHinhAnh(HinhAnh_Model hinhAnh_model)
+    public void setdataHinhAnh(HinhAnhModel hinhAnh_model)
     {
         duongdanhinh.setImageResource(hinhAnh_model.duongdanhinh);
     }

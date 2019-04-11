@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import vn.edu.httpgreenacademy.vuivc.Network.FragmentLession;
-import vn.edu.httpgreenacademy.vuivc.UI.Login.Fragment_Home;
+import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHome;
+import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,9 +17,11 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentLession fragmentLession = new FragmentLession();
 
-        Fragment_Home fragment_home = new Fragment_Home();
+        FragmentHome fragment_home = new FragmentHome();
+
+        FragmentYeuThich fragmentyeuThich = new FragmentYeuThich();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentLession).commit();
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentyeuThich).commit();
 
     }
 }

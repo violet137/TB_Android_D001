@@ -1,6 +1,6 @@
 package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich;
 
-public class Hashtag_Model {
+public class HashtagModel {
     String duongdanvideo;
     int duongdanhinh;
 
@@ -20,7 +20,7 @@ public class Hashtag_Model {
         this.duongdanhinh = duongdanhinh;
     }
 
-    public Hashtag_Model(String duongdanvideo, int duongdanhinh) {
+    public HashtagModel(String duongdanvideo, int duongdanhinh) {
         this.duongdanvideo = duongdanvideo;
         this.duongdanhinh = duongdanhinh;
     }

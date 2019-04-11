@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class Fragment_HinhAnh extends Fragment {
+public class FragmentHinhAnh extends Fragment {
     RecyclerView List_YeuThich_HinhAnh;
-    ArrayList<HinhAnh_Model> datahinhanh = new ArrayList<>();
+    ArrayList<HinhAnhModel> datahinhanh = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,11 +28,11 @@ public class Fragment_HinhAnh extends Fragment {
         TypedArray hinhanh = getResources().obtainTypedArray(R.array.hinhanh);
         for(int i =0;i<hinhanh.length();i++)
         {
-            HinhAnh_Model hinhAnh_model = new HinhAnh_Model(hinhanh.getResourceId(i,-1));
+            HinhAnhModel hinhAnh_model = new HinhAnhModel(hinhanh.getResourceId(i,-1));
             datahinhanh.add(hinhAnh_model);
         }
 
-        HinhAnh_Adapter hinhAnh_adapter = new HinhAnh_Adapter(datahinhanh,getActivity());
+        HinhAnhAdapter hinhAnh_adapter = new HinhAnhAdapter(datahinhanh,getActivity());
         final GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         List_YeuThich_HinhAnh.setLayoutManager(gridLayoutManager);
         List_YeuThich_HinhAnh.setAdapter(hinhAnh_adapter);

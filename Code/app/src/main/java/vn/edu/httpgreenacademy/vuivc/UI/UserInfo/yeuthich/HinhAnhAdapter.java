@@ -11,26 +11,26 @@ import java.util.ArrayList;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class HinhAnh_Adapter extends RecyclerView.Adapter<HinhAnh_Holder> {
+public class HinhAnhAdapter extends RecyclerView.Adapter<HinhAnhHolder> {
 
-    ArrayList<HinhAnh_Model> hinhAnhModelArrayList = new ArrayList<>();
+    ArrayList<HinhAnhModel> hinhAnhModelArrayList = new ArrayList<>();
     Activity activity;
 
-    public HinhAnh_Adapter(ArrayList<HinhAnh_Model> hinhAnhModelArrayList, Activity activity) {
+    public HinhAnhAdapter(ArrayList<HinhAnhModel> hinhAnhModelArrayList, Activity activity) {
         this.hinhAnhModelArrayList = hinhAnhModelArrayList;
         this.activity = activity;
     }
 
     @NonNull
     @Override
-    public HinhAnh_Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HinhAnhHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hinhanh,parent,false);
-        return new HinhAnh_Holder(view);
+        return new HinhAnhHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HinhAnh_Holder hinhAnh_holder, int position) {
-        final  HinhAnh_Model hinhAnh_model = hinhAnhModelArrayList.get(position);
+    public void onBindViewHolder(@NonNull HinhAnhHolder hinhAnh_holder, int position) {
+        final HinhAnhModel hinhAnh_model = hinhAnhModelArrayList.get(position);
         hinhAnh_holder.setdataHinhAnh(hinhAnh_model);
     }
 

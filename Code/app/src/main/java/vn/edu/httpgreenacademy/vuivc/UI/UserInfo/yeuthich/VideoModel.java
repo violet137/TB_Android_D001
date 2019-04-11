@@ -1,9 +1,9 @@
 package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich;
 
-public class Video_Model {
+public class VideoModel {
     String duongdanvide;
 
-    public Video_Model(String duongdanvide) {
+    public VideoModel(String duongdanvide) {
         this.duongdanvide = duongdanvide;
     }
 

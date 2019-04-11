@@ -9,18 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
-
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class Fragment_Video extends Fragment {
-    RecyclerView List_YeuThich_Video;
+public class FragmentHashtag extends Fragment {
+    RecyclerView List_YeuThich_Hashtag;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_video, container, false);
-        List_YeuThich_Video = view.findViewById(R.id.List_Yeuthich_Video);
-
+        View view = inflater.inflate(R.layout.fragment_hashtag, container, false);
+        List_YeuThich_Hashtag = view.findViewById(R.id.List_Yeuthich_Hashtag);
         return view;
     }
 }
