@@ -6,28 +6,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.profileuser.Model.Profile_User;
+import com.example.profileuser.Model.ProfileUser;
 import com.example.profileuser.R;
-import com.example.profileuser.ViewHolder.RecycleView_Videos_ViewHolder;
+import com.example.profileuser.ViewHolder.RecycleViewVideosViewHolder;
 
 import java.util.ArrayList;
 
-public class Recycleview_Videos_Adapter extends RecyclerView.Adapter<RecycleView_Videos_ViewHolder> {
-    ArrayList<Profile_User> dsanh = new ArrayList<>();
+public class RecycleviewVideosAdapter extends RecyclerView.Adapter<RecycleViewVideosViewHolder> {
+    ArrayList<ProfileUser> dsanh = new ArrayList<>();
 
-    public Recycleview_Videos_Adapter(ArrayList<Profile_User> dsanh) {
+    public RecycleviewVideosAdapter(ArrayList<ProfileUser> dsanh) {
         this.dsanh = dsanh;
     }
 
     @NonNull
     @Override
-    public RecycleView_Videos_ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecycleViewVideosViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_fragment_videos,viewGroup,false);
-        return new RecycleView_Videos_ViewHolder(view);
+        return new RecycleViewVideosViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleView_Videos_ViewHolder recycleView_photos_viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecycleViewVideosViewHolder recycleView_photos_viewHolder, int i) {
         recycleView_photos_viewHolder.SetData(dsanh.get(i));
 
     }

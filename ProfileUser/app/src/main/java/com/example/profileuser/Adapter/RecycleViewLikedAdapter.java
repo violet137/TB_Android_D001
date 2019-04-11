@@ -6,29 +6,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.profileuser.Model.Profile_User;
+import com.example.profileuser.Model.ProfileUser;
+
 import com.example.profileuser.R;
-import com.example.profileuser.ViewHolder.RecycleView_Liked_ViewHolder;
+import com.example.profileuser.ViewHolder.RecycleViewLikedViewHolder;
 
 
 import java.util.ArrayList;
 
-public class RecycleView_Liked_Adapter extends RecyclerView.Adapter<RecycleView_Liked_ViewHolder> {
-    ArrayList<Profile_User> dsanhlike = new ArrayList<>();
+public class RecycleViewLikedAdapter extends RecyclerView.Adapter<RecycleViewLikedViewHolder> {
+    ArrayList<ProfileUser> dsanhlike = new ArrayList<>();
 
-    public RecycleView_Liked_Adapter(ArrayList<Profile_User> dsanh) {
+    public RecycleViewLikedAdapter(ArrayList<ProfileUser> dsanh) {
         this.dsanhlike = dsanh;
     }
 
     @NonNull
     @Override
-    public RecycleView_Liked_ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecycleViewLikedViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_fragment_liked,viewGroup,false);
-        return new RecycleView_Liked_ViewHolder(view);
+        return new RecycleViewLikedViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecycleView_Liked_ViewHolder recycleView_liked_viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecycleViewLikedViewHolder recycleView_liked_viewHolder, int i) {
         recycleView_liked_viewHolder.SetData(dsanhlike.get(i));
 
     }

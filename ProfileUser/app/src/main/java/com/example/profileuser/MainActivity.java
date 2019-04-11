@@ -1,7 +1,7 @@
 package com.example.profileuser;
 
 
-import android.media.Image;
+import android.databinding.DataBindingUtil;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,20 +12,30 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
-import com.example.profileuser.Adapter.ViewPager_Adapter;
+import com.example.profileuser.Adapter.ViewPagerAdapter;
+import com.example.profileuser.Model.ProfileUser;
+import com.example.profileuser.databinding.FragmentProfileuserMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     ImageButton imgbtn_setting;
+    ProfileUser profileUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_profileuser_main);
+        FragmentProfileuserMainBinding fragmentProfileuserMainBinding = DataBindingUtil.setContentView(this,R.layout.fragment_profileuser_main);
+        profileUser = new ProfileUser();
+        profileUser.setId(1);
+        profileUser.setNameUser("aaa");
+        profileUser.setNumVideo(1);
+        profileUser.setNumFollower(2);
+        profileUser.setNumFollowing(3);
+        fragmentProfileuserMainBinding.setUser(profileUser);
         viewPager = findViewById(R.id.vp);
         imgbtn_setting = findViewById(R.id.imgbtn_setting);
         tabLayout = findViewById(R.id.tabLayout);
-        ViewPager_Adapter viewPager_adapter = new ViewPager_Adapter(getSupportFragmentManager());
+        ViewPagerAdapter viewPager_adapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPager_adapter);
         tabLayout.setupWithViewPager(viewPager);
         imgbtn_setting.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 imgbtn_setting.startAnimation(animation);
             }
         });
+
     }
 
 }

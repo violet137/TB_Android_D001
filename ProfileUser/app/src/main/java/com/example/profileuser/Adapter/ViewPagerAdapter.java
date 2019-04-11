@@ -5,16 +5,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.profileuser.Fragment.Fragment_Liked;
-import com.example.profileuser.Fragment.Fragment_Videos;
+import com.example.profileuser.Fragment.FragmentLiked;
+import com.example.profileuser.Fragment.FragmentVideos;
 
-public class ViewPager_Adapter extends FragmentPagerAdapter {
-    Fragment_Videos fragment_videos;
-    Fragment_Liked fragment_liked;
-    public ViewPager_Adapter(FragmentManager fm) {
+public class ViewPagerAdapter extends FragmentPagerAdapter {
+    FragmentVideos fragment_videos;
+    FragmentLiked fragment_liked;
+    public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
-        fragment_videos = new Fragment_Videos();
-        fragment_liked = new Fragment_Liked();
+        fragment_videos = new FragmentVideos();
+        fragment_liked = new FragmentLiked();
     }
 
     @Override
