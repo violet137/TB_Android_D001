@@ -12,13 +12,14 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
+import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Register_Statis;
 
-public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
-    Login_Status login_status;
+public class RegisterAsycnTask extends AsyncTask<String,Void,Boolean> {
 
-    public Login_ASyctask(Login_Status login_status) {
-        this.login_status = login_status;
+    Register_Statis register_statis;
+
+    public RegisterAsycnTask(Register_Statis register_statis) {
+        this.register_statis = register_statis;
     }
 
     @Override
@@ -27,15 +28,15 @@ public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
         String Username = strings[0];
         String password = strings[1];
         try{
-            URL url = new URL("http://13.229.117.90:8012/Auth/Login");
+            URL url = new URL("http://tamod.vn:8080/api/Auth/Registern");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setRequestMethod("POST");
 
             JSONObject jsonObject =new JSONObject();
             jsonObject.put("Username", Username);
             jsonObject.put("Pwd", password);
-            jsonObject.put("Token", "");
-            jsonObject.put("AccountType", "Thuong");
+            jsonObject.put("AccountType", "Google");
+            jsonObject.put("NenTang", "Android");
 
             OutputStream outputStream =  httpURLConnection.getOutputStream();
             outputStream.write(jsonObject.toString().getBytes());
@@ -71,10 +72,10 @@ public class Login_ASyctask extends AsyncTask<String,Void, Boolean> {
         }
 
         return false;
-        }
+    }
 
     @Override
     protected void onPostExecute(Boolean aBoolean) {
-        login_status.LoginStatus(aBoolean);
+        register_statis.RegisterStatus(aBoolean);
     }
 }

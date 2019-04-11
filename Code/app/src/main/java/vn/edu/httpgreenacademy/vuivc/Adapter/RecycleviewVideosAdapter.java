@@ -1,22 +1,29 @@
-package com.example.profileuser.Adapter;
+package vn.edu.httpgreenacademy.vuivc.Adapter;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.profileuser.ModelUser.ProfileUser;
-import com.example.profileuser.R;
-import com.example.profileuser.ViewHolder.RecycleViewVideosViewHolder;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import in.myinnos.gifimages.model.Gif;
+import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
+import vn.edu.httpgreenacademy.vuivc.R;
+import vn.edu.httpgreenacademy.vuivc.ViewHolder.RecycleViewVideosViewHolder;
 
 public class RecycleviewVideosAdapter extends RecyclerView.Adapter<RecycleViewVideosViewHolder> {
-    ArrayList<ProfileUser> dsanh = new ArrayList<>();
+    private final List<Gif> gifs;
+    private final Activity context;
 
-    public RecycleviewVideosAdapter(ArrayList<ProfileUser> dsanh) {
-        this.dsanh = dsanh;
+
+    public RecycleviewVideosAdapter(Activity context, List<Gif> gifs) {
+        this.context = context;
+        this.gifs = gifs;
     }
 
     @NonNull
@@ -28,12 +35,19 @@ public class RecycleviewVideosAdapter extends RecyclerView.Adapter<RecycleViewVi
 
     @Override
     public void onBindViewHolder(@NonNull RecycleViewVideosViewHolder recycleView_photos_viewHolder, int i) {
-        recycleView_photos_viewHolder.SetData(dsanh.get(i));
+        recycleView_photos_viewHolder.Bind(gifs.get(i));
 
     }
 
     @Override
     public int getItemCount() {
-        return dsanh.size();
+        return gifs.size();
+    }
+
+    public void setGifs(List<Gif> gifs) {
+        this.gifs.clear();
+        this.gifs.addAll(gifs);
+
+        notifyDataSetChanged();
     }
 }

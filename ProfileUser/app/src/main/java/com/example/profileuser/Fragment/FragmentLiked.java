@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.profileuser.Adapter.RecycleViewLikedAdapter;
-import com.example.profileuser.Model.ProfileUser;
+import com.example.profileuser.ModelUser.ProfileUser;
 import com.example.profileuser.R;
 
 import java.util.ArrayList;

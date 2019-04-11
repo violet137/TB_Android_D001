@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.profileuser.Model.ProfileUser;
+import com.example.profileuser.ModelUser.ProfileUser;
 import com.example.profileuser.R;
 
 public class RecycleViewVideosViewHolder extends RecyclerView.ViewHolder {

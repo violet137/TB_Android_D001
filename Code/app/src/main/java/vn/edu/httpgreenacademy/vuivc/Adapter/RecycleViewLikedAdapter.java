@@ -1,4 +1,4 @@
-package com.example.profileuser.Adapter;
+package vn.edu.httpgreenacademy.vuivc.Adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,13 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.profileuser.ModelUser.ProfileUser;
-
-import com.example.profileuser.R;
-import com.example.profileuser.ViewHolder.RecycleViewLikedViewHolder;
-
-
 import java.util.ArrayList;
+
+import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
+import vn.edu.httpgreenacademy.vuivc.R;
+import vn.edu.httpgreenacademy.vuivc.ViewHolder.RecycleViewLikedViewHolder;
 
 public class RecycleViewLikedAdapter extends RecyclerView.Adapter<RecycleViewLikedViewHolder> {
     ArrayList<ProfileUser> dsanhlike = new ArrayList<>();

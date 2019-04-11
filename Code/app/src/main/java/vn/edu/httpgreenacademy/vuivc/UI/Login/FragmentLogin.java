@@ -19,11 +19,11 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
-import vn.edu.httpgreenacademy.vuivc.Network.Login_ASyctask;
+import vn.edu.httpgreenacademy.vuivc.Network.LoginASyctask;
 import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class Fragment_Login extends Fragment implements View.OnClickListener, Login_Status {
+public class FragmentLogin extends Fragment implements View.OnClickListener, Login_Status {
     TextView Txt_Error;
     EditText Ed_UserName, Ed_Password;
     Button Bt_Login, Bt_Register, Bt_Home_Login;
@@ -62,16 +62,16 @@ public class Fragment_Login extends Fragment implements View.OnClickListener, Lo
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.BT_Login_Login:
-                Login_ASyctask login_aSyctask = new Login_ASyctask(this);
+                LoginASyctask login_aSyctask = new LoginASyctask(this);
                 login_aSyctask.execute(Ed_UserName.getText().toString(), Ed_Password.getText().toString());
                 break;
             case R.id.BT_Register_Login:
-                Fragment_Register fragment_register = new Fragment_Register();
+                FragmentRegister fragment_register = new FragmentRegister();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(android.R.id.content, fragment_register).addToBackStack("s").commit();
                 break;
             case R.id.Bt_Home_Login:
-                Fragment_Home fragment_home = new Fragment_Home();
+                FragmentHome fragment_home = new FragmentHome();
                 FragmentManager fragmentManager1 = getActivity().getSupportFragmentManager();
                 fragmentManager1.beginTransaction().replace(android.R.id.content, fragment_home).commit();
                 break;

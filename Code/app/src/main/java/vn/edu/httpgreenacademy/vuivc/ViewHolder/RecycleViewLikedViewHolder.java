@@ -1,12 +1,13 @@
-package com.example.profileuser.ViewHolder;
+package vn.edu.httpgreenacademy.vuivc.ViewHolder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.profileuser.ModelUser.ProfileUser;
-import com.example.profileuser.R;
+
+import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
+import vn.edu.httpgreenacademy.vuivc.R;
 
 public class RecycleViewLikedViewHolder extends RecyclerView.ViewHolder {
     ImageView img_liked;
