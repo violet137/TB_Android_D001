@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
 
     <LinearLayout
         android:id="@+id/line1"
@@ -20,13 +21,15 @@
 
         <TextView
             android:id="@+id/tv_id"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:paddingStart="10dp"
             android:paddingLeft="10dp"
-            android:text="Phan Dinh Tung"
-            android:textSize="20sp" />
+            android:text="@string/phan_dinh_tung"
+            android:textSize="20sp"
+            tools:ignore="RtlSymmetry" />
 
         <ImageView
             android:id="@+id/img_close"
@@ -41,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Ru thang ban ra duong thoi cac thanh oi :V"
+        android:text="@string/ru_thang_ban_ra_duong_thoi_cac_thanh_oi_v"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/line1" />
@@ -49,7 +52,7 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="11dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@id/tv_cap">
@@ -65,7 +68,6 @@
             android:id="@+id/gif_view_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/black"
             android:visibility="gone"
             app:loop="true"
             app:muted="true"
@@ -93,8 +95,10 @@
             android:layout_width="70dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
+            android:paddingStart="10dp"
             android:paddingLeft="10dp"
-            android:text="442" />
+            android:text="224"
+            tools:ignore="RtlSymmetry" />
 
         <ImageView
             android:id="@+id/img_dislike"
@@ -103,19 +107,51 @@
             app:srcCompat="@drawable/dislike" />
 
         <TextView
-            android:id="@+id/tv_like2"
+            android:id="@+id/tv_dislike"
             android:layout_width="70dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
+            android:paddingStart="10dp"
             android:paddingLeft="10dp"
-            android:text="442" />
+            android:text="244"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/img_comment"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/comment"
-            app:srcCompat="@drawable/comment-white-oval-bubble" />
+            app:srcCompat="@drawable/comment" />
+
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:text="244"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:id="@+id/img_share"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@drawable/share" />
+
+        <TextView
+            android:id="@+id/tv_share"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:text="244"
+            tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">vuivc</string>
-    <string name="todo">TODO</string>
+    <string name="ru_thang_ban_ra_duong_thoi_cac_thanh_oi_v">Ru thang ban ra duong thoi cac thanh oi :V</string>
+    <string name="phan_dinh_tung">Phan Dinh Tung</string>
 </resources>
