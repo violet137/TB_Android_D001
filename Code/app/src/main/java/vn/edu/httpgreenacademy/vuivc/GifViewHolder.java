@@ -27,7 +27,7 @@ public class GifViewHolder extends RecyclerView.ViewHolder {
     }
 
     void bind(final Gif gif) {
-        Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).centerCrop().into(previewImage);
+        Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).fitCenter().into(previewImage);
         gifView.setVisibility(View.VISIBLE);
         gifView.start(gif.getPreviewMp4Url());
 
