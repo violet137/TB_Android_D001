@@ -12,7 +12,11 @@ import java.util.List;
 
 public class GifAdapter extends RecyclerView.Adapter<GifViewHolder> {
     Activity activity;
+<<<<<<< HEAD
     List<Gif> gifs;
+=======
+    static List<Gif> gifs;
+>>>>>>> fa1bde0819fdd6b8df11f95311319189f5f0f0eb
 
     public GifAdapter(Activity activity, List<Gif> gifs) {
             this.activity = activity;
@@ -22,7 +26,11 @@ public class GifAdapter extends RecyclerView.Adapter<GifViewHolder> {
     @NonNull
     @Override
     public GifViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+<<<<<<< HEAD
         View v = LayoutInflater.from(activity).inflate(R.layout.iteam_gif, parent, false);
+=======
+        View v = LayoutInflater.from(activity).inflate(R.layout.item_gif, parent, false);
+>>>>>>> fa1bde0819fdd6b8df11f95311319189f5f0f0eb
         return new GifViewHolder(v, activity);
     }
 

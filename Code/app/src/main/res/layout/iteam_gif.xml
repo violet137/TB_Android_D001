@@ -2,14 +2,23 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="200dp"
+=======
+    android:layout_height="wrap_content"
+>>>>>>> fa1bde0819fdd6b8df11f95311319189f5f0f0eb
     android:paddingRight="5dp"
     android:paddingTop="5dp">
 
     <ImageView
         android:id="@+id/preview_image_gif_item"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="match_parent" />
+=======
+        android:scaleType="centerInside"
+        android:layout_height="wrap_content" />
+>>>>>>> fa1bde0819fdd6b8df11f95311319189f5f0f0eb
 
 
     <vn.edu.httpgreenacademy.vuivc.GifView
@@ -23,11 +32,14 @@
         app:showSpinner="true"
         app:stopSystemAudio="false" />
 
+<<<<<<< HEAD
     <View
         android:id="@+id/touch_effect_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?selectableItemBackground" />
+=======
+>>>>>>> fa1bde0819fdd6b8df11f95311319189f5f0f0eb
 
 
 </FrameLayout>
