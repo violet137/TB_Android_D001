@@ -22,7 +22,7 @@ public class GifAdapter extends RecyclerView.Adapter<GifViewHolder> {
     @NonNull
     @Override
     public GifViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(activity).inflate(R.layout.iteam_gif, parent, false);
+        View v = LayoutInflater.from(activity).inflate(R.layout.item_gif, parent, false);
         return new GifViewHolder(v, activity);
     }
 

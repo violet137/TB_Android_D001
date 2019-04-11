@@ -24,11 +24,6 @@
         app:showSpinner="true"
         app:stopSystemAudio="false" />
 
-    <View
-        android:id="@+id/touch_effect_item"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?selectableItemBackground" />
 
 
 </FrameLayout>
