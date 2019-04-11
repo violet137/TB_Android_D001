@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        VideoPagerFragment videoPagerFragment = new VideoPagerFragment();
+        VerticalVideoFragment videoPagerFragment = new VerticalVideoFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(android.R.id.content,videoPagerFragment).commit();
 

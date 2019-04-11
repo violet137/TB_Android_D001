@@ -6,8 +6,8 @@ public class VideoModel {
     VideoTypeEnum videoType;
 
     public VideoModel(String videoName, String videoUrl, VideoTypeEnum videoType) {
-        VideoName = videoName;
-        VideoUrl = videoUrl;
+        this.VideoName = videoName;
+        this.VideoUrl = videoUrl;
         this.videoType = videoType;
     }
 
