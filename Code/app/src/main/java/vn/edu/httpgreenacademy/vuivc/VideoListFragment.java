@@ -36,7 +36,7 @@ public class VideoListFragment extends Fragment {
             public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
                 LinearSmoothScroller smoothScroller = new LinearSmoothScroller(container.getContext()) {
 
-                    private static final float SPEED = 25f;// Change this value (default=25f)
+                    private static final float SPEED = 40f;// Change this value (default=25f)
 
                     @Override
                     protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
@@ -50,13 +50,6 @@ public class VideoListFragment extends Fragment {
 
         };
         recyclerVideo.setLayoutManager(layoutManager);
-        videoAdapter = new VideoAdapter(GetData(),recyclerVideo);
-        recyclerVideo.setAdapter(videoAdapter);
-        return viewVideoList;
-    }
-
-    public ArrayList<VideoModel> GetData()
-    {
         listVideo.clear();
         listVideo.add(new VideoModel("Nancy học tiếng mèo kêu","http://cdn13nofree.keeng.net/playnow/mp4/20190211/8BDE21AA601348BE.mp4",VideoTypeEnum.Normal));
         listVideo.add(new VideoModel("Quàng thượng đáng yêu","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180927/3427E73326DA4EF8.mp4",VideoTypeEnum.Normal));
@@ -64,8 +57,9 @@ public class VideoListFragment extends Fragment {
         listVideo.add(new VideoModel("TIKTOK","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180619/FB7463.mp4",VideoTypeEnum.Normal));
         listVideo.add(new VideoModel("Những tình huống hài hước trong Liên Quân","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20181001/8EF727.mp4",VideoTypeEnum.Normal));
         listVideo.add(new VideoModel("Thắng bại tại Liên Quân","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20190222/9832f3ef86ab47fa8d100075162377fa.mp4",VideoTypeEnum.Normal));
-        total_video = listVideo.size();
-        return listVideo;
+        videoAdapter = new VideoAdapter(listVideo,recyclerVideo);
+        recyclerVideo.setAdapter(videoAdapter);
+        return viewVideoList;
     }
 
 }
