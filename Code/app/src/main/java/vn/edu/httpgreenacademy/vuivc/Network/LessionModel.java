@@ -6,8 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class LessionModel {
 
-    public class Example {
-
         @SerializedName("Status")
         @Expose
         private Integer status;
@@ -41,6 +39,4 @@ public class LessionModel {
         public void setData(String data) {
             this.data = data;
         }
-
-    }
 }
