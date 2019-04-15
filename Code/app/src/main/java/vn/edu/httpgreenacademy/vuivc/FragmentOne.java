@@ -10,8 +10,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -26,12 +30,12 @@ public class FragmentOne extends Fragment {
     private String mVideoURL;
     private String mVideoName;
 
-    static FragmentOne newInstance(int num,String videoName, String videoURL) {
+    static FragmentOne newInstance(int num, VideoModel videoModel) {
         FragmentOne f = new FragmentOne();
         Bundle args = new Bundle();
         args.putInt(MY_VIDEO_POSITION, num);
-        args.putString(MY_VIDEO_NAME, videoName);
-        args.putString(MY_VIDEO_URL, videoURL);
+        args.putString(MY_VIDEO_NAME, videoModel.getVideoName());
+        args.putString(MY_VIDEO_URL, videoModel.getVideoUrl());
         f.setArguments(args);
         return f;
     }
@@ -53,26 +57,24 @@ public class FragmentOne extends Fragment {
         View v = inflater.inflate(R.layout.fragment_one, container, false);
         TextView tvVideoName = v.findViewById(R.id.tvVideoName);
         final VideoView videoviewVertical = v.findViewById(R.id.videoviewVertical);
-        if(!mVideoURL.isEmpty())
-        {
-            tvVideoName.setText(mVideoName);
-            MediaController mediaController = new MediaController(v.getContext());
-            mediaController.setAnchorView(videoviewVertical);
-            videoviewVertical.setMediaController(mediaController);
-            videoviewVertical.setVideoPath(mVideoURL);
-            videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
+        ImageView imvMusic = v.findViewById(R.id.imvMusic);
+        RotateAnimation rotate = new RotateAnimation(
+                0, 360,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+        );
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                videoviewVertical.setBackground(videoviewVertical.getBackground());
-            }
-            videoviewVertical.requestFocus();
-            videoviewVertical.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    videoviewVertical.start();
-                }
-            });
-        }
+        rotate.setDuration(5000);
+        rotate.setRepeatCount(Animation.INFINITE);
+        imvMusic.startAnimation(rotate);
+
+        tvVideoName.setText(mVideoName);
+        MediaController mediaController = new MediaController(v.getContext());
+        mediaController.setAnchorView(videoviewVertical);
+        videoviewVertical.setMediaController(mediaController);
+        videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
+        videoviewVertical.requestFocus();
+        videoviewVertical.seekTo(1);
         return v;
     }
 }
