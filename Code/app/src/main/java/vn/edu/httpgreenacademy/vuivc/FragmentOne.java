@@ -19,12 +19,14 @@ import android.widget.VideoView;
 public class FragmentOne extends Fragment {
 
     private static final String MY_VIDEO_POSITION = "0";
-    private static final String MY_VIDEO_URL = "";
     private static final String MY_VIDEO_NAME = "";
+    private static final String MY_VIDEO_URL = "";
+
 
     private int mVideoPosition;
-    private String mVideoURL;
     private String mVideoName;
+    private String mVideoURL;
+
 
     static FragmentOne newInstance(int num,String videoName, String videoURL) {
         FragmentOne f = new FragmentOne();
@@ -53,6 +55,8 @@ public class FragmentOne extends Fragment {
         View v = inflater.inflate(R.layout.fragment_one, container, false);
         TextView tvVideoName = v.findViewById(R.id.tvVideoName);
         final VideoView videoviewVertical = v.findViewById(R.id.videoviewVertical);
+
+
         if(!mVideoURL.isEmpty())
         {
             tvVideoName.setText(mVideoName);
@@ -61,7 +65,6 @@ public class FragmentOne extends Fragment {
             videoviewVertical.setMediaController(mediaController);
             videoviewVertical.setVideoPath(mVideoURL);
             videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 videoviewVertical.setBackground(videoviewVertical.getBackground());
             }

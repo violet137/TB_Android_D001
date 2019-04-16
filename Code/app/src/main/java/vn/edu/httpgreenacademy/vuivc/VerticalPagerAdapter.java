@@ -20,8 +20,9 @@ public class VerticalPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        VideoModel videoModel = listVideo.get(position);
         Log.d("video link",listVideo.get(position).getVideoUrl());
-        return FragmentOne.newInstance(position,listVideo.get(position).getVideoName(),listVideo.get(position).getVideoUrl());
+        return FragmentOne.newInstance(position,videoModel.getVideoName(),videoModel.getVideoUrl());
     }
 
     @Override
