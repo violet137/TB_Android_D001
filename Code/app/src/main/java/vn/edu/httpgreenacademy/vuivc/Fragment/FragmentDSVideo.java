@@ -9,29 +9,30 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.edu.httpgreenacademy.vuivc.Adapter.RecycleviewVideosAdapter;
-import vn.edu.httpgreenacademy.vuivc.R;
 import in.myinnos.gifimages.GiphyTask;
 import in.myinnos.gifimages.builder.GiphyQueryBuilder;
 import in.myinnos.gifimages.helper.Helper;
 import in.myinnos.gifimages.model.Gif;
+import vn.edu.httpgreenacademy.vuivc.Adapter.RecycleviewVideosAdapter;
+import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.ViewHolder.RecycleViewVideosViewHolder;
 
-public class FragmentVideos extends Fragment {
+public class FragmentDSVideo extends Fragment {
     RecyclerView recyclerView;
+    ImageView imageBack;
     RecycleviewVideosAdapter recycleView_video_adapter;
-    public int soluongvideo;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_videos, container, false);
-
-        recyclerView = view.findViewById(R.id.recycle_photo);
+        View view = inflater.inflate(R.layout.fragment_ds_video, container, false);
+        imageBack = view.findViewById(R.id.imageBackDSVideo);
+        recyclerView = view.findViewById(R.id.recycle_dsvideo);
         recycleView_video_adapter = new RecycleviewVideosAdapter(getActivity(),new ArrayList<Gif>());
         recyclerView.setAdapter(recycleView_video_adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -49,6 +50,12 @@ public class FragmentVideos extends Fragment {
             public void onViewRecycled(RecyclerView.ViewHolder holder) {
                 RecycleViewVideosViewHolder gifHolder = (RecycleViewVideosViewHolder) holder;
                 gifHolder.stopPlayback();
+            }
+        });
+        imageBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().popBackStack();
             }
         });
 

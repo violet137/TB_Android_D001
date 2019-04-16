@@ -20,4 +20,15 @@
     <string name="like">Đã thích</string>
     <string name="Hoso">Hồ sơ</string>
     <string name="Save">Lưu</string>
+    <string name="ChangeImage">Thay đổi ảnh</string>
+    <string name="editprofile">Edit your profile</string>
+    <string name="about">About</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="YourVideo">Video của bạn</string>
+    <string name="Followers">Danh sách người theo dõi bạn</string>
+    <string name="Followings">Danh sách người bạn theo dõi</string>
+    <string name="Male">Nam</string>
+    <string name="Female">Nữ</string>
+    <string name="CameraShot">Chụp ảnh</string>
+    <string name="GetImageLocal">Lấy ảnh từ điện thoại</string>
 </resources>

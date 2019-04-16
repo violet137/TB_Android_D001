@@ -2,12 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/iteditprofile"
-        android:title="Edit your profile"
-        android:icon="@drawable/user"
+        android:title="@string/editprofile"
         />
     <item
-        android:id="@+id/itsetting"
-        android:title="All settings"
-        android:icon="@drawable/setting"
+        android:id="@+id/about"
+        android:title="@string/about"
+        />
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"
         />
 </menu>

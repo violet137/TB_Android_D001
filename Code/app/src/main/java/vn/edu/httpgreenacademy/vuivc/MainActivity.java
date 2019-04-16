@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import vn.edu.httpgreenacademy.vuivc.Fragment.FragmentUserMain;
-import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHome;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,10 +12,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FragmentHome fragment_home = new FragmentHome();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentUserMain fragmentUserMain = new FragmentUserMain();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).addToBackStack("").commit();
 
 
 

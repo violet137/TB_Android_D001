@@ -20,4 +20,13 @@
     <string name="like">Liked</string>
     <string name="Hoso">Profile</string>
     <string name="Save">Save</string>
+    <string name="ChangeImage">Change Image</string>
+    <string name="editprofile">Edit your profile</string>
+    <string name="about">About</string>
+    <string name="logout">Log out</string>
+    <string name="YourVideo">Your Video</string>
+    <string name="Followers">Followers</string>
+    <string name="Followings">Followings</string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
 </resources>
