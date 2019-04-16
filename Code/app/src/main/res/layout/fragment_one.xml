@@ -1,30 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <VideoView
+        android:id="@+id/videoviewVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       />
 
     <TextView
         android:id="@+id/tvVideoName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:text="abc"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/videoviewVertical"
+        app:layout_constraintLeft_toLeftOf="@+id/videoviewVertical"
+        app:layout_constraintRight_toRightOf="@+id/videoviewVertical"
         />
 
-    <VideoView
-        android:id="@+id/videoviewVertical"
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/imvMusic"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvVideoName"
-        app:layout_constraintVertical_bias="0.142" />
+        android:padding="10dp"
+        android:src="@drawable/icon_music"
+        app:layout_constraintBottom_toBottomOf="@+id/videoviewVertical"
+        app:layout_constraintRight_toRightOf="@+id/videoviewVertical"
+        />
 
+    <ImageView
+        android:id="@+id/imvShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_share"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imvMusic"
+        app:layout_constraintRight_toRightOf="@+id/videoviewVertical"
+        />
 
+    <ImageView
+        android:id="@+id/imvComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_cmment"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imvShare"
+        app:layout_constraintRight_toRightOf="@+id/videoviewVertical"
+        />
+
+    <ImageView
+        android:id="@+id/imvLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_heart"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imvComment"
+        app:layout_constraintRight_toRightOf="@+id/videoviewVertical"
+        />
 
 </android.support.constraint.ConstraintLayout>
