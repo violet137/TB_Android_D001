@@ -1,16 +1,11 @@
 package vn.edu.httpgreenacademy.vuivc;
 
-import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -20,7 +15,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-public class FragmentOne extends Fragment {
+public class FragmentItemVideo extends Fragment {
 
     private static final String MY_VIDEO_POSITION = "0";
     private static final String MY_VIDEO_URL = "";
@@ -30,8 +25,8 @@ public class FragmentOne extends Fragment {
     private String mVideoURL;
     private String mVideoName;
 
-    static FragmentOne newInstance(int num, VideoModel videoModel) {
-        FragmentOne f = new FragmentOne();
+    static FragmentItemVideo newInstance(int num, VideoModel videoModel) {
+        FragmentItemVideo f = new FragmentItemVideo();
         Bundle args = new Bundle();
         args.putInt(MY_VIDEO_POSITION, num);
         args.putString(MY_VIDEO_NAME, videoModel.getVideoName());
@@ -54,7 +49,7 @@ public class FragmentOne extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
 
-        View v = inflater.inflate(R.layout.fragment_one, container, false);
+        View v = inflater.inflate(R.layout.fragment_item_video, container, false);
         TextView tvVideoName = v.findViewById(R.id.tvVideoName);
         final VideoView videoviewVertical = v.findViewById(R.id.videoviewVertical);
         ImageView imvMusic = v.findViewById(R.id.imvMusic);

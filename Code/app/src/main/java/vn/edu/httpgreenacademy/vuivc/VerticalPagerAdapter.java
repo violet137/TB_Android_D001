@@ -1,10 +1,8 @@
 package vn.edu.httpgreenacademy.vuivc;
 
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -20,7 +18,7 @@ public class VerticalPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return FragmentOne.newInstance(position,listVideo.get(position));
+        return FragmentItemVideo.newInstance(position,listVideo.get(position));
     }
 
     @Override
