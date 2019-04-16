@@ -97,7 +97,6 @@
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
-            android:text="224"
             tools:ignore="RtlSymmetry" />
 
         <ImageView
@@ -113,7 +112,6 @@
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
-            android:text="244"
             tools:ignore="RtlSymmetry" />
 
         <TextView
@@ -134,7 +132,6 @@
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
-            android:text="244"
             tools:ignore="RtlSymmetry" />
 
         <ImageView
@@ -150,7 +147,6 @@
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
-            android:text="244"
             tools:ignore="RtlSymmetry" />
     </LinearLayout>
 
