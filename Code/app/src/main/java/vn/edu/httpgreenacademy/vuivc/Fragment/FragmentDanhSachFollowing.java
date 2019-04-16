@@ -13,7 +13,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-import vn.edu.httpgreenacademy.vuivc.Adapter.Adapter_Following;
+import vn.edu.httpgreenacademy.vuivc.Adapter.AdapterFollowing;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenDuLieu;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.Following;
 import vn.edu.httpgreenacademy.vuivc.R;
@@ -21,9 +21,12 @@ import vn.edu.httpgreenacademy.vuivc.R;
 public class FragmentDanhSachFollowing extends Fragment {
     RecyclerView recyclerViewDsFollowing;
     ArrayList<Following> dsfollowing = new ArrayList<>();
-    Adapter_Following adapter_following;
+    AdapterFollowing adapter_following;
     ImageView imgbackfollowing;
-    TruyenDuLieu getSoLuong;
+    TruyenDuLieu truyenDuLieu;
+    public void TruyensoluongFollowing(TruyenDuLieu truyenDuLieu){
+        this.truyenDuLieu = truyenDuLieu;
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,7 +40,8 @@ public class FragmentDanhSachFollowing extends Fragment {
             dsfollowing.add(new Following(4, R.drawable.d, "Long"));
             dsfollowing.add(new Following(5, R.drawable.e, "Trinh"));
         }
-        adapter_following = new Adapter_Following(dsfollowing);
+        truyenDuLieu.GetSoluongFollowing(dsfollowing.size());
+        adapter_following = new AdapterFollowing(dsfollowing);
         recyclerViewDsFollowing.setAdapter(adapter_following);
         recyclerViewDsFollowing.setLayoutManager(new LinearLayoutManager(getActivity()));
 

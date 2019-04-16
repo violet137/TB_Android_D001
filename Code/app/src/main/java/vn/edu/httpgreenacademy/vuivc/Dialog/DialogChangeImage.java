@@ -38,12 +38,14 @@ public class DialogChangeImage extends DialogFragment {
             @Override
             public void onClick(View view) {
                 captureImage();
+                dismiss();
             }
         });
         btn_takefromphone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 choosePicture();
+                dismiss();
             }
         });
 
@@ -53,12 +55,12 @@ public class DialogChangeImage extends DialogFragment {
     private void choosePicture() {
         Intent pickPhoto = new Intent(Intent.ACTION_PICK,
                 android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(pickPhoto , 200);//one can be replaced with any action code
+        getActivity().startActivityForResult(pickPhoto , 200);//one can be replaced with any action code
     }
 
     private void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        this.startActivityForResult(intent,100);
+        getActivity().startActivityForResult(intent,100);
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -67,8 +69,9 @@ public class DialogChangeImage extends DialogFragment {
             if(resultCode == RESULT_OK)
             {
                 bitmap = (Bitmap) data.getExtras().get("data");
-                takeImage.image(bitmap);
-                getDialog().cancel();
+                takeImage.imagefromCamera(bitmap);
+
+
             }
         }
         else if(requestCode ==200)
@@ -77,6 +80,7 @@ public class DialogChangeImage extends DialogFragment {
                 try {
                     Uri imageUri = data.getData();
                     bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
+                    takeImage.imagefromCamera(bitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentUserMain fragmentUserMain = new FragmentUserMain();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).addToBackStack("").commit();
+        fragmentManager.beginTransaction().add(android.R.id.content, fragmentUserMain).commit();
 
 
 

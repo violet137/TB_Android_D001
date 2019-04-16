@@ -26,9 +26,16 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
     TextView txtLuu;
     String gioitinh;
     TruyenDuLieu truyenDuLieu;
+    Bitmap bitmap1;
     DialogChangeImage dialogChangeImage= new DialogChangeImage();
     public void FragmentEditProfile(TruyenDuLieu truyenDuLieu) {
         this.truyenDuLieu = truyenDuLieu;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        bitmap1 =null;
     }
 
     @Nullable
@@ -49,6 +56,7 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
         imgAnhDaiDien = view.findViewById(R.id.img_DoiAnh);
         imgDoiAnh.setOnClickListener(this);
         dialogChangeImage.TakeImage(this);
+        imgAnhDaiDien.setImageBitmap(bitmap1);
         return view;
     }
 
@@ -72,7 +80,6 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
                 break;
             case R.id.circle_crop:
                 ChangeAnh();
-
                 break;
         }
     }
@@ -82,10 +89,10 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
         dialog.show(getFragmentManager(),null);
         }
 
-
     @Override
-    public void image(Bitmap bitmap) {
-        imgAnhDaiDien.setImageBitmap(bitmap);
+    public void imagefromCamera(Bitmap bitmap) {
+        bitmap1 = bitmap;
     }
+
 }
 

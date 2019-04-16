@@ -13,7 +13,7 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
-import vn.edu.httpgreenacademy.vuivc.Adapter.Adapter_Follower;
+import vn.edu.httpgreenacademy.vuivc.Adapter.AdapterFollower;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.Followers;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenDuLieu;
@@ -21,10 +21,10 @@ import vn.edu.httpgreenacademy.vuivc.Interface.TruyenDuLieu;
 public class FragmentDanhSachFollowers extends Fragment {
     RecyclerView recyclerViewDsFollowers;
     public ArrayList<Followers> dsfollower = new ArrayList<>();
-    Adapter_Follower adapter_follower;
+    AdapterFollower adapter_follower;
     ImageView imgbackfollowers;
     TruyenDuLieu truyenDuLieu;
-    public void Truyensoluong(TruyenDuLieu truyenDuLieu){
+    public void TruyensoluongFollowers(TruyenDuLieu truyenDuLieu){
         this.truyenDuLieu = truyenDuLieu;
     }
     @Nullable
@@ -40,8 +40,8 @@ public class FragmentDanhSachFollowers extends Fragment {
             dsfollower.add(new Followers(4, R.drawable.d, "Long"));
             dsfollower.add(new Followers(5, R.drawable.e, "Trinh"));
         }
-        truyenDuLieu.GetSoluongVideo(dsfollower.size());
-        adapter_follower = new Adapter_Follower(dsfollower);
+        truyenDuLieu.GetSoluongFollower(dsfollower.size());
+        adapter_follower = new AdapterFollower(dsfollower);
         recyclerViewDsFollowers.setAdapter(adapter_follower);
         recyclerViewDsFollowers.setLayoutManager(new LinearLayoutManager(getContext()));
         imgbackfollowers.setOnClickListener(new View.OnClickListener() {

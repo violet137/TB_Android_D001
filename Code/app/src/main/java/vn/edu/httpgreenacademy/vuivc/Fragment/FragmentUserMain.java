@@ -34,8 +34,17 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     ProfileUser profileUser;
     FragmentDanhSachFollowers fragmentDanhSachFollowers = new FragmentDanhSachFollowers();
     FragmentDanhSachFollowing fragmentDanhSachFollowing = new FragmentDanhSachFollowing();
-    TextView txt_SoLuongVideo, txt_SoluongFollower, txt_SoluongFollowing, txtTenUser, txtID;
+    public TextView txt_SoLuongVideo, txt_SoluongFollower, txt_SoluongFollowing, txtTenUser, txtID;
     FragmentDSVideo fragmentdsVideos = new FragmentDSVideo();
+    int SoluongFollower,SoLuongFollowing;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        profileUser = new ProfileUser(R.drawable.af, 222222222, 25, 5, 5, true, "Nghĩa", "24/10/1997");
+        SoluongFollower =0;
+        SoLuongFollowing = 0;
+    }
 
     @Nullable
     @Override
@@ -53,7 +62,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         line2 = view.findViewById(R.id.line2);
         line3 = view.findViewById(R.id.line3);
 
-        ViewPagerAdapter viewPager_adapter = new ViewPagerAdapter(getFragmentManager());
+        ViewPagerAdapter viewPager_adapter = new ViewPagerAdapter(getChildFragmentManager());//Vi no duoc chua trong mot Fragment
         viewPager.setAdapter(viewPager_adapter);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -63,12 +72,12 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         line3.setOnClickListener(this);
 
         fragmentEditProfile.FragmentEditProfile(this);//lắng nghe du lieu tu Edit profile
-        fragmentDanhSachFollowers.Truyensoluong(this);
-        profileUser = new ProfileUser(R.drawable.af, 222222222, 25, 5, 5, true, "Nghĩa", "24/10/1997");
+        fragmentDanhSachFollowers.TruyensoluongFollowers(this);
+        fragmentDanhSachFollowing.TruyensoluongFollowing(this);
         txtTenUser.setText(profileUser.getNameUser());
         txtID.setText(profileUser.getId() + "");
-
-
+        txt_SoluongFollower.setText(SoluongFollower+"");
+        txt_SoluongFollowing.setText(SoLuongFollowing+"");
         return view;
     }
 
@@ -134,14 +143,24 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
 
     @Override
     public void GetSoluongVideo(int soluong) {
-        txt_SoluongFollower.setText(soluong + "");
+
     }
 
     @Override
     public void GetDuLieuEditProfile(String tenuser, String ngaysinh, String gioitinh) {
         if (tenuser != null) {
-            txtTenUser.setText(tenuser);
+            profileUser.setNameUser(tenuser);
         }
 
+    }
+
+    @Override
+    public void GetSoluongFollower(int soluong) {
+        SoluongFollower =soluong;
+    }
+
+    @Override
+    public void GetSoluongFollowing(int soluong) {
+        SoLuongFollowing = soluong;
     }
 }
