@@ -1,10 +1,12 @@
 package vn.edu.httpgreenacademy.vuivc;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.PopupWindow;
+import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -24,6 +28,7 @@ public class FragmentItemVideo extends Fragment {
     private int mVideoPosition;
     private String mVideoURL;
     private String mVideoName;
+    MediaController mediaController;
 
     static FragmentItemVideo newInstance(int num, VideoModel videoModel) {
         FragmentItemVideo f = new FragmentItemVideo();
@@ -46,13 +51,27 @@ public class FragmentItemVideo extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, final @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //return super.onCreateView(inflater, container, savedInstanceState);
 
         View v = inflater.inflate(R.layout.fragment_item_video, container, false);
         TextView tvVideoName = v.findViewById(R.id.tvVideoName);
         final VideoView videoviewVertical = v.findViewById(R.id.videoviewVertical);
         ImageView imvMusic = v.findViewById(R.id.imvMusic);
+        ImageView imvShare = v.findViewById(R.id.imvShare);
+
+        // Show video caption
+        tvVideoName.setText(mVideoName);
+
+        // Show video player
+        mediaController = new MediaController(v.getContext());
+        //mediaController.setAnchorView(videoviewVertical);
+        videoviewVertical.setMediaController(mediaController);
+        videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
+        videoviewVertical.requestFocus();
+        videoviewVertical.seekTo(1);
+        
+        // Rotate video music icon
         RotateAnimation rotate = new RotateAnimation(
                 0, 360,
                 Animation.RELATIVE_TO_SELF, 0.5f,
@@ -63,13 +82,25 @@ public class FragmentItemVideo extends Fragment {
         rotate.setRepeatCount(Animation.INFINITE);
         imvMusic.startAnimation(rotate);
 
-        tvVideoName.setText(mVideoName);
-        MediaController mediaController = new MediaController(v.getContext());
-        mediaController.setAnchorView(videoviewVertical);
-        videoviewVertical.setMediaController(mediaController);
-        videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
-        videoviewVertical.requestFocus();
-        videoviewVertical.seekTo(1);
+        // Show popup share video
+        imvShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View popupView = getLayoutInflater().inflate(R.layout.fragment_share_video, container);
+                PopupWindow popupWindow = new PopupWindow(getActivity());
+                popupWindow.setFocusable(true);
+                popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+                popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+                popupWindow.setContentView(popupView);
+            }
+        });
+
+
+
+
         return v;
     }
+
+
+
 }
