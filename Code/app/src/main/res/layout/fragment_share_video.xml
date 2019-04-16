@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Vui lòng chọn một hành động"
-        android:textSize="24sp"
+        android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,4 +51,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvAddToFavourite"
         app:layout_constraintTop_toBottomOf="@+id/tvChooseAction" />
+
 </android.support.constraint.ConstraintLayout>

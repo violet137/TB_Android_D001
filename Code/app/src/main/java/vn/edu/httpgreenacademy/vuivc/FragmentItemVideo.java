@@ -1,6 +1,7 @@
 package vn.edu.httpgreenacademy.vuivc;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.PopupWindow;
 import android.widget.QuickContactBadge;
+import android.widget.TabWidget;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -70,7 +73,8 @@ public class FragmentItemVideo extends Fragment {
         videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
         videoviewVertical.requestFocus();
         videoviewVertical.seekTo(1);
-        
+        videoviewVertical.start();
+
         // Rotate video music icon
         RotateAnimation rotate = new RotateAnimation(
                 0, 360,
@@ -78,23 +82,29 @@ public class FragmentItemVideo extends Fragment {
                 Animation.RELATIVE_TO_SELF, 0.5f
         );
 
-        rotate.setDuration(5000);
+        rotate.setDuration(4000);
         rotate.setRepeatCount(Animation.INFINITE);
         imvMusic.startAnimation(rotate);
+
+        videoviewVertical.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                FragmentManager fm = getChildFragmentManager();
+                VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("",R.layout.fragment_share_video);
+                videoShareDialogFragment.show(fm, null);
+                return false;
+            }
+        });
 
         // Show popup share video
         imvShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View popupView = getLayoutInflater().inflate(R.layout.fragment_share_video, container);
-                PopupWindow popupWindow = new PopupWindow(getActivity());
-                popupWindow.setFocusable(true);
-                popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-                popupWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-                popupWindow.setContentView(popupView);
+                FragmentManager fm = getChildFragmentManager();
+                VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("",R.layout.fragment_sharesocial_video);
+                videoShareDialogFragment.show(fm, null);
             }
         });
-
 
 
 
