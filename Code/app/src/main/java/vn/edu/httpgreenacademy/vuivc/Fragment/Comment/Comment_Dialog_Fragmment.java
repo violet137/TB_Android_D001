@@ -14,6 +14,8 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import vn.edu.httpgreenacademy.vuivc.R;
+
 public class Comment_Dialog_Fragmment extends DialogFragment {
 
 
