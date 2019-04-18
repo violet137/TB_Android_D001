@@ -111,7 +111,6 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                                 Bundle bundle = new Bundle();
                                 bundle.putSerializable("information",profileUser);
                                 fragmentEditProfile.setArguments(bundle);
-                                //nhanDulieuTuUserMain.GetUserData(profileUser.getNameUser(),profileUser.getNgaySinh(),profileUser.isSex(),profileUser.getPhoto());
                                 ChuyenFragment(fragmentEditProfile);
                                 break;
                             case R.id.about:

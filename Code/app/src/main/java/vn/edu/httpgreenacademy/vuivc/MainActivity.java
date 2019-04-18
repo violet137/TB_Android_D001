@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //FragmentManager fragmentManager = getSupportFragmentManager();
-        //FragmentUserMain fragmentUserMain = new FragmentUserMain();
-        //fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
-        VerticalVideoFragment videoPagerFragment = new VerticalVideoFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(android.R.id.content,videoPagerFragment).commit();
+        FragmentUserMain fragmentUserMain = new FragmentUserMain();
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
+//        VerticalVideoFragment videoPagerFragment = new VerticalVideoFragment();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(android.R.id.content,videoPagerFragment).commit();
     }
 
     @Override
