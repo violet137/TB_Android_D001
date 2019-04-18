@@ -1,7 +1,5 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
-import android.content.Context;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,18 +7,18 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.MediaController;
-import android.widget.PopupWindow;
-import android.widget.QuickContactBadge;
-import android.widget.TabWidget;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import vn.edu.httpgreenacademy.vuivc.R;
+import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
+import vn.edu.httpgreenacademy.vuivc.Dialog.VideoShareDialogFragment;
 
 public class FragmentItemVideo extends Fragment {
 

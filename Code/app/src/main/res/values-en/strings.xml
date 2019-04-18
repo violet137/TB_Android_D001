@@ -29,4 +29,8 @@
     <string name="Followings">Followings</string>
     <string name="Male">Male</string>
     <string name="Female">Female</string>
+    <string name="tab_newest">Newest</string>
+    <string name="tab_trend">Trend</string>
+    <string name="tab_videos">Videos</string>
+    <string name="tab_photos">Photos</string>
 </resources>

@@ -31,4 +31,8 @@
     <string name="Female">Nữ</string>
     <string name="CameraShot">Chụp ảnh</string>
     <string name="GetImageLocal">Lấy ảnh từ điện thoại</string>
+    <string name="tab_newest">Mới nhất</string>
+    <string name="tab_trend">Xu hướng</string>
+    <string name="tab_videos">Video</string>
+    <string name="tab_photos">Ảnh</string>
 </resources>
