@@ -65,6 +65,7 @@ public class FragmentItemVideo extends Fragment {
 
         // Show video caption
         tvVideoName.setText(mVideoName);
+        
 
         // Show video player
         mediaController = new MediaController(v.getContext());
