@@ -2,6 +2,7 @@ package vn.edu.httpgreenacademy.vuivc;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
@@ -119,23 +120,8 @@ public class GifViewHolder extends RecyclerView.ViewHolder {
         imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isBleanShare==false)
-                {
-                    if(tvShare.getText().toString()==""){
-                        intShare=1;
-                    }else {
-                        intShare=Integer.parseInt(tvShare.getText().toString());
-                    }
-                    tvShare.setText(""+intShare);
-                    isBleanShare=true;
-                }
-                else {
-                    intShare--;
-                    if(intShare==0)
-                        tvShare.setText("");
-                    else tvShare.setText(""+intShare);
-                    isBleanShare=false;
-                }
+                DialogFragment dialogFragment=new ShareDialogFragment();
+                dialogFragment.show(activity.getFragmentManager(),"ShareDialogFragment");
             }
         });
         imgCommnent.setOnClickListener(new View.OnClickListener() {
