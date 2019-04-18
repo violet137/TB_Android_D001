@@ -1,14 +1,14 @@
-package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich;
+package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.HashTag;
 
 public class HashtagModel {
-    String duongdanvideo;
+    int duongdanvideo;
     int duongdanhinh;
 
-    public String getDuongdanvideo() {
+    public int getDuongdanvideo() {
         return duongdanvideo;
     }
 
-    public void setDuongdanvideo(String duongdanvideo) {
+    public void setDuongdanvideo(int duongdanvideo) {
         this.duongdanvideo = duongdanvideo;
     }
 
@@ -20,7 +20,7 @@ public class HashtagModel {
         this.duongdanhinh = duongdanhinh;
     }
 
-    public HashtagModel(String duongdanvideo, int duongdanhinh) {
+    public HashtagModel(int duongdanvideo, int duongdanhinh) {
         this.duongdanvideo = duongdanvideo;
         this.duongdanhinh = duongdanhinh;
     }

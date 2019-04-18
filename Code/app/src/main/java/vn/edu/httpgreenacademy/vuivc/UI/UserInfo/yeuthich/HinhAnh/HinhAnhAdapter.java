@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich;
+package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.HinhAnh;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class HinhAnhAdapter extends RecyclerView.Adapter<HinhAnhHolder> {
+public class HinhAnhAdapter extends RecyclerView.Adapter<HinhAnhViewHolder> {
 
     ArrayList<HinhAnhModel> hinhAnhModelArrayList = new ArrayList<>();
     Activity activity;
@@ -23,13 +23,13 @@ public class HinhAnhAdapter extends RecyclerView.Adapter<HinhAnhHolder> {
 
     @NonNull
     @Override
-    public HinhAnhHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HinhAnhViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hinhanh,parent,false);
-        return new HinhAnhHolder(view);
+        return new HinhAnhViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HinhAnhHolder hinhAnh_holder, int position) {
+    public void onBindViewHolder(@NonNull HinhAnhViewHolder hinhAnh_holder, int position) {
         final HinhAnhModel hinhAnh_model = hinhAnhModelArrayList.get(position);
         hinhAnh_holder.setdataHinhAnh(hinhAnh_model);
     }

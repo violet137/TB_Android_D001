@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/List_Yeuthich_Hashtag"
+        android:id="@+id/listYeuthichHashtag"
         android:layout_width="395dp"
         android:layout_height="715dp"
         app:layout_constraintBottom_toBottomOf="parent"

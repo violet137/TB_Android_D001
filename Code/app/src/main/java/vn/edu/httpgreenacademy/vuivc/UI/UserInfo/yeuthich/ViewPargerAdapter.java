@@ -5,6 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.HashTag.FragmentHashtag;
+import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.HinhAnh.FragmentHinhAnh;
+import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.Video.FragmentVideo;
+
 public class ViewPargerAdapter extends FragmentPagerAdapter {
 
     FragmentVideo fragment_video;

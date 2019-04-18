@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich;
+package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.HinhAnh;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;

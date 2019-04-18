@@ -21,4 +21,12 @@
     <string name="video">Video</string>
     <string name="hashtag">Hashtag</string>
     <string name="hinhanh">Hình Ảnh</string>
+    <string name="pickavuivc">Pick A VUIVC</string>
+    <string name="loadimg">Load Image</string>
+    <string name="camera">CAMERA</string>
+    <string name="editanh">Điền thông tin bạn muốn chế vào chổ trống phía dưới</string>
+    <string name="hint">Nhập thông tin</string>
+    <string name="drawtext">Trên</string>
+    <string name="drawtext2">Giữa</string>
+    <string name="drawtext3">Dưới</string>
 </resources>
