@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.comment_testing_layout);
         imageViewComment = findViewById(R.id.imageViewComment);
 
         imageViewComment.setOnClickListener(new View.OnClickListener() {
