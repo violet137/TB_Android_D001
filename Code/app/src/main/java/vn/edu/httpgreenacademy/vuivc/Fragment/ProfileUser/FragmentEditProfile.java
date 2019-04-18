@@ -22,11 +22,12 @@ import vn.edu.httpgreenacademy.vuivc.Dialog.DialogChangeImage;
 
 import vn.edu.httpgreenacademy.vuivc.Interface.NhanDulieuTuUserMain;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenThongTinUser;
+import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 import static android.app.Activity.RESULT_OK;
 
-public class FragmentEditProfile extends Fragment implements View.OnClickListener, NhanDulieuTuUserMain {
+public class FragmentEditProfile extends Fragment implements View.OnClickListener {
     ImageView img_Quaylai,imgDoiAnh,imgAnhDaiDien;
     EditText edt_ten,edt_ngaysinh;
     RadioButton rbNam,rbNu;
@@ -35,7 +36,7 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
     Bitmap bitmap;
     String tenUser,ngaySinh;
     boolean sex=true;
-    FragmentUserMain fragmentUserMain;
+
     TruyenThongTinUser truyenThongTinUser;
     public void FragmentEditProfile(TruyenThongTinUser truyenDuLieu) { //Bắn dữ liệu cho UserMain
         this.truyenThongTinUser = truyenDuLieu;
@@ -59,18 +60,18 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
         rbNu.setOnClickListener(this);
         rbNam.setOnClickListener(this);
         txtLuu.setOnClickListener(this);
-        imgDoiAnh.setOnClickListener(this);
-
-        edt_ten.setText(tenUser);
-        edt_ngaysinh.setText(ngaySinh);
-        if(sex)
+        Bundle bundle = getArguments();
+        ProfileUser profileUser = (ProfileUser) bundle.getSerializable("information");
+        edt_ten.setText(profileUser.getNameUser());
+        edt_ngaysinh.setText(profileUser.getNgaySinh());
+        if(profileUser.isSex())
         {
             rbNam.setChecked(true);
         }
         else
             rbNu.setChecked(true);
 
-        fragmentUserMain.GetDulieuUserMain(this);
+
         return view;
     }
 
@@ -129,12 +130,6 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
         }
     }
 
-    @Override
-    public void GetUserData(String tenuser, String ngaysinh, boolean gioitinh, Bitmap bitmap) {
-        this.tenUser = tenuser;
-        this.ngaySinh = ngaysinh;
-        this.sex = gioitinh;
-        this.bitmap = bitmap;
-    }
+
 }
 

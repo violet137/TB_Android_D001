@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentUserMain fragmentUserMain = new FragmentUserMain();
-        fragmentManager.beginTransaction().add(android.R.id.content, fragmentUserMain).commit();
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
     }
 
     @Override

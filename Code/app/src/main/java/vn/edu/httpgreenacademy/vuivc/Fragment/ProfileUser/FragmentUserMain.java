@@ -47,11 +47,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     public TextView txt_SoLuongVideo, txt_SoluongFollower, txt_SoluongFollowing, txtTenUser, txtID;
     FragmentDSVideo fragmentdsVideos = new FragmentDSVideo();
     int SoluongFollower,SoLuongFollowing,SoLuongVideo;
-    NhanDulieuTuUserMain nhanDulieuTuUserMain;
-    public void GetDulieuUserMain(NhanDulieuTuUserMain nhanDulieuTuUserMain)
-    {
-        this.nhanDulieuTuUserMain = nhanDulieuTuUserMain;
-    }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,7 +108,10 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
                             case R.id.iteditprofile:
-                                nhanDulieuTuUserMain.GetUserData(profileUser.getNameUser(),profileUser.getNgaySinh(),profileUser.isSex(),profileUser.getPhoto());
+                                Bundle bundle = new Bundle();
+                                bundle.putSerializable("information",profileUser);
+                                fragmentEditProfile.setArguments(bundle);
+                                //nhanDulieuTuUserMain.GetUserData(profileUser.getNameUser(),profileUser.getNgaySinh(),profileUser.isSex(),profileUser.getPhoto());
                                 ChuyenFragment(fragmentEditProfile);
                                 break;
                             case R.id.about:

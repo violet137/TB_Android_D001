@@ -3,7 +3,9 @@ package vn.edu.httpgreenacademy.vuivc.ModelUser;
 
 import android.graphics.Bitmap;
 
-public class ProfileUser {
+import java.io.Serializable;
+
+public class ProfileUser implements Serializable {
     int Id,numVideo,numFollower,numFollowing;
     boolean sex;
     String nameUser,ngaySinh;
