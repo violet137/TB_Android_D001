@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc.Fragment;
+package vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

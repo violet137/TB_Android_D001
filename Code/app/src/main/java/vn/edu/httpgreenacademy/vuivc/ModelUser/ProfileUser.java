@@ -1,17 +1,17 @@
 package vn.edu.httpgreenacademy.vuivc.ModelUser;
 
 
-
+import android.graphics.Bitmap;
 
 public class ProfileUser {
-    int photo,Id,numVideo,numFollower,numFollowing;
+    int Id,numVideo,numFollower,numFollowing;
     boolean sex;
     String nameUser,ngaySinh;
-
+    Bitmap photo;
     public ProfileUser() {
     }
 
-    public ProfileUser(int photo, int id, int numVideo, int numFollower, int numFollowing, boolean sex, String nameUser, String ngaySinh) {
+    public ProfileUser(Bitmap photo, int id, int numVideo, int numFollower, int numFollowing, boolean sex, String nameUser, String ngaySinh) {
         this.photo = photo;
         Id = id;
         this.numVideo = numVideo;
@@ -21,13 +21,15 @@ public class ProfileUser {
         this.nameUser = nameUser;
         this.ngaySinh = ngaySinh;
     }
-    public int getPhoto() {
+
+    public Bitmap getPhoto() {
         return photo;
     }
 
-    public void setPhoto(int photo) {
+    public void setPhoto(Bitmap photo) {
         this.photo = photo;
     }
+
     public int getId() {
         return Id;
     }

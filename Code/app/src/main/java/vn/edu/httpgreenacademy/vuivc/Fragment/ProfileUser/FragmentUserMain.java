@@ -1,6 +1,8 @@
-package vn.edu.httpgreenacademy.vuivc.Fragment;
+package vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser;
 
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,20 +17,28 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import vn.edu.httpgreenacademy.vuivc.Adapter.ViewPagerAdapter;
+import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
+import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowers;
+import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing;
+import vn.edu.httpgreenacademy.vuivc.Fragment.AboutApp.FragmentAboutApp;
+import vn.edu.httpgreenacademy.vuivc.Interface.NhanDulieuTuUserMain;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenDuLieu;
+import vn.edu.httpgreenacademy.vuivc.Interface.TruyenThongTinUser;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class FragmentUserMain extends Fragment implements View.OnClickListener, TruyenDuLieu {
+public class FragmentUserMain extends Fragment implements View.OnClickListener, TruyenDuLieu, TruyenThongTinUser {
     ViewPager viewPager;
     TabLayout tabLayout;
     LinearLayout line1, line2, line3;
     ImageButton imgbtn_setting;
+    ImageView imgAnhdaidien;
     FragmentEditProfile fragmentEditProfile = new FragmentEditProfile();
     FragmentAboutApp fragmentAboutApp;
     ProfileUser profileUser;
@@ -36,14 +46,20 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     FragmentDanhSachFollowing fragmentDanhSachFollowing = new FragmentDanhSachFollowing();
     public TextView txt_SoLuongVideo, txt_SoluongFollower, txt_SoluongFollowing, txtTenUser, txtID;
     FragmentDSVideo fragmentdsVideos = new FragmentDSVideo();
-    int SoluongFollower,SoLuongFollowing;
-
+    int SoluongFollower,SoLuongFollowing,SoLuongVideo;
+    NhanDulieuTuUserMain nhanDulieuTuUserMain;
+    public void GetDulieuUserMain(NhanDulieuTuUserMain nhanDulieuTuUserMain)
+    {
+        this.nhanDulieuTuUserMain = nhanDulieuTuUserMain;
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        profileUser = new ProfileUser(R.drawable.af, 222222222, 25, 5, 5, true, "Nghĩa", "24/10/1997");
-        SoluongFollower =0;
-        SoLuongFollowing = 0;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.af);
+        profileUser = new ProfileUser(bitmap, 222222222, 25, 5, 5, true, "Nghĩa", "24/10/1997");
+        SoluongFollower =profileUser.getNumFollower();
+        SoLuongFollowing = profileUser.getNumFollowing();
+        SoLuongVideo =profileUser.getNumVideo();
     }
 
     @Nullable
@@ -56,6 +72,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         txt_SoLuongVideo = view.findViewById(R.id.txt_SoLuongVideo);
         txt_SoluongFollower = view.findViewById(R.id.txt_SoLuongFollowers);
         txt_SoluongFollowing = view.findViewById(R.id.txt_SoLuongFollowing);
+        imgAnhdaidien = view.findViewById(R.id.imgAnhUser);
         txtTenUser = view.findViewById(R.id.txtTenUser);
         txtID = view.findViewById(R.id.txtID);
         line1 = view.findViewById(R.id.line1);
@@ -74,10 +91,13 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         fragmentEditProfile.FragmentEditProfile(this);//lắng nghe du lieu tu Edit profile
         fragmentDanhSachFollowers.TruyensoluongFollowers(this);
         fragmentDanhSachFollowing.TruyensoluongFollowing(this);
+
         txtTenUser.setText(profileUser.getNameUser());
         txtID.setText(profileUser.getId() + "");
         txt_SoluongFollower.setText(SoluongFollower+"");
         txt_SoluongFollowing.setText(SoLuongFollowing+"");
+        txt_SoLuongVideo.setText(SoLuongVideo+"");
+        imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
         return view;
     }
 
@@ -92,6 +112,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
                             case R.id.iteditprofile:
+                                nhanDulieuTuUserMain.GetUserData(profileUser.getNameUser(),profileUser.getNgaySinh(),profileUser.isSex(),profileUser.getPhoto());
                                 ChuyenFragment(fragmentEditProfile);
                                 break;
                             case R.id.about:
@@ -101,13 +122,13 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                             case R.id.logout:
                                 AlertDialog.Builder logout_dialog = new AlertDialog.Builder(getActivity());
                                 logout_dialog.setMessage("Do you want to log out ?");
-                                logout_dialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                logout_dialog.setPositiveButton("No", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
 
                                     }
                                 });
-                                logout_dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                logout_dialog.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -143,13 +164,14 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
 
     @Override
     public void GetSoluongVideo(int soluong) {
-
+        SoLuongVideo = soluong;
     }
 
     @Override
-    public void GetDuLieuEditProfile(String tenuser, String ngaysinh, String gioitinh) {
+    public void GetDuLieuEditProfile(String tenuser, String ngaysinh, boolean gioitinh,Bitmap bitmap) {
         if (tenuser != null) {
             profileUser.setNameUser(tenuser);
+            profileUser.setPhoto(bitmap);
         }
 
     }

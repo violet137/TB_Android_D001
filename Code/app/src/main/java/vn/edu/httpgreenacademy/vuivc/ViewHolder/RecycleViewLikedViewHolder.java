@@ -17,6 +17,6 @@ public class RecycleViewLikedViewHolder extends RecyclerView.ViewHolder {
     }
     public void SetData(ProfileUser profile_user)
     {
-        img_liked.setImageResource(profile_user.getPhoto());
+        img_liked.setImageBitmap(profile_user.getPhoto());
     }
 }

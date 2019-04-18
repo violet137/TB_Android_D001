@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
-import vn.edu.httpgreenacademy.vuivc.Fragment.FragmentLiked;
-import vn.edu.httpgreenacademy.vuivc.Fragment.FragmentVideos;
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentVideos;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
     FragmentVideos fragment_videos;

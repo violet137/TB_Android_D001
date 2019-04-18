@@ -12,10 +12,10 @@ import vn.edu.httpgreenacademy.vuivc.ModelUser.Followers;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.ViewHolder.ViewHolder_Followers;
 
-public class Adapter_Follower extends RecyclerView.Adapter<ViewHolder_Followers> {
+public class AdapterFollower extends RecyclerView.Adapter<ViewHolder_Followers> {
     ArrayList<Followers> dsfollowers ;
 
-    public Adapter_Follower(ArrayList<Followers> dsfollowers) {
+    public AdapterFollower(ArrayList<Followers> dsfollowers) {
         this.dsfollowers = dsfollowers;
     }
 
