@@ -6,19 +6,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
-public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.DialogViewHolder> {
+public class DialogAdapter extends RecyclerView.Adapter<DialogViewHolder> {
 
     Activity activity;
-    static List<DialogViewHolder> dialogViewHolderList;
+    List<DialogItem> dialogItemList;
 
 
-    public DialogAdapter(List<DialogViewHolder> dialogViewHolderList,Activity activity) {
-        this.dialogViewHolderList=dialogViewHolderList;
+    public DialogAdapter(List<DialogItem> dialogItemList, Activity activity) {
+        this.dialogItemList = dialogItemList;
         this.activity=activity;
     }
 
@@ -31,39 +29,17 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogAdapter.DialogView
 
     @Override
     public void onBindViewHolder(@NonNull DialogViewHolder holder, int position) {
-        dialogViewHolderList.add(holder);
+        holder.bind(dialogItemList.get(position));
     }
-
 
     @Override
     public int getItemCount() {
-        return dialogViewHolderList.size();
+        return dialogItemList.size();
     }
-    public void setDialogViewHolderList(List<DialogAdapter.DialogViewHolder> dialogViewHolderList) {
-        this.dialogViewHolderList.clear();
-        this.dialogViewHolderList.addAll(dialogViewHolderList);
+    public void setDialogViewHolderList(List<DialogItem> dialogViewHolderList) {
+        this.dialogItemList.clear();
+        this.dialogItemList.addAll(dialogViewHolderList);
 
         notifyDataSetChanged();
-    }
-
-    public static class DialogViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageItem;
-        TextView textViewItem;
-
-
-        public DialogViewHolder(View itemView) {
-            super(itemView);
-
-            imageItem=itemView.findViewById(R.id.img_dailog);
-            textViewItem=itemView.findViewById(R.id.tv_item);
-        }
-
-        public int setData(String name, String string)
-        {
-            int id = itemView.getResources().getIdentifier("vn.edu.httpgreenacademy.vuivc","drawable", imageItem.getContext().getPackageName());
-            imageItem.setImageResource(id);
-            textViewItem.setText(string);
-            return 0;
-        }
     }
 }

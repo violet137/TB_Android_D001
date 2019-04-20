@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class ShareDialogFragment extends DialogFragment {
 
     RecyclerView listA,listB;
     Button bt_cancel;
     DialogAdapter dialogAdapterA,dialogAdapterB;
-    List<DialogAdapter.DialogViewHolder> dialogViewHoldersA,dialogViewHoldersB;
+    ArrayList<DialogItem> dialogItemListA, dialogItemListB;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -32,10 +32,37 @@ public class ShareDialogFragment extends DialogFragment {
                 ShareDialogFragment.this.getDialog().cancel();
             }
         });
-        dialogViewHoldersA.add(new DialogAdapter.DialogViewHolder(inflater.inflate(R.layout.iteam_dialog_share,null))
-                .setData("ic_launcher_background.xml","Home"));
-        dialogAdapterA.setDialogViewHolderList(dialogViewHoldersA);
+
+        dialogItemListA = new ArrayList<>();
+        dialogAdapterA=new DialogAdapter(dialogItemListA,getActivity());
+
+        dialogItemListA.add(new DialogItem("tinnhan","Tin nhắn"));
+        dialogItemListA.add(new DialogItem("fb","Facebook"));
+        dialogItemListA.add(new DialogItem("mess","Messenger"));
+        dialogItemListA.add(new DialogItem("zalo","Zalo"));
+        dialogItemListA.add(new DialogItem("twitter","Twitter"));
+        dialogItemListA.add(new DialogItem("ins","Instagram"));
+        dialogItemListA.add(new DialogItem("stories","Stories"));
+        dialogItemListA.add(new DialogItem("sms","SMS"));
+        dialogItemListA.add(new DialogItem("email","Email"));
+        dialogItemListA.add(new DialogItem("lienket","Sao chép\nLiên kết"));
+        dialogItemListA.add(new DialogItem("khac","Khác"));
+
         listA.setAdapter(dialogAdapterA);
+
+        dialogItemListB = new ArrayList<>();
+        dialogAdapterB = new DialogAdapter(dialogItemListB,getActivity());
+
+        dialogItemListB.add(new DialogItem("duet","Duet"));
+        dialogItemListB.add(new DialogItem("react","React"));
+        dialogItemListB.add(new DialogItem("down","Lưu video"));
+        dialogItemListB.add(new DialogItem("gif","Chia sẻ dưới\ndạng GIF"));
+        dialogItemListB.add(new DialogItem("love","Thêm vào\nƯu thích"));
+        dialogItemListB.add(new DialogItem("not","Không\nQuan tâm"));
+        dialogItemListB.add(new DialogItem("problem","Báo cáo"));
+        dialogItemListB.add(new DialogItem("live","Live Photo"));
+        listB.setAdapter(dialogAdapterB);
+
         builder.setView(v);
         return builder.create();
     }
