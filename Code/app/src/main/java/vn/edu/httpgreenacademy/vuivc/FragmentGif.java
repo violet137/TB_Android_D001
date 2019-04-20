@@ -26,15 +26,23 @@ public class FragmentGif extends Fragment {
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
 
-        adapter = new GifAdapter(getActivity(), new ArrayList<Gif>());
-        recyclerView.setAdapter(adapter);
-                new GiphyTask(Helper.getGiphyQueryUrl("dragon",
-                        100, GiphyQueryBuilder.EndPoint.SEARCH, ""), new GiphyTask.Callback() {
+
+
+                Thread thread=new Thread(new Runnable() {
                     @Override
-                    public void onResponse(List<Gif> gifs) {
-                        adapter.setGifs(gifs);
+                    public void run() {
+                        adapter = new GifAdapter(getActivity(), new ArrayList<Gif>());
+                        recyclerView.setAdapter(adapter);
+                        new GiphyTask(Helper.getGiphyQueryUrl("dragon",
+                                100, GiphyQueryBuilder.EndPoint.SEARCH, ""), new GiphyTask.Callback() {
+                            @Override
+                            public void onResponse(List<Gif> gifs) {
+                                adapter.setGifs(gifs);
+                            }
+                        }).execute();
                     }
-                }).execute();
+                });
+                thread.run();
 
         recyclerView.setRecyclerListener(new RecyclerView.RecyclerListener() {
             @Override

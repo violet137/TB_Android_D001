@@ -33,35 +33,46 @@ public class ShareDialogFragment extends DialogFragment {
             }
         });
 
-        dialogItemListA = new ArrayList<>();
-        dialogAdapterA=new DialogAdapter(dialogItemListA,getActivity());
+        Thread thread1=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dialogItemListA = new ArrayList<>();
+                dialogAdapterA=new DialogAdapter(dialogItemListA,getActivity());
 
-        dialogItemListA.add(new DialogItem("tinnhan","Tin nhắn"));
-        dialogItemListA.add(new DialogItem("fb","Facebook"));
-        dialogItemListA.add(new DialogItem("mess","Messenger"));
-        dialogItemListA.add(new DialogItem("zalo","Zalo"));
-        dialogItemListA.add(new DialogItem("twitter","Twitter"));
-        dialogItemListA.add(new DialogItem("ins","Instagram"));
-        dialogItemListA.add(new DialogItem("stories","Stories"));
-        dialogItemListA.add(new DialogItem("sms","SMS"));
-        dialogItemListA.add(new DialogItem("email","Email"));
-        dialogItemListA.add(new DialogItem("lienket","Sao chép\nLiên kết"));
-        dialogItemListA.add(new DialogItem("khac","Khác"));
+                dialogItemListA.add(new DialogItem("tinnhan","Tin nhắn"));
+                dialogItemListA.add(new DialogItem("fb","Facebook"));
+                dialogItemListA.add(new DialogItem("mess","Messenger"));
+                dialogItemListA.add(new DialogItem("zalo","Zalo"));
+                dialogItemListA.add(new DialogItem("twitter","Twitter"));
+                dialogItemListA.add(new DialogItem("ins","Instagram"));
+                dialogItemListA.add(new DialogItem("stories","Stories"));
+                dialogItemListA.add(new DialogItem("sms","SMS"));
+                dialogItemListA.add(new DialogItem("email","Email"));
+                dialogItemListA.add(new DialogItem("lienket","Sao chép\nLiên kết"));
+                dialogItemListA.add(new DialogItem("khac","Khác"));
 
-        listA.setAdapter(dialogAdapterA);
+                listA.setAdapter(dialogAdapterA);
+            }
+        });
+        Thread thread2=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dialogItemListB = new ArrayList<>();
+                dialogAdapterB = new DialogAdapter(dialogItemListB,getActivity());
 
-        dialogItemListB = new ArrayList<>();
-        dialogAdapterB = new DialogAdapter(dialogItemListB,getActivity());
-
-        dialogItemListB.add(new DialogItem("duet","Duet"));
-        dialogItemListB.add(new DialogItem("react","React"));
-        dialogItemListB.add(new DialogItem("down","Lưu video"));
-        dialogItemListB.add(new DialogItem("gif","Chia sẻ dưới\ndạng GIF"));
-        dialogItemListB.add(new DialogItem("love","Thêm vào\nƯu thích"));
-        dialogItemListB.add(new DialogItem("not","Không\nQuan tâm"));
-        dialogItemListB.add(new DialogItem("problem","Báo cáo"));
-        dialogItemListB.add(new DialogItem("live","Live Photo"));
-        listB.setAdapter(dialogAdapterB);
+                dialogItemListB.add(new DialogItem("duet","Duet"));
+                dialogItemListB.add(new DialogItem("react","React"));
+                dialogItemListB.add(new DialogItem("down","Lưu video"));
+                dialogItemListB.add(new DialogItem("gif","Chia sẻ dưới\ndạng GIF"));
+                dialogItemListB.add(new DialogItem("love","Thêm vào\nƯu thích"));
+                dialogItemListB.add(new DialogItem("not","Không\nQuan tâm"));
+                dialogItemListB.add(new DialogItem("problem","Báo cáo"));
+                dialogItemListB.add(new DialogItem("live","Live Photo"));
+                listB.setAdapter(dialogAdapterB);
+            }
+        });
+        thread1.run();
+        thread2.run();
 
         builder.setView(v);
         return builder.create();
