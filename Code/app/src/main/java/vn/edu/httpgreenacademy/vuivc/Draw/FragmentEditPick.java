@@ -34,16 +34,17 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentEditPick extends Fragment implements View.OnClickListener {
-    ImageView imganhche, imgbackedit,imgok;
+    ImageView imganhche, imgbackedit, imgok;
     Button btloadanh, btcamera, bttren, btgiua, btduoi;
     EditText edThongtinche;
     TextView txtChoLoadAnh;
     final int RQS_IMAGE1 = 1;
     int code = 0;
-    Bitmap bitmapOriginal,bitmapOriginal1;
+    Bitmap bitmapOriginal;
     int anh;
     Uri source1;
     Bitmap bp;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,13 +69,11 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         imgok.setOnClickListener(this);
 
         Bundle bundle = getArguments();
-        if(bundle != null)
-        {
+        if (bundle != null) {
             anh = bundle.getInt("hinhanh");
         }
-        bitmapOriginal = BitmapFactory.decodeResource(getResources(),anh);
-        if(code==0)
-        {
+        bitmapOriginal = BitmapFactory.decodeResource(getResources(), anh);
+        if (code == 0) {
             imganhche.setImageBitmap(bitmapOriginal);
         }
 
@@ -82,10 +81,9 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     }
 
 
-    private void captureimage()
-    {
+    private void captureimage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,100);
+        startActivityForResult(intent, 100);
     }
 
     @Override
@@ -98,35 +96,33 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                 code = 2;
                 break;
             case R.id.btTren:
-                if(code==0)
-                {
+                if (anh != 0) {
                     ReloadImage2();
                 }
-                else if(code==1){
-                    if (source1 != null) {
-                        Bitmap processedBitmap = chenanhtren();
-                        if (processedBitmap != null) {
-                            imganhche.setImageBitmap(processedBitmap);
-                            Toast.makeText(getContext().getApplicationContext(),
-                                    "Done",
-                                    Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(getContext().getApplicationContext(),
-                                    "Something wrong in processing!",
-                                    Toast.LENGTH_LONG).show();
-                        }
+
+                if (source1 != null) {
+                    Bitmap processedBitmap = chenanhtren();
+                    if (processedBitmap != null) {
+                        imganhche.setImageBitmap(processedBitmap);
+                        Toast.makeText(getContext().getApplicationContext(),
+                                "Done",
+                                Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getContext().getApplicationContext(),
-                                "Select both image!",
+                                "Something wrong in processing!",
                                 Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            "Select both image!",
+                            Toast.LENGTH_LONG).show();
                 }
-                else {
-                     camera2();
+
+                if (bp != null) {
+                    camera2();
                 }
                 break;
             case R.id.btLoadImg:
-                code = 1;
                 Intent intent = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(intent, RQS_IMAGE1);
@@ -135,63 +131,58 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                 getActivity().onBackPressed();
                 break;
             case R.id.btGiua:
-                if(code==0)
-                {
+                if (anh != 0) {
                     ReloadImage3();
                 }
-                else if(code==1) {
-                    if (source1 != null) {
-                        Bitmap processedBitmap = chenanhgiua();
-                        if (processedBitmap != null) {
-                            imganhche.setImageBitmap(processedBitmap);
-                            Toast.makeText(getContext().getApplicationContext(),
-                                    "Done",
-                                    Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(getContext().getApplicationContext(),
-                                    "Something wrong in processing!",
-                                    Toast.LENGTH_LONG).show();
-                        }
+                if (source1 != null) {
+                    Bitmap processedBitmap = chenanhgiua();
+                    if (processedBitmap != null) {
+                        imganhche.setImageBitmap(processedBitmap);
+                        Toast.makeText(getContext().getApplicationContext(),
+                                "Done",
+                                Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getContext().getApplicationContext(),
-                                "Select both image!",
+                                "Something wrong in processing!",
                                 Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            "Select both image!",
+                            Toast.LENGTH_LONG).show();
                 }
-                else {
-                   camera3();
+                if (bp != null) {
+                    camera3();
                 }
                 break;
             case R.id.btDuoi:
-                if(code==0)
-                {
+                if (anh != 0) {
                     ReloadImage1();
                 }
-                else if(code==1){
-                    if (source1 != null) {
-                        Bitmap processedBitmap = chenanhduoi();
-                        if (processedBitmap != null) {
-                            imganhche.setImageBitmap(processedBitmap);
-                            Toast.makeText(getContext().getApplicationContext(),
-                                    "Done",
-                                    Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(getContext().getApplicationContext(),
-                                    "Something wrong in processing!",
-                                    Toast.LENGTH_LONG).show();
-                        }
+                if (source1 != null) {
+                    Bitmap processedBitmap = chenanhduoi();
+                    if (processedBitmap != null) {
+                        imganhche.setImageBitmap(processedBitmap);
+                        Toast.makeText(getContext().getApplicationContext(),
+                                "Done",
+                                Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getContext().getApplicationContext(),
-                                "Select both image!",
+                                "Something wrong in processing!",
                                 Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(getContext().getApplicationContext(),
+                            "Select both image!",
+                            Toast.LENGTH_LONG).show();
                 }
-                else {
-                   camera1();
+                if (bp != null) {
+                    camera1();
                 }
                 break;
 
         }
+
     }
 
 
@@ -199,14 +190,14 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-            if (resultCode == RESULT_OK) {
-                switch (requestCode) {
-                    case RQS_IMAGE1:
-                        source1 = data.getData();
-                        txtChoLoadAnh.setText(source1.toString());
-                        break;
-                }
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case RQS_IMAGE1:
+                    source1 = data.getData();
+                    txtChoLoadAnh.setText(source1.toString());
+                    break;
             }
+        }
 
         if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
@@ -244,7 +235,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
             if (captionString != null) {
 
                 Paint paintText = new Paint(Paint.ANTI_ALIAS_FLAG);
-                paintText.setColor(Color.BLUE);
+                paintText.setColor(Color.WHITE);
                 paintText.setTextSize(50);
                 paintText.setStyle(Paint.Style.FILL);
                 paintText.setShadowLayer(10f, 10f, 10f, Color.BLACK);
@@ -273,6 +264,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         }
         return newBitmap;
     }
+
     private Bitmap chenanhgiua() {
         Bitmap bm1 = null;
         Bitmap newBitmap = null;
@@ -289,12 +281,12 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
             Canvas newCanvas = new Canvas(newBitmap);
 
             newCanvas.drawBitmap(bm1, 0, 0, null);
-            newCanvas.translate(0,600);
+            newCanvas.translate(0, 600);
             String captionString = edThongtinche.getText().toString();
             if (captionString != null) {
 
                 Paint paintText = new Paint(Paint.ANTI_ALIAS_FLAG);
-                paintText.setColor(Color.BLUE);
+                paintText.setColor(Color.WHITE);
                 paintText.setTextSize(50);
                 paintText.setStyle(Paint.Style.FILL);
                 paintText.setShadowLayer(10f, 10f, 10f, Color.BLACK);
@@ -323,6 +315,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         }
         return newBitmap;
     }
+
     private Bitmap chenanhduoi() {
         Bitmap bm1 = null;
         Bitmap newBitmap = null;
@@ -339,12 +332,12 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
             Canvas newCanvas = new Canvas(newBitmap);
 
             newCanvas.drawBitmap(bm1, 0, 0, null);
-            newCanvas.translate(0,1230);
+            newCanvas.translate(0, 1230);
             String captionString = edThongtinche.getText().toString();
             if (captionString != null) {
 
                 Paint paintText = new Paint(Paint.ANTI_ALIAS_FLAG);
-                paintText.setColor(Color.BLUE);
+                paintText.setColor(Color.WHITE);
                 paintText.setTextSize(50);
                 paintText.setStyle(Paint.Style.FILL);
                 paintText.setShadowLayer(10f, 10f, 10f, Color.BLACK);
@@ -378,13 +371,13 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
 
         String textToDraw = edThongtinche.getText().toString();
 
-        Bitmap newBitmap = bp;
+        Bitmap newBitmap = bp.copy(bp.getConfig(), true);
 
         Canvas newCanvas = new Canvas(newBitmap);
 
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
-        paint.setTextSize(50);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(20);
         paint.setStyle(Paint.Style.FILL);
         paint.setShadowLayer(10f, 10f, 10f, Color.BLACK);
 
@@ -399,53 +392,56 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
 
 
     }
+
     private void camera2() {
 
         String textToDraw = edThongtinche.getText().toString();
 
-        Bitmap newBitmap = bp;
+        Bitmap newBitmap = bp.copy(bp.getConfig(), true);
+        ;
 
         Canvas newCanvas = new Canvas(newBitmap);
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
-        paint.setTextSize(50);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(20);
         paint.setStyle(Paint.Style.FILL);
         paint.setShadowLayer(10f, 10f, 10f, Color.BLACK);
 
         Rect bounds = new Rect();
         paint.getTextBounds(textToDraw, 0, textToDraw.length(), bounds);
-        newCanvas.drawText(textToDraw,0,45,paint);
-        newCanvas.translate(0,0);
+        newCanvas.drawText(textToDraw, 0, 15, paint);
+        newCanvas.translate(0, 0);
 
 
         imganhche.setImageBitmap(newBitmap);
 
 
     }
+
     private void camera3() {
 
         String textToDraw = edThongtinche.getText().toString();
 
-        Bitmap newBitmap = bp;
+        Bitmap newBitmap = bp.copy(bp.getConfig(), true);
+        ;
 
         Canvas newCanvas = new Canvas(newBitmap);
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
-        paint.setTextSize(50);
+        paint.setColor(Color.WHITE);
+        paint.setTextSize(20);
         paint.setStyle(Paint.Style.FILL);
         paint.setShadowLayer(10f, 10f, 10f, Color.BLACK);
-
+        int y = bp.getHeight();
         Rect bounds = new Rect();
         paint.getTextBounds(textToDraw, 0, textToDraw.length(), bounds);
-        newCanvas.drawText(textToDraw,0,600,paint);
-        newCanvas.translate(0,0);
+        newCanvas.drawText(textToDraw, 0, y/2, paint);
+        newCanvas.translate(0, 0);
 
 
         imganhche.setImageBitmap(newBitmap);
 
 
     }
-
 
 
     private void ReloadImage1() {
@@ -457,7 +453,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         Canvas newCanvas = new Canvas(newBitmap);
 
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.WHITE);
         paint.setTextSize(50);
         paint.setStyle(Paint.Style.FILL);
         paint.setShadowLayer(10f, 10f, 10f, Color.BLACK);
@@ -473,6 +469,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
 
 
     }
+
     private void ReloadImage2() {
 
         String textToDraw = edThongtinche.getText().toString();
@@ -481,21 +478,22 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
 
         Canvas newCanvas = new Canvas(newBitmap);
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.WHITE);
         paint.setTextSize(50);
         paint.setStyle(Paint.Style.FILL);
         paint.setShadowLayer(10f, 10f, 10f, Color.BLACK);
 
         Rect bounds = new Rect();
         paint.getTextBounds(textToDraw, 0, textToDraw.length(), bounds);
-        newCanvas.drawText(textToDraw,0,45,paint);
-        newCanvas.translate(0,0);
+        newCanvas.drawText(textToDraw, 0, 45, paint);
+        newCanvas.translate(0, 0);
 
 
         imganhche.setImageBitmap(newBitmap);
 
 
     }
+
     private void ReloadImage3() {
 
         String textToDraw = edThongtinche.getText().toString();
@@ -504,30 +502,27 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
 
         Canvas newCanvas = new Canvas(newBitmap);
         Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.WHITE);
         paint.setTextSize(50);
         paint.setStyle(Paint.Style.FILL);
         paint.setShadowLayer(10f, 10f, 10f, Color.BLACK);
-
+        int y = bitmapOriginal.getHeight() / 2;
         Rect bounds = new Rect();
         paint.getTextBounds(textToDraw, 0, textToDraw.length(), bounds);
-        newCanvas.drawText(textToDraw,0,600,paint);
-        newCanvas.translate(0,0);
-
+        newCanvas.drawText(textToDraw, 0, y, paint);
+        newCanvas.translate(0, 0);
 
         imganhche.setImageBitmap(newBitmap);
 
 
     }
 
-    private  void askPermissionAndCaptureVideo()
-    {
-        if(Build.VERSION.SDK_INT>=23){
+    private void askPermissionAndCaptureVideo() {
+        if (Build.VERSION.SDK_INT >= 23) {
             int readPermission = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE);
-            int writePermission = ActivityCompat.checkSelfPermission(getContext(),Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            if(writePermission != PackageManager.PERMISSION_GRANTED||readPermission != PackageManager.PERMISSION_GRANTED)
-            {
-                this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},102);
+            int writePermission = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (writePermission != PackageManager.PERMISSION_GRANTED || readPermission != PackageManager.PERMISSION_GRANTED) {
+                this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 102);
                 return;
             }
         }

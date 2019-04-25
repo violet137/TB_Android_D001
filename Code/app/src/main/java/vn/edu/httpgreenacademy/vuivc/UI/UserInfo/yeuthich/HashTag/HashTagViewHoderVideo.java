@@ -7,17 +7,16 @@ import android.widget.ImageView;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class HashTagViewHoder extends RecyclerView.ViewHolder {
-    ImageView imgAnh;
+public class HashTagViewHoderVideo extends RecyclerView.ViewHolder {
     View itemView;
-    public HashTagViewHoder(@NonNull View itemView) {
+    ImageView imgvideo;
+    public HashTagViewHoderVideo(@NonNull View itemView) {
         super(itemView);
         this.itemView = itemView;
-        imgAnh = itemView.findViewById(R.id.imgHinhAnhHashtag);
-
+        imgvideo = itemView.findViewById(R.id.imgVideoHashtag);
     }
-    public void setdataHashtag(HashtagModel hashtagModel)
+    public void setdataVideo(HashtagModel hashtagModel)
     {
-        imgAnh.setImageResource(hashtagModel.duongdanhinh);
+        imgvideo.setImageResource(hashtagModel.duongdanvideo);
     }
 }

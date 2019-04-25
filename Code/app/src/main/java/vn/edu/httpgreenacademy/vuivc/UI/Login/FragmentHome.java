@@ -33,7 +33,7 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
         txtGoogle = view.findViewById(R.id.Txt_GoogLe_Home);
         btLogin = view.findViewById(R.id.Bt_Login_Home);
         btRegister = view.findViewById(R.id.Bt_Register_Home);

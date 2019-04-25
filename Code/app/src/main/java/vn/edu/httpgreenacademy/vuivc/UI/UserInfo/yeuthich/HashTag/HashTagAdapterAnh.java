@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class HashTagAdapter extends RecyclerView.Adapter<HashTagViewHoder> {
+public class HashTagAdapterAnh extends RecyclerView.Adapter<HashTagViewHoder> {
     ArrayList<HashtagModel> hashtagModelArrayList = new ArrayList<>();
     Activity activity;
 
-    public HashTagAdapter(ArrayList<HashtagModel> hashtagModelArrayList, Activity activity) {
+    public HashTagAdapterAnh(ArrayList<HashtagModel> hashtagModelArrayList, Activity activity) {
         this.hashtagModelArrayList = hashtagModelArrayList;
         this.activity = activity;
     }
@@ -23,7 +23,7 @@ public class HashTagAdapter extends RecyclerView.Adapter<HashTagViewHoder> {
     @NonNull
     @Override
     public HashTagViewHoder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.itemhashtag,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.itemhashtaganh,viewGroup,false);
         return new HashTagViewHoder(view);
     }
 

@@ -1,6 +1,5 @@
 package vn.edu.httpgreenacademy.vuivc.Draw;
 
-import android.app.Activity;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class FragmentPickAVUICC extends Fragment implements View.OnClickListener , PickImageInterface{
+public class FragmentPickAVUICC extends Fragment implements View.OnClickListener, PickImageInterface {
     ImageView imgback, imgthemanh;
     RecyclerView listanh;
     ArrayList<PickModel> datahinhanh = new ArrayList<>();
@@ -38,14 +37,13 @@ public class FragmentPickAVUICC extends Fragment implements View.OnClickListener
         datahinhanh.clear();
         TypedArray hinhanh = getResources().obtainTypedArray(R.array.Anhche);
         String[] tenanh = getResources().getStringArray(R.array.tenanh);
-        for(int i=0;i<tenanh.length;i++)
-        {
-            PickModel pickModel = new PickModel(hinhanh.getResourceId(i,-1),tenanh[i]);
+        for (int i = 0; i < tenanh.length; i++) {
+            PickModel pickModel = new PickModel(hinhanh.getResourceId(i, -1), tenanh[i]);
             datahinhanh.add(pickModel);
         }
 
 
-        PickAdapter pickAdapter = new PickAdapter(datahinhanh, getActivity(), this);
+        PickAdapter pickAdapter = new PickAdapter(datahinhanh, getActivity(), this, getContext());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         listanh.setLayoutManager(linearLayoutManager);
         listanh.setAdapter(pickAdapter);
@@ -63,7 +61,7 @@ public class FragmentPickAVUICC extends Fragment implements View.OnClickListener
             case R.id.imgThemAnhTuCamera:
                 FragmentEditPick fragmentEditPick = new FragmentEditPick();
                 Bundle bundle = new Bundle();
-                bundle.putInt("hinhanh",HinhAnh);
+                bundle.putInt("hinhanh", HinhAnh);
                 fragmentEditPick.setArguments(bundle);
 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();

@@ -29,7 +29,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment, container, false);
 
 
         btnloginfacebook = view.findViewById(R.id.btn_login_facebook);
