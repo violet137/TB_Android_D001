@@ -1,5 +1,8 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.Comment;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -23,6 +27,16 @@ public class Comment_Dialog_Fragmment extends DialogFragment {
     RecyclerView recyclerView;
     ArrayList<UserModel> userModelArrayList = new ArrayList<>();
     EditText editTextComment;
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+        return dialog;
+    }
 
     @Nullable
     @Override
