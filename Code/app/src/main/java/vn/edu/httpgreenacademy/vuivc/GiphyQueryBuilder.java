@@ -2,10 +2,12 @@ package vn.edu.httpgreenacademy.vuivc;
 
 import java.net.URLEncoder;
 
+import in.myinnos.gifimages.api.GiphyApi;
+
 public class GiphyQueryBuilder {
 
     private static final String BASE_URL = "http://api.giphy.com/v1/gifs/";
-    private static final String PUBLIC_BETA_KEY = "dc6zaTOxFJmzC";
+    private static final String PUBLIC_BETA_KEY = "uH9TDBG1e8vwtvCyw9RrFkvjCq4m0Leg";
 
     public enum EndPoint {
         SEARCH("search"),
