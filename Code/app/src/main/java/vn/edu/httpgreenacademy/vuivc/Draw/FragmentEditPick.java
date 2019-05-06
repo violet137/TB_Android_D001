@@ -12,11 +12,14 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +29,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class FragmentEditPick extends Fragment implements View.OnClickListener {
     ImageView imganhche, imgbackedit, imgok;
@@ -44,6 +54,9 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     int anh;
     Uri source1;
     Bitmap bp;
+
+
+    private final String fileName = "anh.PNG";
 
     @Nullable
     @Override
@@ -68,6 +81,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         imgbackedit.setOnClickListener(this);
         imgok.setOnClickListener(this);
 
+        checkAndRequestPermissions();
         Bundle bundle = getArguments();
         if (bundle != null) {
             anh = bundle.getInt("hinhanh");
@@ -90,6 +104,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgOK:
+                saveData();
                 break;
             case R.id.btCamera:
                 askPermissionAndCaptureVideo();
@@ -434,7 +449,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         int y = bp.getHeight();
         Rect bounds = new Rect();
         paint.getTextBounds(textToDraw, 0, textToDraw.length(), bounds);
-        newCanvas.drawText(textToDraw, 0, y/2, paint);
+        newCanvas.drawText(textToDraw, 0, y / 2, paint);
         newCanvas.translate(0, 0);
 
 
@@ -528,6 +543,54 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         }
         this.captureimage();
     }
+
+    public boolean isExternalStorageReadable() {
+        String state = Environment.getExternalStorageState();
+        if (Environment.MEDIA_MOUNTED.equals(state) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+            return true;
+        }
+        return false;
+    }
+    public void saveData(){
+        if (isExternalStorageReadable())
+        {
+            String content = imganhche.toString();
+            File file;
+            FileOutputStream outputStream;
+            try {
+                file = new File(Environment.getExternalStorageDirectory(), "vuivc.PNG");
+                Log.d("Vuivc", Environment.getExternalStorageDirectory().getAbsolutePath());
+                outputStream = new FileOutputStream(file);
+                outputStream.write(content.getBytes());
+                outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            Toast.makeText(getContext(),"Can not save file",Toast.LENGTH_SHORT).show();
+        }
+
+
+}
+
+    private void checkAndRequestPermissions() {
+        String[] permissions = new String[]{
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+        };
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for (String permission : permissions) {
+            if (ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
+                listPermissionsNeeded.add(permission);
+            }
+        }
+        if (!listPermissionsNeeded.isEmpty()) {
+            ActivityCompat.requestPermissions(getActivity(), listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), 1);
+        }
+    }
+
+
 
 
 }
