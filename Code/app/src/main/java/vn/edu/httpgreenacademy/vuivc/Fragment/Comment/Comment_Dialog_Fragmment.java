@@ -14,6 +14,8 @@ import android.widget.ImageView;
 
 import java.util.ArrayList;
 
+import vn.edu.httpgreenacademy.vuivc.R;
+
 public class Comment_Dialog_Fragmment extends DialogFragment {
 
 
@@ -43,7 +45,7 @@ public class Comment_Dialog_Fragmment extends DialogFragment {
         UserModel user1 = new UserModel("Tung","em co biet gi dau",R.drawable.member_icon);
         userModelArrayList.add(user1);
 
-        UserModel user2 = new UserModel("Anh Duy","Server sap roi ae oi",R.drawable.member_icon);
+        UserModel user2 = new UserModel("Anh Duy","Server sap roi ae oi", R.drawable.member_icon);
         userModelArrayList.add(user2);
 
         UserModel user3 = new UserModel("Chi Hong","May chu ban gai lo lieu qua",R.drawable.member_icon);

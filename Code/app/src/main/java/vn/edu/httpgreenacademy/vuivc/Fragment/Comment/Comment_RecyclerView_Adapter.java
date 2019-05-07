@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import vn.edu.httpgreenacademy.vuivc.R;
+
 public class Comment_RecyclerView_Adapter extends RecyclerView.Adapter<Comment_RecyclerView_Holder> {
 
     ArrayList<UserModel> userModelArrayList = new ArrayList<>();
