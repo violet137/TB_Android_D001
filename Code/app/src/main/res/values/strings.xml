@@ -33,6 +33,10 @@
     <string name="Female">Nữ</string>
     <string name="CameraShot">Chụp ảnh</string>
     <string name="GetImageLocal">Lấy ảnh từ điện thoại</string>
+    <string name="tab_newest">Newest</string>
+    <string name="tab_trend">Trend</string>
+    <string name="tab_videos">Videos</string>
+    <string name="tab_photos">Photos</string>
 
 
 </resources>

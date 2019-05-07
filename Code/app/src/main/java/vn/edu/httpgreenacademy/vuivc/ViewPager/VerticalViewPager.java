@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.ViewPager;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

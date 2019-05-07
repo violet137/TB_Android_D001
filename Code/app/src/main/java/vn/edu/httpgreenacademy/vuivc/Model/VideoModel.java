@@ -1,4 +1,6 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.Model;
+
+import vn.edu.httpgreenacademy.vuivc.Enum.VideoTypeEnum;
 
 public class VideoModel {
     String VideoName;

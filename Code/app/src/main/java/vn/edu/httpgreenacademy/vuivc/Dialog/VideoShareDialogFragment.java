@@ -1,4 +1,5 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -6,6 +7,11 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.QuickContactBadge;
+import android.widget.TextView;
+
+import vn.edu.httpgreenacademy.vuivc.R;
 
 public class VideoShareDialogFragment extends DialogFragment {
 
@@ -23,8 +29,22 @@ public class VideoShareDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(resourceLayout, container);
 
+        View dialogView = inflater.inflate(resourceLayout, container,false);
+
+        TextView tvShareMore = dialogView.findViewById(R.id.tvShareMore);
+        tvShareMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent share = new Intent(Intent.ACTION_SENDTO);
+                share.setType("text/plain");
+                share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+                share.putExtra(Intent.EXTRA_TEXT, "http://cdn13nofree.keeng.net/playnow/mp4/20190211/8BDE21AA601348BE.mp4");
+                startActivity(Intent.createChooser(share, "Share link!"));
+            }
+        });
+        return dialogView;
     }
 
     @Override

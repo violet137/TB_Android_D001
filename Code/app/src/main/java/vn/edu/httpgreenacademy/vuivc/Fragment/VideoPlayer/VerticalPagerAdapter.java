@@ -1,10 +1,13 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
+
+import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.FragmentItemVideo;
+import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
 
 public class VerticalPagerAdapter extends FragmentPagerAdapter {
 

@@ -1,4 +1,4 @@
-package vn.edu.httpgreenacademy.vuivc;
+package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import vn.edu.httpgreenacademy.vuivc.R;
+import vn.edu.httpgreenacademy.vuivc.ViewPager.VerticalViewPager;
+import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
+import vn.edu.httpgreenacademy.vuivc.Enum.VideoTypeEnum;
 
 public class VerticalVideoFragment extends Fragment {
 
@@ -23,7 +28,7 @@ public class VerticalVideoFragment extends Fragment {
 
         verticalviewpager = viewVerticalViewPager.findViewById(R.id.verticalviewpager);
         listVideo.clear();
-        listVideo.add(new VideoModel("Nancy học tiếng mèo kêu","http://cdn13nofree.keeng.net/playnow/mp4/20190211/8BDE21AA601348BE.mp4",VideoTypeEnum.Normal,1,1,1));
+        listVideo.add(new VideoModel("Nancy học tiếng mèo kêu","http://cdn13nofree.keeng.net/playnow/mp4/20190211/8BDE21AA601348BE.mp4", VideoTypeEnum.Normal,1,1,1));
         listVideo.add(new VideoModel("Quàng thượng đáng yêu","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180927/3427E73326DA4EF8.mp4",VideoTypeEnum.Normal,1,1,1));
         listVideo.add(new VideoModel("Quàng thượng đáng yêu","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180927/3427E73326DA4EF8.mp4",VideoTypeEnum.Normal,1,1,1));
         listVideo.add(new VideoModel("TIKTOK","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180619/FB7463.mp4",VideoTypeEnum.Normal,1,1,1));
