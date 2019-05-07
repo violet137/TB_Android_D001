@@ -2,9 +2,9 @@
     <string name="app_name">vuivc</string>
     <string name="Txt_Facebook">Login With Facebook</string>
     <string name="Txt_Google">Login With Google+</string>
-    <string name="facebook_app_id">2260493494173421</string>
-    <string name="fb_login_protocol_scheme">fb2260493494173421</string>
-    <string name="dangnhapfacebook">Đăng nhập bằng Facebook</string>
+    <string name="facebook_app_id" translatable="false">2260493494173421</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2260493494173421</string>
+    <string name="dangnhapfacebook" translatable="false">Đăng nhập bằng Facebook</string>
     <string name="Txt_Login">Bạn đã có tài khoản? Sign in</string>
     <string name="Sign_up">Đăng ký</string>
     <string name="Sign_in">Đăng nhập</string>
@@ -15,7 +15,6 @@
     <string name="Error">Invalid UserName of Password</string>
     <string name="Thanhcong">Login Thanh cong</string>
     <string name="Error_Register">Tài Khoản Tồn Tại</string>
-<<<<<<< HEAD
     <string name="follow">Follow +</string>
     <string name="videos">VIDEOS</string>
     <string name="followers">FOLLOWERS</string>
@@ -41,10 +40,7 @@
     <string name="tab_trend">Trend</string>
     <string name="tab_videos">Videos</string>
     <string name="tab_photos">Photos</string>
-
-
-=======
-    <string name="camket">Thông qua việt đắng ký, bạn xác nhận rằng bạn đồng ý với Điều khoản sử dụng của chúng tôi và đã đọc và hiểu Chính sách về Quyền riêng tư của Chúng tôi</string>
+    <string name="camket" translatable="false">Thông qua việt đắng ký, bạn xác nhận rằng bạn đồng ý với Điều khoản sử dụng của chúng tôi và đã đọc và hiểu Chính sách về Quyền riêng tư của Chúng tôi</string>
     <string name="Title">Bạn cần một tài khoản Vuivc để tiếp tục</string>
     <string name="yeuthich">Yêu Thích</string>
     <string name="video">Video</string>
@@ -52,11 +48,10 @@
     <string name="hinhanh">Hình Ảnh</string>
     <string name="pickavuivc">Pick A VUIVC</string>
     <string name="loadimg">Load Image</string>
-    <string name="camera">CAMERA</string>
-    <string name="editanh">Điền thông tin bạn muốn chế vào chổ trống phía dưới</string>
+    <string name="camera" translatable="false">CAMERA</string>
+    <string name="editanh" translatable="false">Điền thông tin bạn muốn chế vào chổ trống phía dưới</string>
     <string name="hint">Nhập thông tin</string>
-    <string name="drawtext">Trên</string>
-    <string name="drawtext2">Giữa</string>
-    <string name="drawtext3">Dưới</string>
->>>>>>> Cuong_Task2
+    <string name="drawtext" translatable="false">Trên</string>
+    <string name="drawtext2" translatable="false">Giữa</string>
+    <string name="drawtext3" translatable="false">Dưới</string>
 </resources>

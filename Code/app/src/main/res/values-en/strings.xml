@@ -33,4 +33,17 @@
     <string name="tab_trend">Trend</string>
     <string name="tab_videos">Videos</string>
     <string name="tab_photos">Photos</string>
+    <string name="CameraShot">Take a camera</string>
+    <string name="Error_Register">Account exists</string>
+    <string name="GetImageLocal">Choose image from</string>
+    <string name="Sign_in">Login</string>
+    <string name="Sign_up">Register</string>
+    <string name="Title">You need to register an Vuivc account to continue</string>
+    <string name="yeuthich">Favourite</string>
+    <string name="video">Video</string>
+    <string name="loadimg">Load Image</string>
+    <string name="hinhanh">Photos</string>
+    <string name="hint">Enter something</string>
+    <string name="hashtag">Hashtag</string>
+    <string name="pickavuivc">Pick A VUIVC</string>
 </resources>

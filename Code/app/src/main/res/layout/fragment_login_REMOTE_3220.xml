@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/Bt_Login_Home"
+        android:id="@+id/bt_Login_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,15 +33,15 @@
         android:gravity="center"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="@+id/Txt_GoogLe_Home"
-        app:layout_constraintEnd_toStartOf="@+id/Txt_GoogLe_Home"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_GoogLe_Home"
+        app:layout_constraintEnd_toStartOf="@+id/txt_GoogLe_Home"
         app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/Txt_GoogLe_Home"
+        app:layout_constraintTop_toTopOf="@+id/txt_GoogLe_Home"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/Txt_GoogLe_Home"
+        android:id="@+id/txt_GoogLe_Home"
         android:layout_width="30dp"
         android:layout_height="43dp"
         android:layout_marginTop="8dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/Bt_Register_Home"
+        android:id="@+id/bt_Register_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -75,11 +75,11 @@
         android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/camket"
-        app:layout_constraintBottom_toTopOf="@+id/Bt_Login_Home"
+        app:layout_constraintBottom_toTopOf="@+id/bt_Login_Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Txt_GoogLe_Home" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_GoogLe_Home" />
 
     <TextView
         android:id="@+id/textView2"
@@ -93,7 +93,7 @@
         android:text="@string/Title"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/Bt_Register_Home"
+        app:layout_constraintBottom_toTopOf="@+id/bt_Register_Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +111,7 @@
         app:layout_constraintEnd_toStartOf="@+id/textView5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/Bt_Register_Home" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_Register_Home" />
 
     <TextView
         android:id="@+id/textView4"
@@ -142,11 +142,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="4dp"
         android:background="@drawable/bt_is"
-        app:layout_constraintBottom_toBottomOf="@+id/Txt_GoogLe_Home"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_GoogLe_Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toEndOf="@+id/Txt_GoogLe_Home"
-        app:layout_constraintTop_toTopOf="@+id/Txt_GoogLe_Home"
+        app:layout_constraintStart_toEndOf="@+id/txt_GoogLe_Home"
+        app:layout_constraintTop_toTopOf="@+id/txt_GoogLe_Home"
         app:layout_constraintVertical_bias="0.0" />
 
 
