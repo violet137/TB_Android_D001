@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <array name="hinhanh">
+     <item>@drawable/anh1</item>
+     <item>@drawable/anh2</item>
+     <item>@drawable/anh3</item>
+     <item>@drawable/anh4</item>
+     <item>@drawable/anh5</item>
+     <item>@drawable/anh6</item>
+     <item>@drawable/anh7</item>
+     <item>@drawable/anh8</item>
+     <item>@drawable/anh9</item>
+     <item>@drawable/anh10</item>
+     <item>@drawable/anhgif1</item>
+     <item>@drawable/anhgif2</item>
+     <item>@drawable/anhgif3</item>
+     <item>@drawable/anhgif4</item>
+     <item>@drawable/anhgif5</item>
+     <item>@drawable/anhgif6</item>
+     <item>@drawable/anhgif7</item>
+     <item>@drawable/anhgif8</item>
+ </array>
+</resources>

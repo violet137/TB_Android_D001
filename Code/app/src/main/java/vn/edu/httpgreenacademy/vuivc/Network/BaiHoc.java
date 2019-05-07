@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class BaiHoc {
+
     @SerializedName("Id")
     @Expose
     private Integer id;
@@ -81,4 +82,6 @@ public class BaiHoc {
     public void setUserProcess(Double userProcess) {
         this.userProcess = userProcess;
     }
+
+
 }

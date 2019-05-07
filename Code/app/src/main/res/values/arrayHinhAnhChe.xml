@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="Anhche">
+        <item>@drawable/anhche1</item>
+        <item>@drawable/anhche2</item>
+        <item>@drawable/anhche3</item>
+        <item>@drawable/anhche4</item>
+        <item>@drawable/anhche5</item>
+        <item>@drawable/anhche6</item>
+        <item>@drawable/anhche7</item>
+        <item>@drawable/anhche8</item>
+        <item>@drawable/anhche9</item>
+        <item>@drawable/anhche10</item>
+        <item>@drawable/anhche11</item>
+        <item>@drawable/anhche12</item>
+        <item>@drawable/anhche13</item>
+        <item>@drawable/anhche14</item>
+        <item>@drawable/anhche15</item>
+        <item>@drawable/anhche16</item>
+        <item>@drawable/anhche17</item>
+        <item>@drawable/anhche18</item>
+        <item>@drawable/anhche19</item>
+        <item>@drawable/anhche20</item>
+        <item>@drawable/anhche21</item>
+        <item>@drawable/anhche22</item>
+        <item>@drawable/anhche23</item>
+        <item>@drawable/anhche24</item>
+        <item>@drawable/anhche25</item>
+        <item>@drawable/anhche26</item>
+        <item>@drawable/anhche27</item>
+    </array>
+    <array name="tenanh">
+        <item>Ảnh Chế 1</item>
+        <item>Ảnh Chế 2</item>
+        <item>Ảnh Chế 3</item>
+        <item>Ảnh Chế 4</item>
+        <item>Ảnh Chế 5</item>
+        <item>Ảnh Chế 6</item>
+        <item>Ảnh Chế 7</item>
+        <item>Ảnh Chế 8</item>
+        <item>Ảnh Chế 9</item>
+        <item>Ảnh Chế 10</item>
+        <item>Ảnh Chế 11</item>
+        <item>Ảnh Chế 12</item>
+        <item>Ảnh Chế 13</item>
+        <item>Ảnh Chế 15</item>
+        <item>Ảnh Chế 14</item>
+        <item>Ảnh Chế 16</item>
+        <item>Ảnh Chế 17</item>
+        <item>Ảnh Chế 18</item>
+        <item>Ảnh Chế 19</item>
+        <item>Ảnh Chế 20</item>
+        <item>Ảnh Chế 21</item>
+        <item>Ảnh Chế 22</item>
+        <item>Ảnh Chế 23</item>
+        <item>Ảnh Chế 24</item>
+        <item>Ảnh Chế 25</item>
+        <item>Ảnh Chế 26</item>
+        <item>Ảnh Chế 27</item>
+    </array>
+</resources>
