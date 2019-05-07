@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         //FragmentManager fragmentManager = getSupportFragmentManager();
         //FragmentUserMain fragmentUserMain = new FragmentUserMain();
         //fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
-        VerticalVideoFragment videoPagerFragment = new VerticalVideoFragment();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(android.R.id.content,videoPagerFragment).commit();
+//        VerticalVideoFragment videoPagerFragment = new VerticalVideoFragment();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(android.R.id.content,videoPagerFragment).commit();
     }
 
     @Override
