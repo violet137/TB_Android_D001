@@ -1,4 +1,5 @@
 package vn.edu.httpgreenacademy.vuivc.Dialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,26 +27,37 @@ public class VideoShareDialogFragment extends DialogFragment {
         return dialog;
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View view = inflater.inflate(resourceLayout, null);
 
-        View dialogView = inflater.inflate(resourceLayout, container,false);
-
-        TextView tvShareMore = dialogView.findViewById(R.id.tvShareMore);
-        tvShareMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent share = new Intent(Intent.ACTION_SENDTO);
-                share.setType("text/plain");
-                share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-                share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
-                share.putExtra(Intent.EXTRA_TEXT, "http://cdn13nofree.keeng.net/playnow/mp4/20190211/8BDE21AA601348BE.mp4");
-                startActivity(Intent.createChooser(share, "Share link!"));
-            }
-        });
-        return dialogView;
+        Dialog dialog = new Dialog(getContext(), R.style.ThemeOverlay_AppCompat_Dialog);
+        dialog.setContentView(view);
+        return dialog;
     }
+
+//    @Nullable
+//    @Override
+//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//
+//        View dialogView = inflater.inflate(resourceLayout, container,false);
+//
+//        TextView tvShareMore = dialogView.findViewById(R.id.tvShareMore);
+//        tvShareMore.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent share = new Intent(Intent.ACTION_SENDTO);
+//                share.setType("text/plain");
+//                share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+//                share.putExtra(Intent.EXTRA_SUBJECT, "Title Of The Post");
+//                share.putExtra(Intent.EXTRA_TEXT, "http://cdn13nofree.keeng.net/playnow/mp4/20190211/8BDE21AA601348BE.mp4");
+//                startActivity(Intent.createChooser(share, "Share link!"));
+//            }
+//        });
+//        return dialogView;
+//    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
