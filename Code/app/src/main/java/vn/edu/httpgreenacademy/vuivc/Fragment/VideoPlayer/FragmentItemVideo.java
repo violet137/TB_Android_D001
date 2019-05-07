@@ -4,9 +4,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.Constraints;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -23,12 +25,12 @@ import vn.edu.httpgreenacademy.vuivc.Dialog.VideoShareDialogFragment;
 public class FragmentItemVideo extends Fragment {
 
     private static final String MY_VIDEO_POSITION = "0";
-    private static final String MY_VIDEO_URL = "";
     private static final String MY_VIDEO_NAME = "";
+    private static final String MY_VIDEO_URL = "";
 
     private int mVideoPosition;
-    private String mVideoURL;
     private String mVideoName;
+    private String mVideoURL;
     MediaController mediaController;
 
     static FragmentItemVideo newInstance(int num, VideoModel videoModel) {
@@ -72,18 +74,30 @@ public class FragmentItemVideo extends Fragment {
         videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
         videoviewVertical.requestFocus();
         videoviewVertical.seekTo(1);
-        videoviewVertical.start();
 
-        // Rotate video music icon
-        RotateAnimation rotate = new RotateAnimation(
-                0, 360,
-                Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f
-        );
+        if(videoviewVertical.isPlaying())
+        {
+            // Rotate video music icon
+            RotateAnimation rotate = new RotateAnimation(
+                    0, 360,
+                    Animation.RELATIVE_TO_SELF, 0.5f,
+                    Animation.RELATIVE_TO_SELF, 0.5f
+            );
 
-        rotate.setDuration(4000);
-        rotate.setRepeatCount(Animation.INFINITE);
-        imvMusic.startAnimation(rotate);
+            rotate.setDuration(4000);
+            rotate.setRepeatCount(Animation.INFINITE);
+            imvMusic.startAnimation(rotate);
+        }
+
+        videoviewVertical.setOnHoverListener(new View.OnHoverListener() {
+            @Override
+            public boolean onHover(View view, MotionEvent motionEvent) {
+                videoviewVertical.start();
+                return false;
+            }
+        });
+
+
 
         videoviewVertical.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

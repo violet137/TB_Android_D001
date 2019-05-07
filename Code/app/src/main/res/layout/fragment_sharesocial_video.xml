@@ -2,55 +2,98 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    >
+
 
     <TextView
-        android:id="@+id/tvShareVideoWith"
+        android:id="@+id/tvSocialShareWithAction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Chia sẻ với"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Chia se voi"
         android:textColor="@android:color/black"
-        android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvSaveSocial"
+    <LinearLayout
+        android:id="@+id/linearLayoutSocialNetwork"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:drawableTop="@drawable/icon_download_video"
-        android:text="Lưu video"
-        app:layout_constraintEnd_toStartOf="@+id/tvAddToSocialFavourite"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvShareVideoWith" />
+        android:orientation="horizontal"
+        android:scrollbarStyle="insideOverlay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSocialShareWithAction">
 
-    <TextView
-        android:id="@+id/tvAddToSocialFavourite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:drawableTop="@drawable/icon_favourite_video"
-        android:text="Thêm vào ưa thích"
-        app:layout_constraintEnd_toStartOf="@+id/tvSocialNoCare"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvSaveSocial"
-        app:layout_constraintTop_toBottomOf="@+id/tvShareVideoWith" />
+      <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Google plus"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_googleplus" />
 
-    <TextView
-        android:id="@+id/tvSocialNoCare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:drawableTop="@drawable/icon_nocare_video"
-        android:text="Không quan tâm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvAddToSocialFavourite"
-        app:layout_constraintTop_toBottomOf="@+id/tvShareVideoWith" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Messenger"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_messenger" />
 
+        <TextView
+            android:id="@+id/tvFacebookShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_facebook" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instagram"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_instagram" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gmail"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_gmail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Skype"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_skype" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copy link"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_copy" />
+
+        <TextView
+            android:id="@+id/tvShareMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:drawableTop="@drawable/icon_video_share_more" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
