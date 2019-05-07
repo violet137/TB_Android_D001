@@ -18,6 +18,7 @@ import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import vn.edu.httpgreenacademy.vuivc.Fragment.Comment.Comment_Dialog_Fragmment;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
 import vn.edu.httpgreenacademy.vuivc.Dialog.VideoShareDialogFragment;
@@ -62,13 +63,12 @@ public class FragmentItemVideo extends Fragment {
         final VideoView videoviewVertical = v.findViewById(R.id.videoviewVertical);
         ImageView imvMusic = v.findViewById(R.id.imvMusic);
         ImageView imvShare = v.findViewById(R.id.imvShare);
+        ImageView imvComment = v.findViewById(R.id.imvComment);
 
         // Show video caption
         tvVideoName.setText(mVideoName);
-        
 
         // Show video player
-        
         mediaController = new MediaController(v.getContext());
         //mediaController.setAnchorView(videoviewVertical);
         videoviewVertical.setMediaController(mediaController);
@@ -105,7 +105,7 @@ public class FragmentItemVideo extends Fragment {
             public boolean onLongClick(View view) {
                 FragmentManager fm = getChildFragmentManager();
                 VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("",R.layout.fragment_share_video);
-                videoShareDialogFragment.show(fm, null);
+                videoShareDialogFragment.show(fm, "");
                 return false;
             }
         });
@@ -116,7 +116,16 @@ public class FragmentItemVideo extends Fragment {
             public void onClick(View view) {
                 FragmentManager fm = getChildFragmentManager();
                 VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("",R.layout.fragment_sharesocial_video);
-                videoShareDialogFragment.show(fm, null);
+                videoShareDialogFragment.show(fm, "");
+            }
+        });
+
+        imvComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fm = getChildFragmentManager();
+                Comment_Dialog_Fragmment comment_dialog_fragmment = new Comment_Dialog_Fragmment();
+                comment_dialog_fragmment.show(fm,"");
             }
         });
 
