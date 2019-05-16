@@ -2,9 +2,9 @@
     <string name="app_name">vuivc</string>
     <string name="Txt_Facebook">Login With Facebook</string>
     <string name="Txt_Google">Login With Google+</string>
-    <string name="facebook_app_id">2260493494173421</string>
-    <string name="fb_login_protocol_scheme">fb2260493494173421</string>
-    <string name="dangnhapfacebook">Đăng nhập bằng Facebook</string>
+    <string name="facebook_app_id" translatable="false">2260493494173421</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2260493494173421</string>
+    <string name="dangnhapfacebook" translatable="false">Đăng nhập bằng Facebook</string>
     <string name="Txt_Login">Bạn đã có tài khoản? Sign in</string>
     <string name="Sign_up">Đăng ký</string>
     <string name="Sign_in">Đăng nhập</string>
@@ -40,7 +40,7 @@
     <string name="tab_trend">Trend</string>
     <string name="tab_videos">Videos</string>
     <string name="tab_photos">Photos</string>
-    <string name="camket">Thông qua việt đắng ký, bạn xác nhận rằng bạn đồng ý với Điều khoản sử dụng của chúng tôi và đã đọc và hiểu Chính sách về Quyền riêng tư của Chúng tôi</string>
+    <string name="camket" translatable="false">Thông qua việt đắng ký, bạn xác nhận rằng bạn đồng ý với Điều khoản sử dụng của chúng tôi và đã đọc và hiểu Chính sách về Quyền riêng tư của Chúng tôi</string>
     <string name="Title">Bạn cần một tài khoản Vuivc để tiếp tục</string>
     <string name="yeuthich">Yêu Thích</string>
     <string name="video">Video</string>
@@ -48,10 +48,14 @@
     <string name="hinhanh">Hình Ảnh</string>
     <string name="pickavuivc">Pick A VUIVC</string>
     <string name="loadimg">Load Image</string>
-    <string name="camera">CAMERA</string>
-    <string name="editanh">Điền thông tin bạn muốn chế vào chổ trống phía dưới</string>
+    <string name="camera" translatable="false">CAMERA</string>
+    <string name="editanh" translatable="false">Điền thông tin bạn muốn chế vào chổ trống phía dưới</string>
     <string name="hint">Nhập thông tin</string>
-    <string name="drawtext">Trên</string>
-    <string name="drawtext2">Giữa</string>
-    <string name="drawtext3">Dưới</string>
+    <string name="drawtext" translatable="false">Trên</string>
+    <string name="drawtext2" translatable="false">Giữa</string>
+    <string name="drawtext3" translatable="false">Dưới</string>
+    <string name="ru_thang_ban_ra_duong_thoi_cac_thanh_oi_v" translatable="false">Ru thang ban ra duong thoi cac thanh oi :V</string>
+    <string name="phan_dinh_tung">Phan Dinh Tung</string>
+    <string name="todo">TODO</string>
+    <string name="h_y_b" translatable="false">Hủy bỏ</string>
 </resources>

@@ -46,4 +46,6 @@
     <string name="hint">Enter something</string>
     <string name="hashtag">Hashtag</string>
     <string name="pickavuivc">Pick A VUIVC</string>
+    <string name="phan_dinh_tung">Phan Dinh Tung</string>
+    <string name="todo">TODO</string>
 </resources>
