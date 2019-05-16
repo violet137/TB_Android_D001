@@ -27,6 +27,7 @@ public class Register_AsycnTask extends AsyncTask<String,Void,Boolean> {
 
         String Username = strings[0];
         String password = strings[1];
+
         try{
             URL url = new URL("http://tamod.vn:8080/api/Auth/Registern");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
