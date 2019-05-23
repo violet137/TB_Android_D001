@@ -11,6 +11,7 @@ import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
+import vn.edu.httpgreenacademy.vuivc.FragmentGif;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
@@ -25,10 +26,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 0 :return new FragmentAboutApp();
             case 1: return new FragmentLiked();
             case 2: return new VerticalVideoFragment();
-            case 3: return new FragmentUserMain();
+            case 3: return new FragmentGif();
         }
         return null;
     }
@@ -43,10 +43,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position)
         {
-            case 0: return "Mới nhất";
-            case 1: return "Xu hướng";
-            case 2: return "Video";
-            case 3: return "Ảnh";
+            case 0: return "Xu hướng";
+            case 1: return "Video";
+            case 2: return "Ảnh";
         }
         return "";
     }

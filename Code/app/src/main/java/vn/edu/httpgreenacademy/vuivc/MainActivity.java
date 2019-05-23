@@ -13,6 +13,7 @@ import vn.edu.httpgreenacademy.vuivc.Fragment.Comment.Comment_Dialog_Fragmment;
 import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
+import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHome;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentUserMain fragmentUserMain = new FragmentUserMain();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
-    }
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).addToBackStack("main_activity").commit();
+}
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
