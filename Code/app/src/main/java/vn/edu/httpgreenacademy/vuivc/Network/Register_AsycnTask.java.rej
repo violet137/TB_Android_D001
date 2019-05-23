@@ -1,0 +1,10 @@
+diff a/Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Network/Register_AsycnTask.java b/Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Network/Register_AsycnTask.java	(rejected hunks)
+@@ -24,7 +24,7 @@
+ 
+     @Override
+     protected Boolean doInBackground(String... strings) {
+-
++ 
+         String Username = strings[0];
+         String password = strings[1];
+         try{
