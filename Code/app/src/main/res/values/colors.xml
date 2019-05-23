@@ -15,4 +15,5 @@
     <color name="black_transparent">#23161616</color>
     <color name="yellow">#F0DD1E</color>
     <color name="txtchuden">#000000</color>
+    <color name="black">#000</color>
 </resources>

@@ -4,19 +4,18 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/black"
     >
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/image_leftarrow"
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="140dp"
+            android:background="@color/Bt_Register"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/left_arrow" />
+            app:layout_constraintTop_toTopOf="parent"></LinearLayout>
 
     <ImageButton
         android:id="@+id/imgbtn_setting"
@@ -24,44 +23,60 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/bg_circle_border"
         android:contentDescription="@string/image_setting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/setting" />
+        app:srcCompat="@drawable/settings"
+        />
 
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/frlo"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="120dp"
+    android:layout_marginEnd="8dp"
+    app:layout_constraintEnd_toStartOf="@+id/imgbtn_setting"
+    app:layout_constraintHorizontal_bias="0.174"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" >
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgAnhUser"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="8dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/af"
-            app:civ_border_color="#FFFFFF"
-            app:civ_border_width="2dp"
-            app:layout_constraintEnd_toStartOf="@+id/imgbtn_setting"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="110sp"
+        android:layout_height="110sp"
+        android:background="@drawable/bg_circle"/>
 
-        <TextView
-            android:id="@+id/txtTenUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="@+id/imgAnhUser"
-            app:layout_constraintStart_toStartOf="@+id/imgAnhUser"
-            app:layout_constraintTop_toBottomOf="@+id/imgAnhUser" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAnhUser"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/af"
+        app:civ_border_color="#fff"
+        app:civ_border_width="2dp"
+        android:layout_gravity="center"/>
+
+</FrameLayout>
+    <TextView
+        android:id="@+id/txtTenUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="a"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/frlo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/frlo"
+        app:layout_constraintTop_toTopOf="@+id/frlo" />
 
     <TextView
         android:id="@+id/txtID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/facebook_app_id"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/txtTenUser"
@@ -73,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="30sp"
         android:layout_marginEnd="8dp"
         android:background="@color/black_transparent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -218,7 +233,8 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:tabGravity="fill"
             app:tabIndicatorColor="@color/yellow"
-            app:tabTextColor="@color/white">
+            app:tabTextColor="@color/white"
+            app:tabSelectedTextColor="@color/white">
 
             <android.support.design.widget.TabItem
                 android:layout_width="match_parent"
@@ -228,7 +244,8 @@
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/like" />
+                android:text="@string/like"
+                />
         </android.support.design.widget.TabLayout>
 
         <android.support.v4.view.ViewPager
