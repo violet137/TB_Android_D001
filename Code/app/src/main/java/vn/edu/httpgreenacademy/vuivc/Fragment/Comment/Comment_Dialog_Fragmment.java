@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,6 @@ public class Comment_Dialog_Fragmment extends DialogFragment {
 
         imageViewQuit = view.findViewById(R.id.imageViewQuit);
         recyclerView= view.findViewById(R.id.recyclerViewComment);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),1);
 
 
         imageViewQuit.setOnClickListener(new View.OnClickListener() {
@@ -56,18 +56,13 @@ public class Comment_Dialog_Fragmment extends DialogFragment {
             }
         });
 
-        UserModel user1 = new UserModel("Tung","em co biet gi dau",R.drawable.member_icon);
-        userModelArrayList.add(user1);
-
-        UserModel user2 = new UserModel("Anh Duy","Server sap roi ae oi", R.drawable.member_icon);
-        userModelArrayList.add(user2);
-
-        UserModel user3 = new UserModel("Chi Hong","May chu ban gai lo lieu qua",R.drawable.member_icon);
-        userModelArrayList.add(user3);
+        userModelArrayList.add(new UserModel("Tung","em co biet gi dau",R.drawable.member_icon));
+        userModelArrayList.add(new UserModel("Anh Duy","Server sap roi ae oi", R.drawable.member_icon));
+        userModelArrayList.add(new UserModel("Chi Hong","May chu ban gai lo lieu qua",R.drawable.member_icon));
 
         Comment_RecyclerView_Adapter comment_recyclerView_adapter = new Comment_RecyclerView_Adapter(userModelArrayList);
         recyclerView.setAdapter(comment_recyclerView_adapter);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
         return view;
 
     }

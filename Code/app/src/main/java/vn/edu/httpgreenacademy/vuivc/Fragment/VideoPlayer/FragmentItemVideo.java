@@ -98,25 +98,13 @@ public class FragmentItemVideo extends Fragment {
             }
         });
 
-
-
-        videoviewVertical.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                FragmentManager fm = getChildFragmentManager();
-                VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("",R.layout.fragment_share_video);
-                videoShareDialogFragment.show(fm, "");
-                return false;
-            }
-        });
-
         // Show popup share video
         imvShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getChildFragmentManager();
-                VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("",R.layout.fragment_sharesocial_video);
-                videoShareDialogFragment.show(fm, "");
+                VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("Share video with",R.layout.fragment_sharesocial_video,mVideoName,mVideoName);
+                videoShareDialogFragment.show(fm, "Share video with");
             }
         });
 
@@ -125,7 +113,7 @@ public class FragmentItemVideo extends Fragment {
             public void onClick(View view) {
                 FragmentManager fm = getChildFragmentManager();
                 Comment_Dialog_Fragmment comment_dialog_fragmment = new Comment_Dialog_Fragmment();
-                comment_dialog_fragmment.show(fm,"");
+                comment_dialog_fragmment.show(fm,"Comment");
             }
         });
 

@@ -17,7 +17,7 @@ public class DialogAdapter extends RecyclerView.Adapter<DialogViewHolder> {
 
     public DialogAdapter(List<DialogItem> dialogItemList, Activity activity) {
         this.dialogItemList = dialogItemList;
-        this.activity=activity;
+        this.activity = activity;
     }
 
     @NonNull

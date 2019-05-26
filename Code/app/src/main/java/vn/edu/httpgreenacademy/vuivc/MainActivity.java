@@ -22,18 +22,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentUserMain fragmentUserMain = new FragmentUserMain();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).addToBackStack("main_activity").commit();
+        VerticalVideoFragment fragmentUserMain = new VerticalVideoFragment();
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
 }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        for(Fragment fragment:getSupportFragmentManager().getFragments())
-        {
-            fragment.onActivityResult(requestCode,resultCode,data);
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        for(Fragment fragment:getSupportFragmentManager().getFragments())
+//        {
+//            fragment.onActivityResult(requestCode,resultCode,data);
+//        }
+//    }
 
 
 
