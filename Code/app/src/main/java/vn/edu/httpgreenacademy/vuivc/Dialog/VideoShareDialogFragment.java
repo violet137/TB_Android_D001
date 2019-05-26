@@ -32,6 +32,8 @@ public class VideoShareDialogFragment extends DialogFragment {
 
         View dialogView = inflater.inflate(resourceLayout, container,false);
 
+
+
         TextView tvShareMore = dialogView.findViewById(R.id.tvShareMore);
         tvShareMore.setOnClickListener(new View.OnClickListener() {
             @Override
