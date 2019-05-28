@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        VerticalVideoFragment fragmentUserMain = new VerticalVideoFragment();
+        HomeFragment fragmentUserMain = new HomeFragment();
         fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
 }
 

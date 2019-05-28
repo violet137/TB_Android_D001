@@ -16,7 +16,7 @@ import vn.edu.httpgreenacademy.vuivc.R;
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
 
-    public int TOTAL_FRAGMENT_ITEMS = 4;
+    public int TOTAL_FRAGMENT_ITEMS = 3;
 
     public HomePagerAdapter(FragmentManager fm) {
         super(fm);
@@ -26,9 +26,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 1: return new FragmentLiked();
-            case 2: return new VerticalVideoFragment();
-            case 3: return new FragmentGif();
+            case 0: return new FragmentLiked();
+            case 1: return new VerticalVideoFragment();
+            case 2: return new FragmentGif();
         }
         return null;
     }
