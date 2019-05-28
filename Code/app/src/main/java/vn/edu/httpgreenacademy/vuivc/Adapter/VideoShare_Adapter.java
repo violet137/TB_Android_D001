@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +20,11 @@ public class VideoShare_Adapter extends RecyclerView.Adapter<VideoShare_ViewHold
 {
 
     ArrayList<VideoShareModel> listShareModel = new ArrayList<>();
-    public VideoShare_Adapter(ArrayList<VideoShareModel> listShareModel) {
+    Activity activityShare;
+
+    public VideoShare_Adapter(ArrayList<VideoShareModel> listShareModel,Activity activityShareVideo) {
         this.listShareModel = listShareModel;
+        this.activityShare = activityShareVideo;
     }
 
     @NonNull
@@ -34,15 +36,19 @@ public class VideoShare_Adapter extends RecyclerView.Adapter<VideoShare_ViewHold
     @Override
     public void onBindViewHolder(@NonNull VideoShare_ViewHolder videoShare_viewHolder, int i) {
        videoShare_viewHolder.SetData(listShareModel.get(i));
-//        if(itemShare.getIcon_share_image() == R.drawable.icon_video_share_more)
-//        {
-//            Intent share = new Intent(Intent.ACTION_SENDTO);
-//            share.setType("text/plain");
-//            share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-//            share.putExtra(Intent.EXTRA_SUBJECT, itemShare.getVideo_share_name());
-//            share.putExtra(Intent.EXTRA_TEXT, itemShare.getVideo_share_link());
-//            activity.startActivity(Intent.createChooser(share, "Share link!"));
-//        }
+        if(listShareModel.get(i).getIcon_share_image() == R.drawable.icon_video_share_more)
+        {
+            Intent share = new Intent(Intent.ACTION_SEND);
+            share.setType("text/plain");
+            share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+            share.putExtra(Intent.EXTRA_SUBJECT, listShareModel.get(i).getVideo_share_name());
+            share.putExtra(Intent.EXTRA_TEXT, listShareModel.get(i).getVideo_share_link());
+            activityShare.startActivity(Intent.createChooser(share, listShareModel.get(i).getVideo_share_name()));
+        }
+        else if(listShareModel.get(i).getIcon_share_image() == R.drawable.icon_video_share_download)
+        {
+
+        }
     }
 
     @Override

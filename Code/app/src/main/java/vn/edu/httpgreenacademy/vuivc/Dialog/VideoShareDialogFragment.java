@@ -65,7 +65,7 @@ public class VideoShareDialogFragment extends DialogFragment {
         listVideoShareSocial.add(new VideoShareModel("Email", video_link, video_name, R.drawable.icon_video_share_email));
         listVideoShareSocial.add(new VideoShareModel("Copy", video_link, video_name, R.drawable.icon_video_share_copy));
         listVideoShareSocial.add(new VideoShareModel("More", video_link, video_name, R.drawable.icon_video_share_more));
-        adapterVideoSocial = new VideoShare_Adapter(listVideoShareSocial);
+        adapterVideoSocial = new VideoShare_Adapter(listVideoShareSocial,this.getActivity());
         recyclerViewShareSocial.setAdapter(adapterVideoSocial);
         recyclerViewShareSocial.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
@@ -77,7 +77,7 @@ public class VideoShareDialogFragment extends DialogFragment {
         listVideoShareDuet.add(new VideoShareModel("Thêm vào ưa thích", video_link, video_name, R.drawable.icon_video_share_favourite));
         listVideoShareDuet.add(new VideoShareModel("Không quan tâm", video_link, video_name, R.drawable.icon_video_share_unlike));
         listVideoShareDuet.add(new VideoShareModel("Báo cáo", video_link, video_name, R.drawable.icon_video_share_report));
-        adapterVideoDuet = new VideoShare_Adapter(listVideoShareDuet);
+        adapterVideoDuet = new VideoShare_Adapter(listVideoShareDuet,this.getActivity());
         recyclerViewShareDuet.setAdapter(adapterVideoDuet);
         recyclerViewShareDuet.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
 
