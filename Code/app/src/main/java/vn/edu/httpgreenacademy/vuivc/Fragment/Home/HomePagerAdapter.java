@@ -26,9 +26,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 0: return new FragmentLiked();
+            case 0: return new FragmentGif();
             case 1: return new VerticalVideoFragment();
-            case 2: return new FragmentGif();
+            case 2: return new FragmentUserMain();
         }
         return null;
     }
@@ -43,9 +43,9 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position)
         {
-            case 0: return "Xu hướng";
-            case 1: return "Video";
-            case 2: return "Ảnh";
+            case 0: return "PHOTOS";
+            case 1: return "VIDEOS";
+            case 2: return "PROFILE";
         }
         return "";
     }
