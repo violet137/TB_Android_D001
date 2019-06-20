@@ -14,6 +14,7 @@ import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHome;
+import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,18 +23,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        HomeFragment fragmentUserMain = new HomeFragment();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
+        FragmentLogin fragmentLogin = new FragmentLogin();
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentLogin).commit();
 }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        for(Fragment fragment:getSupportFragmentManager().getFragments())
-//        {
-//            fragment.onActivityResult(requestCode,resultCode,data);
-//        }
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        for(Fragment fragment:getSupportFragmentManager().getFragments())
+        {
+            fragment.onActivityResult(requestCode,resultCode,data);
+        }
+    }
 
 
 
