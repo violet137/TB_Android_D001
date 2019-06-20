@@ -1,19 +1,13 @@
 package vn.edu.httpgreenacademy.vuivc;
 
-import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
 
-import vn.edu.httpgreenacademy.vuivc.Fragment.Comment.Comment_Dialog_Fragmment;
+import vn.edu.httpgreenacademy.vuivc.Draw.FragmentPickAVUICC;
 import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
-import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
-import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
-import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHome;
+import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentDialogLogin;
+import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHomelogin;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         HomeFragment fragmentUserMain = new HomeFragment();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentUserMain).commit();
+        FragmentPickAVUICC fragmentPickAVUICC = new FragmentPickAVUICC();
+        FragmentHomelogin fragmentHomelogin = new FragmentHomelogin();
+        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentHomelogin).commit();
 }
 
 //    @Override

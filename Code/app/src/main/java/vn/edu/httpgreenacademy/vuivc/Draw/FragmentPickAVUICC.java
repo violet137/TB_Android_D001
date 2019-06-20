@@ -11,7 +11,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,8 @@ import vn.edu.httpgreenacademy.vuivc.R;
 
 public class FragmentPickAVUICC extends Fragment implements View.OnClickListener, PickImageInterface {
     ImageView imgback, imgthemanh;
+    Button btokanh;
+    RadioButton rbchonanh;
     RecyclerView listanh;
     ArrayList<PickModel> datahinhanh = new ArrayList<>();
     int HinhAnh;
@@ -33,7 +37,9 @@ public class FragmentPickAVUICC extends Fragment implements View.OnClickListener
         imgthemanh.setOnClickListener(this);
         imgback.setOnClickListener(this);
         listanh = view.findViewById(R.id.listAnhVUIVC);
-
+        btokanh = view.findViewById(R.id.btokanh);
+        btokanh.setOnClickListener(this);
+        rbchonanh = view.findViewById(R.id.rbanhchon);
         datahinhanh.clear();
         TypedArray hinhanh = getResources().obtainTypedArray(R.array.Anhche);
         String[] tenanh = getResources().getStringArray(R.array.tenanh);
@@ -59,13 +65,18 @@ public class FragmentPickAVUICC extends Fragment implements View.OnClickListener
                 getActivity().onBackPressed();
                 break;
             case R.id.imgThemAnhTuCamera:
+                FragmentEditPick fragmentEditPick1 = new FragmentEditPick();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(android.R.id.content, fragmentEditPick1).addToBackStack("s").commit();
+                break;
+            case  R.id.btokanh:
                 FragmentEditPick fragmentEditPick = new FragmentEditPick();
                 Bundle bundle = new Bundle();
                 bundle.putInt("hinhanh", HinhAnh);
                 fragmentEditPick.setArguments(bundle);
 
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content, fragmentEditPick).addToBackStack("s").commit();
+                FragmentManager fragmentManager1 = getActivity().getSupportFragmentManager();
+                fragmentManager1.beginTransaction().replace(android.R.id.content, fragmentEditPick).addToBackStack("s").commit();
                 break;
         }
     }
