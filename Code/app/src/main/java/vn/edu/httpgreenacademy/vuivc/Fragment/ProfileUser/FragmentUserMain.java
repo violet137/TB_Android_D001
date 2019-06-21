@@ -1,8 +1,11 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,16 +25,26 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.facebook.Profile;
+import com.facebook.internal.ImageRequest;
+import com.facebook.login.LoginManager;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
 import vn.edu.httpgreenacademy.vuivc.Adapter.ViewPagerAdapter;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowers;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing;
 import vn.edu.httpgreenacademy.vuivc.Fragment.AboutApp.FragmentAboutApp;
+import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.Interface.NhanDulieuTuUserMain;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenDuLieu;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenThongTinUser;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
+import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
 
 public class FragmentUserMain extends Fragment implements View.OnClickListener, TruyenDuLieu, TruyenThongTinUser {
     ViewPager viewPager;
@@ -88,12 +101,23 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         fragmentDanhSachFollowers.TruyensoluongFollowers(this);
         fragmentDanhSachFollowing.TruyensoluongFollowing(this);
 
-        txtTenUser.setText(profileUser.getNameUser());
-        txtID.setText(profileUser.getId() + "");
+
+        // Get user login
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name), Context.MODE_PRIVATE);
+        String facebookUserId = sharedPref.getString("fb_sharePre_login_id", "");
+          if(!facebookUserId.isEmpty())
+          {
+              txtTenUser.setText(sharedPref.getString("fb_sharePre_login_name", ""));
+              txtID.setText(sharedPref.getString("fb_sharePre_login_email", ""));
+              imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
+          }
+
+//        txtTenUser.setText(profileUser.getNameUser());
+//        txtID.setText(profileUser.getId() + "");
         txt_SoluongFollower.setText(SoluongFollower+"");
         txt_SoluongFollowing.setText(SoLuongFollowing+"");
         txt_SoLuongVideo.setText(SoLuongVideo+"");
-        imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
+        //
         return view;
     }
 
@@ -129,6 +153,12 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                                 logout_dialog.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                                        LoginManager.getInstance().logOut();
+                                        getActivity().getSupportFragmentManager()
+                                                .beginTransaction()
+                                                .replace(android.R.id.content, new FragmentLogin())
+                                                .commit();
 
                                     }
                                 });
