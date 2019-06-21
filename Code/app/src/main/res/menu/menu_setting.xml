@@ -9,6 +9,10 @@
         android:title="@string/about"
         />
     <item
+        android:id="@+id/itfavourite"
+        android:title="@string/yeuthich"
+        />
+    <item
         android:id="@+id/logout"
         android:title="@string/logout"
         />

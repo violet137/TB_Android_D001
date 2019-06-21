@@ -11,29 +11,19 @@ import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.Video.FragmentVideo;
 
 public class ViewPargerAdapter extends FragmentPagerAdapter {
 
-    FragmentVideo fragment_video;
-    FragmentHashtag fragment_hashtag;
-    FragmentHinhAnh fragment_hinhAnh;
-
     public ViewPargerAdapter(FragmentManager fm) {
         super(fm);
-        fragment_hashtag = new FragmentHashtag();
-        fragment_hinhAnh = new FragmentHinhAnh();
-        fragment_video = new FragmentVideo();
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return fragment_video;
-
+                return new FragmentVideo();
             case 1:
-                return fragment_hashtag;
-
+                return new FragmentHashtag();
             case 2:
-                return fragment_hinhAnh;
-
+                return new FragmentHinhAnh();
         }
         return null;
     }
@@ -44,10 +34,8 @@ public class ViewPargerAdapter extends FragmentPagerAdapter {
         switch (position) {
             case 0:
                 return "Video";
-
             case 1:
                 return "Hashtag";
-
             case 2:
                 return "Hình Ảnh";
         }

@@ -45,6 +45,7 @@ import vn.edu.httpgreenacademy.vuivc.Interface.TruyenThongTinUser;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
+import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;
 
 public class FragmentUserMain extends Fragment implements View.OnClickListener, TruyenDuLieu, TruyenThongTinUser {
     ViewPager viewPager;
@@ -141,6 +142,9 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                                 fragmentAboutApp = new FragmentAboutApp();
                                 ChuyenFragment(fragmentAboutApp);
                                 break;
+//                            case R.id.itfavourite:
+//                               ChuyenFragment(new FragmentYeuThich());
+//                                break;
                             case R.id.logout:
                                 AlertDialog.Builder logout_dialog = new AlertDialog.Builder(getActivity());
                                 logout_dialog.setMessage("Do you want to log out ?");
