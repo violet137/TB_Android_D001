@@ -6,46 +6,51 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-
-import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
 
 import java.util.ArrayList;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
 public class FragmentHashtag extends Fragment {
-    RecyclerView listYeuThichHashtag,listYeuThichHashTag;
-    ArrayList<HashtagModel> dataHashtag = new ArrayList<>();
+    RecyclerView listYeuthichHashtag,listYeuThichHashTag;
+    ArrayList<HashtagModel> dataHashtagvideo = new ArrayList<>();
+    ArrayList<HashtagModel> dataHashtagIMG = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hashtag, container, false);
-        listYeuThichHashtag = view.findViewById(R.id.listYeuthichHashtag);
+        listYeuthichHashtag = view.findViewById(R.id.listYeuthichHashtag);
         listYeuThichHashTag = view.findViewById(R.id.listYeuThichHashTag);
 
-        dataHashtag.clear();
+        dataHashtagvideo.clear();
+        TypedArray video = getResources().obtainTypedArray(R.array.hinhanh);
+        for (int i=0;i<video.length();i++)
+        {
+            HashtagModel hashtagModel = new HashtagModel(video.getResourceId(i,-1),video.getResourceId(i,-1));
+            dataHashtagvideo.add(hashtagModel);
+        }
+
+        dataHashtagIMG.clear();
         TypedArray hinhanh = getResources().obtainTypedArray(R.array.hinhanh);
         for (int i=0;i<hinhanh.length();i++)
         {
             HashtagModel hashtagModel = new HashtagModel(hinhanh.getResourceId(i,-1),hinhanh.getResourceId(i,-1));
-            dataHashtag.add(hashtagModel);
+            dataHashtagIMG.add(hashtagModel);
         }
 
         listYeuThichHashTag.setLayoutManager(new GridLayoutManager(getContext(),3));
-        HashTagVideoAdapter hashTagVideoAdapter = new HashTagVideoAdapter(dataHashtag,getActivity());
-        listYeuThichHashTag.setAdapter(hashTagVideoAdapter);
+        HashTagAdapterVideo hashTagAdapterVideo = new HashTagAdapterVideo(dataHashtagvideo,getActivity());
+        listYeuThichHashTag.setAdapter(hashTagAdapterVideo);
         listYeuThichHashTag.setHasFixedSize(true);
-        listYeuThichHashtag.setLayoutManager(new GridLayoutManager(getContext(),3));
-        HashTagAdapterAnh hashTagAdapterAnh = new HashTagAdapterAnh(dataHashtag,getActivity());
-        listYeuThichHashtag.setAdapter(hashTagAdapterAnh);
+
+
+        listYeuthichHashtag.setLayoutManager(new GridLayoutManager(getContext(),3));
+        HashTagAdapterAnh hashTagAdapterAnh = new HashTagAdapterAnh(dataHashtagIMG,getActivity());
+        listYeuthichHashtag.setAdapter(hashTagAdapterAnh);
 
 
 

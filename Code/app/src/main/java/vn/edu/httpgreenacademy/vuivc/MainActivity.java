@@ -9,6 +9,7 @@ import vn.edu.httpgreenacademy.vuivc.Draw.FragmentPickAVUICC;
 import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentDialogLogin;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHomelogin;
+import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,8 @@ public class MainActivity extends AppCompatActivity {
         HomeFragment fragmentUserMain = new HomeFragment();
         FragmentDraw fragmentDraw = new FragmentDraw();
         FragmentHomelogin fragmentHomelogin = new FragmentHomelogin();
-        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentDraw).commit();
+        FragmentYeuThich fragmentYeuThich = new FragmentYeuThich();
+        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentYeuThich).commit();
 }
 
 //    @Override

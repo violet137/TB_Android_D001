@@ -11,11 +11,11 @@ import java.util.ArrayList;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class HashTagVideoAdapter extends RecyclerView.Adapter<HashTagViewHoderVideo> {
+public class HashTagAdapterVideo extends RecyclerView.Adapter<HashTagViewHoderVideo> {
     ArrayList<HashtagModel> hashtagModelArrayList = new ArrayList<>();
     Activity activity;
 
-    public HashTagVideoAdapter(ArrayList<HashtagModel> hashtagModelArrayList, Activity activity) {
+    public HashTagAdapterVideo(ArrayList<HashtagModel> hashtagModelArrayList, Activity activity) {
         this.hashtagModelArrayList = hashtagModelArrayList;
         this.activity = activity;
     }

@@ -18,19 +18,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <pl.droidsonroids.gif.GifImageView
             android:id="@+id/imgVideoHashtag"
             android:layout_width="125dp"
             android:layout_height="125dp"
-            tools:layout_editor_absoluteX="153dp"
-            tools:layout_editor_absoluteY="482dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imgplay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="45dp"
+            android:layout_margin="55dp"
             app:srcCompat="@drawable/exo_controls_play" />
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>
