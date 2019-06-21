@@ -60,4 +60,10 @@
     <string name="h_y_b" translatable="false">Hủy bỏ</string>
     <string name="loadimgsever">LOAD IMAGE SEVER</string>
     <string name="loadimgphone">LOAD IMAGE IN PHONE</string>
+    <string name="fb_sharePre_login_status" translatable="false">false</string>
+    <string name="fb_sharePre_login_id" translatable="false"></string>
+    <string name="fb_sharePre_login_name" translatable="false"></string>
+    <string name="fb_sharePre_login_email" translatable="false"></string>
+    <string name="fb_sharePre_login_imgURL" translatable="false"></string>
+    <string name="fb_sharePre_Name" translatable="false">Pre_Remember_Facebook_Login</string>
 </resources>

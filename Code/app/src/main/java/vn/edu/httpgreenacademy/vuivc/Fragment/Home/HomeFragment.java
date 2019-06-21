@@ -1,5 +1,7 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.Home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,12 +15,13 @@ import android.widget.TextView;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
+import static com.facebook.AccessTokenManager.SHARED_PREFERENCES_NAME;
+
 public class HomeFragment extends Fragment {
 
     ViewPager viewPagerHome;
     TabLayout tabLayoutHome;
     TextView tvUserHome;
-    String getFbUserName;
 
     @Nullable
     @Override
@@ -33,7 +36,8 @@ public class HomeFragment extends Fragment {
         tabLayoutHome.setupWithViewPager(viewPagerHome);
 
         // Get user login
-        getFbUserName = getArguments() != null ? getArguments().getString("fb_name_user") : "";
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name),Context.MODE_PRIVATE);
+        String getFbUserName = sharedPref.getString("fb_sharePre_login_name", "");
         tvUserHome.setText(getFbUserName);
         return viewHome;
     }

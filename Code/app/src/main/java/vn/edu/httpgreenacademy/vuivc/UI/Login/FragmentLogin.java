@@ -1,6 +1,8 @@
 package vn.edu.httpgreenacademy.vuivc.UI.Login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -35,6 +37,8 @@ import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 import vn.edu.httpgreenacademy.vuivc.R;
 
+import static com.facebook.AccessTokenManager.SHARED_PREFERENCES_NAME;
+
 public class FragmentLogin extends Fragment implements  Login_Status {
     TextView Txt_Error;
 
@@ -44,6 +48,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
     String email_user;
     String name_user;
     String link_user;
+    String fb_id_user;
 
 
     @Nullable
@@ -68,7 +73,6 @@ public class FragmentLogin extends Fragment implements  Login_Status {
                     Toast.makeText(getContext(), "Dang nhap thanh cong", Toast.LENGTH_LONG).show();
                     AccessToken accessToken = loginResult.getAccessToken();
                     String token = accessToken.getToken();
-                    Toast.makeText(getContext(), token, Toast.LENGTH_LONG).show();
                     if(!token.isEmpty())
                     {
                         GraphRequest request = GraphRequest.newMeRequest(
@@ -102,21 +106,12 @@ public class FragmentLogin extends Fragment implements  Login_Status {
         }
         else
         {
-            Profile profile = Profile.getCurrentProfile();
-            if (profile != null) {
-                Log.d("my info", "Logged, user name=" + profile.getFirstName() + " " + profile.getLastName());
-                HomeFragment fragmentHome = new HomeFragment();
-                Bundle args = new Bundle();
-                args.putString("fb_email_user", profile.getFirstName() + " " + profile.getLastName());
-                args.putString("fb_name_user", profile.getFirstName() + " " + profile.getLastName());
-                args.putString("fb_link_user", profile.getFirstName() + " " + profile.getLastName());
-                fragmentHome.setArguments(args);
+            // Redirect to home fragment
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(android.R.id.content, new HomeFragment())
+                    .commit();
 
-                getActivity().getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(android.R.id.content, fragmentHome)
-                        .commit();
-            }
         }
         //LoginManager.getInstance().logOut();
 
@@ -125,26 +120,23 @@ public class FragmentLogin extends Fragment implements  Login_Status {
 
     private void setProfileToView(JSONObject jsonObject) {
         try {
-            //gender.setText(jsonObject.getString("gender"));
-            //jsonObject.getString("id")
-            email_user = jsonObject.getString("email");
-            name_user = jsonObject.getString("name");
+
             if (jsonObject.has("picture")) {
                 link_user = jsonObject.getJSONObject("picture").getJSONObject("data").getString("url");
             }
-            Log.d("fb profile",email_user + " - " + name_user + " - " + link_user);
 
-
-            HomeFragment fragmentHome = new HomeFragment();
-            Bundle args = new Bundle();
-            args.putString("fb_email_user", email_user);
-            args.putString("fb_name_user", name_user);
-            args.putString("fb_link_user", link_user);
-            fragmentHome.setArguments(args);
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name),Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("fb_sharePre_login_status","" + true);
+            editor.putString("fb_sharePre_login_id",jsonObject.getString("id"));
+            editor.putString("fb_sharePre_login_name",jsonObject.getString("name"));
+            editor.putString("fb_sharePre_login_email",jsonObject.getString("email"));
+            editor.putString("fb_sharePre_login_imgURL",link_user);
+            editor.commit();
 
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(android.R.id.content, fragmentHome)
+                    .replace(android.R.id.content, new HomeFragment())
                     .commit();
 
         } catch (JSONException e) {
@@ -162,16 +154,9 @@ public class FragmentLogin extends Fragment implements  Login_Status {
     public void LoginStatus(Boolean isThanhCong) {
         if(isThanhCong)
         {
-            HomeFragment fragmentHome = new HomeFragment();
-            Bundle args = new Bundle();
-            args.putString("fb_email_user", email_user);
-            args.putString("fb_name_user", name_user);
-            args.putString("fb_link_user", link_user);
-            fragmentHome.setArguments(args);
-
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(android.R.id.content, fragmentHome)
+                    .replace(android.R.id.content, new HomeFragment())
                     .commit();
         }
     }
