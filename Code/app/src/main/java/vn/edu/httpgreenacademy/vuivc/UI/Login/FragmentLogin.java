@@ -31,6 +31,7 @@ import org.json.JSONObject;
 
 import java.util.Arrays;
 
+import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 import vn.edu.httpgreenacademy.vuivc.R;
 
@@ -104,17 +105,20 @@ public class FragmentLogin extends Fragment implements  Login_Status {
             Profile profile = Profile.getCurrentProfile();
             if (profile != null) {
                 Log.d("my info", "Logged, user name=" + profile.getFirstName() + " " + profile.getLastName());
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentHome fragmentHome = new FragmentHome();
+                HomeFragment fragmentHome = new HomeFragment();
                 Bundle args = new Bundle();
                 args.putString("fb_email_user", profile.getFirstName() + " " + profile.getLastName());
                 args.putString("fb_name_user", profile.getFirstName() + " " + profile.getLastName());
                 args.putString("fb_link_user", profile.getFirstName() + " " + profile.getLastName());
                 fragmentHome.setArguments(args);
-                fragmentManager.beginTransaction().replace(android.R.id.content, fragmentHome).commit();
+
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(android.R.id.content, fragmentHome)
+                        .commit();
             }
         }
-       /* LoginManager.getInstance().logOut();*/
+        //LoginManager.getInstance().logOut();
 
         return view;
     }
@@ -129,14 +133,19 @@ public class FragmentLogin extends Fragment implements  Login_Status {
                 link_user = jsonObject.getJSONObject("picture").getJSONObject("data").getString("url");
             }
             Log.d("fb profile",email_user + " - " + name_user + " - " + link_user);
-            FragmentManager fragmentManager = getFragmentManager();
-            FragmentHome fragmentHome = new FragmentHome();
+
+
+            HomeFragment fragmentHome = new HomeFragment();
             Bundle args = new Bundle();
             args.putString("fb_email_user", email_user);
             args.putString("fb_name_user", name_user);
             args.putString("fb_link_user", link_user);
             fragmentHome.setArguments(args);
-            fragmentManager.beginTransaction().replace(android.R.id.content, fragmentHome).commit();
+
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(android.R.id.content, fragmentHome)
+                    .commit();
 
         } catch (JSONException e) {
             e.printStackTrace();
