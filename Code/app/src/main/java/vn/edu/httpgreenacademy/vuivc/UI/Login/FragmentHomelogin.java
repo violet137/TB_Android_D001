@@ -21,7 +21,7 @@ import com.facebook.login.widget.LoginButton;
 
 import vn.edu.httpgreenacademy.vuivc.R;
 
-public class FragmentHome extends Fragment implements View.OnClickListener {
+public class FragmentHomelogin extends Fragment implements View.OnClickListener {
     TextView txtGoogle;
     Button btLogin, btRegister;
 

@@ -13,11 +13,8 @@ import vn.edu.httpgreenacademy.vuivc.R;
 public class Comment_RecyclerView_Adapter extends RecyclerView.Adapter<Comment_RecyclerView_Holder> {
 
     ArrayList<UserModel> userModelArrayList = new ArrayList<>();
-
-
     public Comment_RecyclerView_Adapter(ArrayList<UserModel> userModelArrayList) {
         this.userModelArrayList = userModelArrayList;
-
     }
 
     @NonNull
@@ -25,16 +22,12 @@ public class Comment_RecyclerView_Adapter extends RecyclerView.Adapter<Comment_R
     public Comment_RecyclerView_Holder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.comment_item,viewGroup,false);
-
         return new Comment_RecyclerView_Holder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Comment_RecyclerView_Holder comment_recyclerView_holder, int i) {
-
-        final UserModel userModelList = userModelArrayList.get(i);
-        comment_recyclerView_holder.setData(userModelList);
-
+         comment_recyclerView_holder.setData(userModelArrayList.get(i));
     }
 
     @Override

@@ -54,7 +54,7 @@ public class FragmentRegister extends Fragment implements View.OnClickListener, 
                 getActivity().onBackPressed();
                 break;
             case R.id.BT_Home_Register:
-                FragmentHome fragment_home = new FragmentHome();
+                FragmentHomelogin fragment_home = new FragmentHomelogin();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(android.R.id.content,fragment_home).commit();
                 break;
