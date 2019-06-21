@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -44,7 +45,9 @@ public class PickAdapter extends RecyclerView.Adapter<PickViewHodel> {
             @Override
             public void onClick(View v) {
                 pickImageInterface.PickImageCallback(pickModel.getDuongdanhinh());
-
+                Toast.makeText(context.getApplicationContext(),
+                        "Đã Chọn Ảnh Hãy Nhấn Vào Chỉnh Ảnh",
+                        Toast.LENGTH_LONG).show();
             }
         });
     }

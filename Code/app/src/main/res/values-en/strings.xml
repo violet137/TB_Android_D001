@@ -48,4 +48,6 @@
     <string name="pickavuivc">Pick A VUIVC</string>
     <string name="phan_dinh_tung">Phan Dinh Tung</string>
     <string name="todo">TODO</string>
+    <string name="loadimgsever">LOAD IMAGE SEVER</string>
+    <string name="loadimgphone">LOAD IMAGE IN PHONE</string>
 </resources>

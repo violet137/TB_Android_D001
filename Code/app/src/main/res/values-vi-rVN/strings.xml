@@ -45,7 +45,9 @@
     <string name="hinhanh">Hình Ảnh</string>
     <string name="hint">Nhập thông tin</string>
     <string name="hashtag">Hashtag</string>
-    <string name="pickavuivc">Chọn tài khoản VUIVC</string>
+    <string name="pickavuivc">Chọn Ảnh VUIVC</string>
     <string name="todo">Việc phải làm</string>
     <string name="phan_dinh_tung">Phan Dinh Tung</string>
+    <string name="loadimgsever">Tải Ảnh TỪ Máy Chủ</string>
+    <string name="loadimgphone">Tải Ảnh Trong Thư Viện Ảnh Của Điện Thoại</string>
 </resources>

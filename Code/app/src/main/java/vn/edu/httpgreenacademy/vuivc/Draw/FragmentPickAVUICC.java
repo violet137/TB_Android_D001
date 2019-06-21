@@ -20,9 +20,8 @@ import java.util.ArrayList;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 public class FragmentPickAVUICC extends Fragment implements View.OnClickListener, PickImageInterface {
-    ImageView imgback, imgthemanh;
+    ImageView imgback;
     Button btokanh;
-    RadioButton rbchonanh;
     RecyclerView listanh;
     ArrayList<PickModel> datahinhanh = new ArrayList<>();
     int HinhAnh;
@@ -33,13 +32,10 @@ public class FragmentPickAVUICC extends Fragment implements View.OnClickListener
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmentpickavuivc, container, false);
         imgback = view.findViewById(R.id.imgBackofPick);
-        imgthemanh = view.findViewById(R.id.imgThemAnhTuCamera);
-        imgthemanh.setOnClickListener(this);
         imgback.setOnClickListener(this);
         listanh = view.findViewById(R.id.listAnhVUIVC);
         btokanh = view.findViewById(R.id.btokanh);
         btokanh.setOnClickListener(this);
-        rbchonanh = view.findViewById(R.id.rbanhchon);
         datahinhanh.clear();
         TypedArray hinhanh = getResources().obtainTypedArray(R.array.Anhche);
         String[] tenanh = getResources().getStringArray(R.array.tenanh);
@@ -63,11 +59,6 @@ public class FragmentPickAVUICC extends Fragment implements View.OnClickListener
         switch (v.getId()) {
             case R.id.imgBackofPick:
                 getActivity().onBackPressed();
-                break;
-            case R.id.imgThemAnhTuCamera:
-                FragmentEditPick fragmentEditPick1 = new FragmentEditPick();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content, fragmentEditPick1).addToBackStack("s").commit();
                 break;
             case  R.id.btokanh:
                 FragmentEditPick fragmentEditPick = new FragmentEditPick();

@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import vn.edu.httpgreenacademy.vuivc.Draw.FragmentDraw;
 import vn.edu.httpgreenacademy.vuivc.Draw.FragmentPickAVUICC;
 import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentDialogLogin;
@@ -17,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         HomeFragment fragmentUserMain = new HomeFragment();
-        FragmentPickAVUICC fragmentPickAVUICC = new FragmentPickAVUICC();
+        FragmentDraw fragmentDraw = new FragmentDraw();
         FragmentHomelogin fragmentHomelogin = new FragmentHomelogin();
-        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentHomelogin).commit();
+        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentDraw).commit();
 }
 
 //    @Override

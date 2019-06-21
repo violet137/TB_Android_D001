@@ -14,21 +14,9 @@
         android:layout_marginEnd="8dp"
         android:gravity="center"
         android:text="@string/pickavuivc"
-        app:layout_constraintEnd_toStartOf="@+id/imgThemAnhTuCamera"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgBackofPick"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imgThemAnhTuCamera"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtPick"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtPick"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/add" />
 
     <ImageView
         android:id="@+id/imgBackofPick"
@@ -56,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgThemAnhTuCamera" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPick" />
 
     <Button
         android:id="@+id/btokanh"

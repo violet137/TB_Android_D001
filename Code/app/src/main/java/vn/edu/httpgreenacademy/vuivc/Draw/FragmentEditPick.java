@@ -18,6 +18,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,7 +37,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
+import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 import static android.app.Activity.RESULT_CANCELED;
@@ -104,7 +107,12 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgOK:
-                saveData();
+                Toast.makeText(getContext().getApplicationContext(),
+                        "Đã Lưu Ảnh",
+                        Toast.LENGTH_LONG).show();
+                HomeFragment homeFragment = new HomeFragment();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(android.R.id.content,homeFragment).commit();
                 break;
             case R.id.btCamera:
                 askPermissionAndCaptureVideo();
@@ -119,6 +127,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                     Bitmap processedBitmap = chenanhtren();
                     if (processedBitmap != null) {
                         imganhche.setImageBitmap(processedBitmap);
+                        saveImageGallery(processedBitmap);
                         Toast.makeText(getContext().getApplicationContext(),
                                 "Done",
                                 Toast.LENGTH_LONG).show();
@@ -153,6 +162,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                     Bitmap processedBitmap = chenanhgiua();
                     if (processedBitmap != null) {
                         imganhche.setImageBitmap(processedBitmap);
+                        saveImageGallery(processedBitmap);
                         Toast.makeText(getContext().getApplicationContext(),
                                 "Done",
                                 Toast.LENGTH_LONG).show();
@@ -178,6 +188,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                     Bitmap processedBitmap = chenanhduoi();
                     if (processedBitmap != null) {
                         imganhche.setImageBitmap(processedBitmap);
+                        saveImageGallery(processedBitmap);
                         Toast.makeText(getContext().getApplicationContext(),
                                 "Done",
                                 Toast.LENGTH_LONG).show();
@@ -226,6 +237,11 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), "Action Failed", Toast.LENGTH_SHORT).show();
             }
         }
+        if(requestCode == 102)
+        {
+            checkAndRequestPermissions();
+        }
+
 
     }
 
@@ -277,6 +293,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        saveImageGallery(newBitmap);
         return newBitmap;
     }
 
@@ -328,6 +345,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        saveImageGallery(newBitmap);
         return newBitmap;
     }
 
@@ -379,6 +397,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        saveImageGallery(newBitmap);
         return newBitmap;
     }
 
@@ -403,8 +422,8 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
 
         newCanvas.drawText(textToDraw, x, y, paint);
 
+        saveImageGallery(newBitmap);
         imganhche.setImageBitmap(newBitmap);
-
 
     }
 
@@ -427,10 +446,8 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         newCanvas.drawText(textToDraw, 0, 15, paint);
         newCanvas.translate(0, 0);
 
-
+        saveImageGallery(newBitmap);
         imganhche.setImageBitmap(newBitmap);
-
-
     }
 
     private void camera3() {
@@ -452,10 +469,8 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         newCanvas.drawText(textToDraw, 0, y / 2, paint);
         newCanvas.translate(0, 0);
 
-
+        saveImageGallery(newBitmap);
         imganhche.setImageBitmap(newBitmap);
-
-
     }
 
 
@@ -480,6 +495,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
 
         newCanvas.drawText(textToDraw, x, y, paint);
 
+        saveImageGallery(newBitmap);
         imganhche.setImageBitmap(newBitmap);
 
 
@@ -503,10 +519,8 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         newCanvas.drawText(textToDraw, 0, 45, paint);
         newCanvas.translate(0, 0);
 
-
+        saveImageGallery(newBitmap);
         imganhche.setImageBitmap(newBitmap);
-
-
     }
 
     private void ReloadImage3() {
@@ -527,9 +541,8 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         newCanvas.drawText(textToDraw, 0, y, paint);
         newCanvas.translate(0, 0);
 
+        saveImageGallery(newBitmap);
         imganhche.setImageBitmap(newBitmap);
-
-
     }
 
     private void askPermissionAndCaptureVideo() {
@@ -552,27 +565,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         }
         return false;
     }
-    public void saveData(){
-        if (isExternalStorageReadable())
-        {
-            String content = imganhche.toString();
-            File file;
-            FileOutputStream outputStream;
-            try {
-                file = new File(Environment.getExternalStorageDirectory(), "vuivc.PNG");
-                Log.d("Vuivc", Environment.getExternalStorageDirectory().getAbsolutePath());
-                outputStream = new FileOutputStream(file);
-                outputStream.write(content.getBytes());
-                outputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else{
-            Toast.makeText(getContext(),"Can not save file",Toast.LENGTH_SHORT).show();
-        }
 
-
-}
 
     private void checkAndRequestPermissions() {
         String[] permissions = new String[]{
@@ -591,6 +584,32 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     }
 
 
+    private void saveImageGallery(Bitmap finalbimap){
+        String root = Environment.getExternalStorageDirectory().toString();
+        File myDir = new File(root+"/saveImageVuiVCC");
+        myDir.mkdirs();
+        Random generator = new Random();
+        int n = 10000;
+        n = generator.nextInt(n);
+        String imageName= "Image-"+ n +".jpg";
+        File file = new File(myDir,imageName);
+        if (file.exists()) file.delete();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            finalbimap.compress(Bitmap.CompressFormat.JPEG,90,out);
+            String resizeCoolerImagePath = file.getAbsolutePath();
+            out.flush();
+            out.close();
+            Toast.makeText(getContext().getApplicationContext(),
+                    "Đã Lưu Ảnh!",
+                    Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getContext().getApplicationContext(),
+                    "Lưu ảnh thất bại!",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
 
 
 }
