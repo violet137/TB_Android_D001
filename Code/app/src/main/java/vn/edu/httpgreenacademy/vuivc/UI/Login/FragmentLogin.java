@@ -162,9 +162,17 @@ public class FragmentLogin extends Fragment implements  Login_Status {
     public void LoginStatus(Boolean isThanhCong) {
         if(isThanhCong)
         {
-            FragmentManager fragmentManager = getFragmentManager();
-            HomeFragment fragmentLogin = new HomeFragment();
-            fragmentManager.beginTransaction().replace(android.R.id.content, fragmentLogin).commit();
+            HomeFragment fragmentHome = new HomeFragment();
+            Bundle args = new Bundle();
+            args.putString("fb_email_user", email_user);
+            args.putString("fb_name_user", name_user);
+            args.putString("fb_link_user", link_user);
+            fragmentHome.setArguments(args);
+
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(android.R.id.content, fragmentHome)
+                    .commit();
         }
     }
 }
