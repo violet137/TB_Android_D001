@@ -7,15 +7,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentVideos;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-    FragmentVideos fragment_videos;
-    FragmentLiked fragment_liked;
+
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
-        fragment_videos = new FragmentVideos();
-        fragment_liked = new FragmentLiked();
     }
 
     @Override
@@ -23,18 +21,19 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0:
-                return fragment_videos;
+                return new FragmentLiked();
             case 1:
-                return fragment_liked;
+                return new FragmentVideos();
+            case 2:
+                return new FragmentUserMain();
             default:
                 return null;
         }
-
     }
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Nullable
@@ -43,9 +42,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0:
-                return "VIDEOS";
+                return "PHOTOS";
             case 1:
-                return "LIKED";
+                return "VIDEOS";
+            case 2:
+                return "PROFILE";
         }
         return "";
     }
