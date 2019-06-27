@@ -33,7 +33,6 @@ public class FragmentItemVideo extends Fragment {
     private int mVideoPosition;
     private String mVideoName;
     private String mVideoURL;
-    private ProgressDialog bar;
     MediaController mediaController;
 
     static FragmentItemVideo newInstance(int num, VideoModel videoModel) {
@@ -75,22 +74,15 @@ public class FragmentItemVideo extends Fragment {
 
         // Show video caption
         tvVideoName.setText(mVideoName);
-        tvVideoName.setSelected(true);
         
         // Show video player
-        bar=new ProgressDialog(getActivity());
-        bar.setTitle("Connecting server");
-        bar.setMessage("Please Wait... ");
-        bar.setCancelable(false);
-        bar.show();
-        if(bar.isShowing()) {
-            videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
-            mediaController = new MediaController(getActivity());
-            mediaController.setMediaPlayer(videoviewVertical);
-            videoviewVertical.setMediaController(mediaController);
-            videoviewVertical.requestFocus();
-        }
-        bar.dismiss();
+        videoviewVertical.setVideoURI(Uri.parse(mVideoURL));
+        videoviewVertical.setVideoPath(mVideoURL);
+        mediaController = new MediaController(getActivity());
+        mediaController.setMediaPlayer(videoviewVertical);
+        videoviewVertical.setMediaController(mediaController);
+        videoviewVertical.seekTo(1);
+        videoviewVertical.requestFocus();
 
         // Rotate video music icon
         RotateAnimation rotate = new RotateAnimation(
