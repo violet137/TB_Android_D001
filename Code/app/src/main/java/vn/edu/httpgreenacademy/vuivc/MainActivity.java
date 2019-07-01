@@ -1,17 +1,20 @@
 package vn.edu.httpgreenacademy.vuivc;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         FragmentGif fragmentGif=new FragmentGif();
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentGif).commit();
+        FragmentManager fragmentManager=getFragmentManager();
+        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentGif).commit();
     }
 }

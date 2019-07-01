@@ -1,9 +1,9 @@
 package vn.edu.httpgreenacademy.vuivc;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -34,7 +34,7 @@ public class FragmentGif extends Fragment {
                         adapter = new GifAdapter(getActivity(), new ArrayList<Gif>());
                         recyclerView.setAdapter(adapter);
                         new GiphyTask(Helper.getGiphyQueryUrl("dragon",
-                                20, GiphyQueryBuilder.EndPoint.SEARCH, ""), new GiphyTask.Callback() {
+                                15, GiphyQueryBuilder.EndPoint.SEARCH, ""), new GiphyTask.Callback() {
                             @Override
                             public void onResponse(List<Gif> gifs) {
                                 adapter.setGifs(gifs);
