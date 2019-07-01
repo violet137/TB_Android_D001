@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Nghia task 4
+        // Cuong task 4
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentLogin fragmentLogin = new FragmentLogin();
         fragmentManager.beginTransaction().replace(android.R.id.content,fragmentLogin).commit();
