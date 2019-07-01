@@ -3,62 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/editTextComment"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvTotalCommentItem"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:gravity="center_horizontal|center_vertical"
+        android:textColor="@android:color/black"
+        android:text="abc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewQuit"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        app:layout_constraintDimensionRatio="1:1"
+        android:padding="3dp"
+        android:src="@drawable/icon_x"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTotalCommentItem"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotalCommentItem"
+        />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewComment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewQuit"
-        />
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalCommentItem" />
+
+    <EditText
+        android:id="@+id/editTextComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:hint="Them mot nhan xet"
+        android:textSize="11dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewComment" />
+
 
     <ImageView
-        android:id="@+id/imageViewQuit"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/icon_x" />
+        android:id="@+id/imageViewEmoticon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editTextComment"
+        app:layout_constraintRight_toRightOf="parent"
+        app:srcCompat="@drawable/icon_emotion" />
 
     <ImageView
         android:id="@+id/imageViewA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewEmotion"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextComment"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewComment"
+        android:padding="3dp"
+        app:layout_constraintTop_toTopOf="@+id/editTextComment"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewEmoticon"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextComment"
         app:srcCompat="@drawable/icon_a" />
 
-    <ImageView
-        android:id="@+id/imageViewEmotion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageViewA"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewComment"
-        app:srcCompat="@drawable/icon_emotion_gray" />
 
 </android.support.constraint.ConstraintLayout>
