@@ -4,16 +4,21 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-
+import vn.edu.httpgreenacademy.vuivc.Api.ApiUtils;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.ViewPager.VerticalViewPager;
 import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
-import vn.edu.httpgreenacademy.vuivc.Enum.VideoTypeEnum;
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class VerticalVideoFragment extends Fragment {
 
@@ -24,18 +29,27 @@ public class VerticalVideoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View viewVerticalViewPager = inflater.inflate(R.layout.fragment_verticalvp,container,false);
+        View viewVerticalViewPager = inflater.inflate(R.layout.fragment_verticalvp, container, false);
 
         verticalviewpager = viewVerticalViewPager.findViewById(R.id.verticalviewpager);
-        listVideo.clear();
-        listVideo.add(new VideoModel("Nancy học tiếng mèo kêu","http://cdn13nofree.keeng.net/playnow/mp4/20190211/8BDE21AA601348BE.mp4", VideoTypeEnum.Normal,1,1,1));
-        listVideo.add(new VideoModel("Quàng thượng đáng yêu","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180927/3427E73326DA4EF8.mp4",VideoTypeEnum.Normal,1,1,1));
-        listVideo.add(new VideoModel("Quàng thượng đáng yêu","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180927/3427E73326DA4EF8.mp4",VideoTypeEnum.Normal,1,1,1));
-        listVideo.add(new VideoModel("TIKTOK","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20180619/FB7463.mp4",VideoTypeEnum.Normal,1,1,1));
-        listVideo.add(new VideoModel("Những tình huống hài hước trong Liên Quân","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20181001/8EF727.mp4",VideoTypeEnum.Normal,1,1,1));
-        listVideo.add(new VideoModel("Thắng bại tại Liên Quân","http://cdn13nofree.keeng.net/uservideo/playnow/mp4/20190222/9832f3ef86ab47fa8d100075162377fa.mp4",VideoTypeEnum.Normal,1,1,1));
-        verticalPagerAdapter = new VerticalPagerAdapter(getFragmentManager(),listVideo);
-        verticalviewpager.setAdapter(verticalPagerAdapter);
-        return viewVerticalViewPager;
+
+        ApiUtils.GetVideoService().GetVideoList().enqueue(new Callback<List<VideoModel>>() {
+            @Override
+            public void onResponse(Call<List<VideoModel>> call, Response<List<VideoModel>> response) {
+                if(response.isSuccessful()){
+                    List<VideoModel> list = response.body();
+                    listVideo = new ArrayList(list);
+                    verticalPagerAdapter = new VerticalPagerAdapter(getFragmentManager(),listVideo);
+                    verticalviewpager.setAdapter(verticalPagerAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<VideoModel>> call, Throwable t) {
+                Log.d("Error","" + t.getMessage());
+            }
+        });
+            return viewVerticalViewPager;
+
+        }
     }
-}

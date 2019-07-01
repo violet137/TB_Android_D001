@@ -3,17 +3,55 @@ package vn.edu.httpgreenacademy.vuivc.ModelUser;
 
 import android.graphics.Bitmap;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
+import vn.edu.httpgreenacademy.vuivc.Enum.UserTypeEnum;
+
 public class ProfileUser implements Serializable {
-    int Id,numVideo,numFollower,numFollowing;
-    boolean sex;
-    String nameUser,ngaySinh;
-    Bitmap photo;
+
+    @SerializedName("id")
+    @Expose
+    private int Id;
+
+    @SerializedName("numVideo")
+    @Expose
+    private int numVideo;
+
+    @SerializedName("numFollower")
+    @Expose
+    private int numFollower;
+
+    @SerializedName("numFollowing")
+    @Expose
+    private int numFollowing;
+
+    @SerializedName("sex")
+    @Expose
+    private boolean sex;
+
+    @SerializedName("nameUser")
+    @Expose
+    private String nameUser;
+
+    @SerializedName("ngaySinh")
+    @Expose
+    private String ngaySinh;
+
+    @SerializedName("photo")
+    @Expose
+    private Bitmap photo;
+
+    @SerializedName("userType")
+    @Expose
+    private UserTypeEnum userType;
+
     public ProfileUser() {
     }
 
-    public ProfileUser(Bitmap photo, int id, int numVideo, int numFollower, int numFollowing, boolean sex, String nameUser, String ngaySinh) {
+    public ProfileUser(Bitmap photo, int id, int numVideo, int numFollower, int numFollowing, boolean sex, String nameUser, String ngaySinh, UserTypeEnum userType) {
         this.photo = photo;
         Id = id;
         this.numVideo = numVideo;
@@ -22,6 +60,7 @@ public class ProfileUser implements Serializable {
         this.sex = sex;
         this.nameUser = nameUser;
         this.ngaySinh = ngaySinh;
+        this.userType = userType;
     }
 
     public Bitmap getPhoto() {
@@ -80,5 +119,13 @@ public class ProfileUser implements Serializable {
 
     public void setNgaySinh(String ngaySinh) {
         this.ngaySinh = ngaySinh;
+    }
+
+    public UserTypeEnum getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserTypeEnum userType) {
+        this.userType = userType;
     }
 }
