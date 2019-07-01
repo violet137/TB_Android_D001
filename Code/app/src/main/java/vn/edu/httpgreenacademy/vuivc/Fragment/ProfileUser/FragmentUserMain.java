@@ -34,6 +34,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 import vn.edu.httpgreenacademy.vuivc.Adapter.ViewPagerAdapter;
+import vn.edu.httpgreenacademy.vuivc.Enum.UserTypeEnum;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowers;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing;
@@ -66,7 +67,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.af);
-        profileUser = new ProfileUser(bitmap, 222222222, 25, 5, 5, true, "Nghĩa", "24/10/1997");
+        profileUser = new ProfileUser(bitmap, 222222222, 25, 5, 5, true, "Nghĩa", "24/10/1997", UserTypeEnum.Facebook);
         SoluongFollower =profileUser.getNumFollower();
         SoLuongFollowing = profileUser.getNumFollowing();
         SoLuongVideo =profileUser.getNumVideo();
@@ -101,24 +102,28 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         fragmentEditProfile.FragmentEditProfile(this);//lắng nghe du lieu tu Edit profile
         fragmentDanhSachFollowers.TruyensoluongFollowers(this);
         fragmentDanhSachFollowing.TruyensoluongFollowing(this);
-
-
-        // Get user login
-        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name), Context.MODE_PRIVATE);
-        String facebookUserId = sharedPref.getString("fb_sharePre_login_id", "");
-          if(!facebookUserId.isEmpty())
-          {
-              txtTenUser.setText(sharedPref.getString("fb_sharePre_login_name", ""));
-              txtID.setText(sharedPref.getString("fb_sharePre_login_email", ""));
-              imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
-          }
-
-//        txtTenUser.setText(profileUser.getNameUser());
-//        txtID.setText(profileUser.getId() + "");
         txt_SoluongFollower.setText(SoluongFollower+"");
         txt_SoluongFollowing.setText(SoLuongFollowing+"");
         txt_SoLuongVideo.setText(SoLuongVideo+"");
-        //
+
+        // Get user login
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name),Context.MODE_PRIVATE);
+        if(sharedPref != null)
+        {
+            String facebookUserId = sharedPref.getString("fb_sharePre_login_id", "");
+            if(!facebookUserId.isEmpty())
+            {
+                txtTenUser.setText(sharedPref.getString("fb_sharePre_login_name", ""));
+                txtID.setText(sharedPref.getString("fb_sharePre_login_email", ""));
+                imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
+            }
+        }
+        else
+        {
+            txtTenUser.setText(profileUser.getNameUser());
+            txtID.setText(profileUser.getId() + "");
+        }
+
         return view;
     }
 

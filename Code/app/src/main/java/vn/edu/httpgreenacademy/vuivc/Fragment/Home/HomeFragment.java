@@ -37,8 +37,11 @@ public class HomeFragment extends Fragment {
 
         // Get user login
         SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name),Context.MODE_PRIVATE);
-        String getFbUserName = sharedPref.getString("fb_sharePre_login_name", "");
-        tvUserHome.setText(getFbUserName);
+        if(sharedPref != null)
+        {
+            String getFbUserName = sharedPref.getString("fb_sharePre_login_name", "");
+            tvUserHome.setText(getFbUserName);
+        }
         return viewHome;
     }
 }
