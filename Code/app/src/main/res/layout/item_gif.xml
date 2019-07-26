@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:background="#32FFFFFF">
 
     <LinearLayout
         android:id="@+id/line1"
@@ -28,6 +29,7 @@
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
             android:text="@string/phan_dinh_tung"
+            android:textColor="@android:color/background_light"
             android:textSize="20sp"
             tools:ignore="RtlSymmetry" />
 
@@ -45,7 +47,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/ru_thang_ban_ra_duong_thoi_cac_thanh_oi_v"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/background_light"
         android:textSize="30sp"
         app:layout_constraintTop_toBottomOf="@+id/line1" />
 
@@ -81,10 +83,16 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
+        android:background="#63FFFFFF"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
         app:layout_constraintStart_toStartOf="@+id/frameLayout">
+
+        <TextView
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/img_like"
@@ -96,6 +104,7 @@
             android:id="@+id/tv_like"
             android:layout_width="70dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
@@ -111,6 +120,7 @@
             android:id="@+id/tv_dislike"
             android:layout_width="70dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
@@ -131,6 +141,7 @@
             android:id="@+id/tv_comment"
             android:layout_width="70dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
@@ -144,8 +155,9 @@
 
         <TextView
             android:id="@+id/tv_share"
-            android:layout_width="70dp"
+            android:layout_width="35dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center_vertical"
             android:paddingStart="10dp"
             android:paddingLeft="10dp"
