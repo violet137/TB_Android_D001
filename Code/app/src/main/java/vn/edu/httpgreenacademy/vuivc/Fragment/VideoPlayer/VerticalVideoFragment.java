@@ -19,6 +19,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.edu.httpgreenacademy.vuivc.http_httpsRequest.AsyncTaskCompleteListener;
 
 public class VerticalVideoFragment extends Fragment {
 
@@ -38,6 +39,7 @@ public class VerticalVideoFragment extends Fragment {
             public void onResponse(Call<List<VideoModel>> call, Response<List<VideoModel>> response) {
                 if(response.isSuccessful()){
                     List<VideoModel> list = response.body();
+                    Log.d("asdasd",""+response);
                     listVideo = new ArrayList(list);
                     verticalPagerAdapter = new VerticalPagerAdapter(getFragmentManager(),listVideo);
                     verticalviewpager.setAdapter(verticalPagerAdapter);
@@ -52,4 +54,4 @@ public class VerticalVideoFragment extends Fragment {
             return viewVerticalViewPager;
 
         }
-    }
+}

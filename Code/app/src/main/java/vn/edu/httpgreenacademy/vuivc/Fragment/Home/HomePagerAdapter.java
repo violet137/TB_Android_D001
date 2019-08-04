@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import vn.edu.httpgreenacademy.vuivc.Fragment.AboutApp.FragmentAboutApp;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing;
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentEditProfile;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
