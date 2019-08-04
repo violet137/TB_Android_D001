@@ -132,7 +132,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/txt_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txt_id"
-        app:srcCompat="@drawable/id" />
+        app:srcCompat="@drawable/idcard" />
 
     <TextView
         android:id="@+id/txt_id"

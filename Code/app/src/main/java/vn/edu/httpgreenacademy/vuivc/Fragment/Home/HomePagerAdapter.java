@@ -26,11 +26,12 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 0: return new FragmentGif();
-            case 1: return new VerticalVideoFragment();
-            case 2: return new FragmentUserMain();
+            case 0: return FragmentGif.newInstance(0,"PHOTOS");
+            case 1: return VerticalVideoFragment.newInstance(1,"VIDEOS");
+            case 2: return FragmentUserMain.newInstance(2,"PROFILE");
+            default: return FragmentUserMain.newInstance(0,"PHOTOS");
         }
-        return null;
+
     }
 
     @Override
@@ -46,7 +47,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
             case 0: return "PHOTOS";
             case 1: return "VIDEOS";
             case 2: return "PROFILE";
+            default:return "PHOTOS";
         }
-        return "";
     }
 }

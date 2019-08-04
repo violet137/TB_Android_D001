@@ -27,12 +27,16 @@ import android.widget.TextView;
 
 import com.facebook.Profile;
 import com.facebook.internal.ImageRequest;
+import com.facebook.login.LoginFragment;
 import com.facebook.login.LoginManager;
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 
+import retrofit2.http.Url;
 import vn.edu.httpgreenacademy.vuivc.Adapter.ViewPagerAdapter;
 import vn.edu.httpgreenacademy.vuivc.Enum.UserTypeEnum;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
@@ -56,21 +60,42 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     ImageView imgAnhdaidien;
     FragmentEditProfile fragmentEditProfile = new FragmentEditProfile();
     FragmentAboutApp fragmentAboutApp;
+    FragmentUserMain fragmentUserMain;
     ProfileUser profileUser;
     FragmentDanhSachFollowers fragmentDanhSachFollowers = new FragmentDanhSachFollowers();
     FragmentDanhSachFollowing fragmentDanhSachFollowing = new FragmentDanhSachFollowing();
     public TextView txt_SoLuongVideo, txt_SoluongFollower, txt_SoluongFollowing, txtTenUser, txtID;
     FragmentDSVideo fragmentdsVideos = new FragmentDSVideo();
     int SoluongFollower,SoLuongFollowing,SoLuongVideo;
+    int ID_LOGIN;
+    URL urlimage;
+    Bitmap profilePic;
+    private int mPage;
+    private String mTitle;
 
+    public static FragmentUserMain newInstance(int page,String title)
+    {
+        FragmentUserMain fragmentUserMain = new FragmentUserMain();
+        Bundle arg = new Bundle();
+        arg.putInt("page",page);
+        arg.putString("title",title);
+        fragmentUserMain.setArguments(arg);
+
+        return fragmentUserMain;
+    }
+    public FragmentUserMain(){
+
+    }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.af);
-        profileUser = new ProfileUser(bitmap, 222222222, 25, 5, 5, true, "Nghĩa", "24/10/1997", UserTypeEnum.Facebook);
-        SoluongFollower =profileUser.getNumFollower();
-        SoLuongFollowing = profileUser.getNumFollowing();
-        SoLuongVideo =profileUser.getNumVideo();
+        if(savedInstanceState!=null)
+        {
+            fragmentUserMain = (FragmentUserMain) getFragmentManager().getFragment(savedInstanceState,FragmentUserMain.class.getName());
+        }
+        fragmentUserMain = new FragmentUserMain();
+        mPage = getArguments().getInt("page", 0);
+        mTitle = getArguments().getString("title");
     }
 
     @Nullable
@@ -90,6 +115,10 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         line2 = view.findViewById(R.id.line2);
         line3 = view.findViewById(R.id.line3);
 
+        profileUser = new ProfileUser();
+        SoluongFollower =profileUser.getNumFollower();
+        SoLuongFollowing = profileUser.getNumFollowing();
+        SoLuongVideo =profileUser.getNumVideo();
         ViewPagerAdapter viewPager_adapter = new ViewPagerAdapter(getChildFragmentManager());//Vi no duoc chua trong mot Fragment
         viewPager.setAdapter(viewPager_adapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -113,9 +142,24 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
             String facebookUserId = sharedPref.getString("fb_sharePre_login_id", "");
             if(!facebookUserId.isEmpty())
             {
-                txtTenUser.setText(sharedPref.getString("fb_sharePre_login_name", ""));
-                txtID.setText(sharedPref.getString("fb_sharePre_login_email", ""));
-                imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
+                profileUser.setNameUser(sharedPref.getString("fb_sharePre_login_name", ""));
+                profileUser.setId(sharedPref.getString("fb_sharePre_login_email", ""));
+                profileUser.setNgaySinh(sharedPref.getString("fb_sharePre_login_birthday", ""));
+                profileUser.setSex(sharedPref.getString("fb_sharePre_login_gender", ""));
+                profileUser.setUserType(UserTypeEnum.Facebook);
+                String image = sharedPref.getString("fb_sharePre_login_imgURL", "");
+                try {
+                    urlimage = new URL(image);
+                    profilePic = BitmapFactory.decodeStream(urlimage.openConnection().getInputStream());
+                    profileUser.setPhoto(profilePic);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                txtTenUser.setText(profileUser.getNameUser());
+                txtID.setText(profileUser.getId());
+                ID_LOGIN=1;
             }
         }
         else
@@ -123,9 +167,17 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
             txtTenUser.setText(profileUser.getNameUser());
             txtID.setText(profileUser.getId() + "");
         }
-
         return view;
     }
+
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getFragmentManager().putFragment(outState,FragmentUserMain.class.getName(),fragmentUserMain);
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -147,28 +199,21 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                                 fragmentAboutApp = new FragmentAboutApp();
                                 ChuyenFragment(fragmentAboutApp);
                                 break;
-//                            case R.id.itfavourite:
-//                               ChuyenFragment(new FragmentYeuThich());
-//                                break;
+                            case R.id.itfavourite:
+                               ChuyenFragment(new FragmentYeuThich());
+                                break;
                             case R.id.logout:
                                 AlertDialog.Builder logout_dialog = new AlertDialog.Builder(getActivity());
                                 logout_dialog.setMessage("Do you want to log out ?");
                                 logout_dialog.setPositiveButton("No", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-
                                     }
                                 });
                                 logout_dialog.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-
-                                        LoginManager.getInstance().logOut();
-                                        getActivity().getSupportFragmentManager()
-                                                .beginTransaction()
-                                                .replace(android.R.id.content, new FragmentLogin())
-                                                .commit();
-
+                                        CheckIDLogin(ID_LOGIN);
                                     }
                                 });
                                 AlertDialog alertDialog = logout_dialog.create();
@@ -195,9 +240,22 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
 
     }
 
+    private void CheckIDLogin(int id_login) {
+        switch (id_login)
+        {
+            case 1:
+                LoginManager.getInstance().logOut();
+                getFragmentManager().beginTransaction().replace(android.R.id.content,new FragmentLogin()).commit();
+                break;
+            default:
+                break;
+        }
+    }
+
     private void ChuyenFragment(Fragment fragment) {
         getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).addToBackStack("").commit();
     }
+
 
     @Override
     public void GetSoluongVideo(int soluong) {
@@ -205,10 +263,10 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     }
 
     @Override
-    public void GetDuLieuEditProfile(String tenuser, String ngaysinh, boolean gioitinh,Bitmap bitmap) {
+    public void GetDuLieuEditProfile(String tenuser, String ngaysinh, boolean gioitinh,Bitmap image) {
         if (tenuser != null) {
             profileUser.setNameUser(tenuser);
-            profileUser.setPhoto(bitmap);
+            profileUser.setPhoto(image);
         }
 
     }

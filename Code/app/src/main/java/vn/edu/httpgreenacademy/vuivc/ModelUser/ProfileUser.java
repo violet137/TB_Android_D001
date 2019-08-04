@@ -14,7 +14,7 @@ public class ProfileUser implements Serializable {
 
     @SerializedName("id")
     @Expose
-    private int Id;
+    private String Id;
 
     @SerializedName("numVideo")
     @Expose
@@ -30,7 +30,7 @@ public class ProfileUser implements Serializable {
 
     @SerializedName("sex")
     @Expose
-    private boolean sex;
+    private String sex;
 
     @SerializedName("nameUser")
     @Expose
@@ -51,7 +51,7 @@ public class ProfileUser implements Serializable {
     public ProfileUser() {
     }
 
-    public ProfileUser(Bitmap photo, int id, int numVideo, int numFollower, int numFollowing, boolean sex, String nameUser, String ngaySinh, UserTypeEnum userType) {
+    public ProfileUser(Bitmap photo, String id, int numVideo, int numFollower, int numFollowing, String sex, String nameUser, String ngaySinh, UserTypeEnum userType) {
         this.photo = photo;
         Id = id;
         this.numVideo = numVideo;
@@ -71,11 +71,11 @@ public class ProfileUser implements Serializable {
         this.photo = photo;
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         Id = id;
     }
     public int getNumVideo() {
@@ -99,11 +99,11 @@ public class ProfileUser implements Serializable {
     public void setNumFollowing(int numFollowing) {
         this.numFollowing = numFollowing;
     }
-    public boolean isSex() {
+    public String isSex() {
         return sex;
     }
 
-    public void setSex(boolean sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
     public String getNameUser() {

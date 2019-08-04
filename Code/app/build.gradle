@@ -52,6 +52,8 @@ dependencies {
     implementation 'com.github.rubensousa:gravitysnaphelper:1.5'
     // Card view
     implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation "com.squareup.picasso:picasso:2.71828"
+
 }
 
 

@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
         tabLayoutHome = viewHome.findViewById(R.id.tabLayoutHome);
         tvUserHome = viewHome.findViewById(R.id.tvUserHome);
 
-        HomePagerAdapter homePagerAdapter = new HomePagerAdapter(getFragmentManager());
+        HomePagerAdapter homePagerAdapter = new HomePagerAdapter(getActivity().getSupportFragmentManager());
         viewPagerHome.setAdapter(homePagerAdapter);
         tabLayoutHome.setupWithViewPager(viewPagerHome);
 

@@ -17,6 +17,29 @@ public class FragmentGif extends Fragment {
 
     RecyclerView recyclerView;
     GifAdapter adapter;
+    private int mPage;
+    private String mTitle;
+
+    public static FragmentGif newInstance(int page,String title)
+    {
+        FragmentGif fragmentgif = new FragmentGif();
+        Bundle arg = new Bundle();
+        arg.putInt("page",page);
+        arg.putString("title",title);
+        fragmentgif.setArguments(arg);
+
+        return fragmentgif;
+    }
+    public FragmentGif(){
+
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mPage = getArguments().getInt("page", 0);
+        mTitle = getArguments().getString("title");
+    }
 
     @Nullable
     @Override
@@ -52,5 +75,11 @@ public class FragmentGif extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
     }
 }

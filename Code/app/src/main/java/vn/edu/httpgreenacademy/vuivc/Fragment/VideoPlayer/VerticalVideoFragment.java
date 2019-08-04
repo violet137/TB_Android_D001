@@ -25,6 +25,28 @@ public class VerticalVideoFragment extends Fragment {
     VerticalViewPager verticalviewpager;
     ArrayList<VideoModel> listVideo = new ArrayList<VideoModel>();
     VerticalPagerAdapter verticalPagerAdapter;
+    private int mPage;
+    private String mTitle;
+
+    public static VerticalVideoFragment newInstance(int page,String title)
+    {
+        VerticalVideoFragment verticalVideoFragment = new VerticalVideoFragment();
+        Bundle arg = new Bundle();
+        arg.putInt("page",page);
+        arg.putString("title",title);
+        verticalVideoFragment.setArguments(arg);
+
+        return verticalVideoFragment;
+    }
+    public VerticalVideoFragment(){
+
+    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mPage = getArguments().getInt("page", 0);
+        mTitle = getArguments().getString("title");
+    }
 
     @Nullable
     @Override
@@ -52,4 +74,8 @@ public class VerticalVideoFragment extends Fragment {
             return viewVerticalViewPager;
 
         }
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
     }
