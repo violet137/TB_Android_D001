@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,29 +18,33 @@ public class FragmentGif extends Fragment {
 
     RecyclerView recyclerView;
     GifAdapter adapter;
-    private int mPage;
-    private String mTitle;
 
-    public static FragmentGif newInstance(int page,String title)
-    {
-        FragmentGif fragmentgif = new FragmentGif();
-        Bundle arg = new Bundle();
-        arg.putInt("page",page);
-        arg.putString("title",title);
-        fragmentgif.setArguments(arg);
+    int mNum;
 
-        return fragmentgif;
+    /**
+     * Create a new instance of CountingFragment, providing "num"
+     * as an argument.
+     */
+    public static FragmentGif newInstance(int num) {
+        FragmentGif fragmentGif = new FragmentGif();
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("num", num);
+        fragmentGif.setArguments(args);
+
+        return fragmentGif;
     }
-    public FragmentGif(){
 
-    }
-
+    /**
+     * When creating, retrieve this instance's number from its arguments.
+     */
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt("page", 0);
-        mTitle = getArguments().getString("title");
+        mNum = getArguments() != null ? getArguments().getInt("num") : 0;
     }
+
+
 
     @Nullable
     @Override
@@ -78,8 +83,7 @@ public class FragmentGif extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 }

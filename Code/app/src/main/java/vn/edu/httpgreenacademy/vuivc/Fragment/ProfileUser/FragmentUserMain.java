@@ -5,14 +5,18 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.PathUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,9 +35,14 @@ import com.facebook.login.LoginFragment;
 import com.facebook.login.LoginManager;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 import retrofit2.http.Url;
@@ -73,31 +82,6 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     private int mPage;
     private String mTitle;
 
-    public static FragmentUserMain newInstance(int page,String title)
-    {
-        FragmentUserMain fragmentUserMain = new FragmentUserMain();
-        Bundle arg = new Bundle();
-        arg.putInt("page",page);
-        arg.putString("title",title);
-        fragmentUserMain.setArguments(arg);
-
-        return fragmentUserMain;
-    }
-    public FragmentUserMain(){
-
-    }
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if(savedInstanceState!=null)
-        {
-            fragmentUserMain = (FragmentUserMain) getFragmentManager().getFragment(savedInstanceState,FragmentUserMain.class.getName());
-        }
-        fragmentUserMain = new FragmentUserMain();
-        mPage = getArguments().getInt("page", 0);
-        mTitle = getArguments().getString("title");
-    }
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -119,7 +103,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         SoluongFollower =profileUser.getNumFollower();
         SoLuongFollowing = profileUser.getNumFollowing();
         SoLuongVideo =profileUser.getNumVideo();
-        ViewPagerAdapter viewPager_adapter = new ViewPagerAdapter(getChildFragmentManager());//Vi no duoc chua trong mot Fragment
+        ViewPagerAdapter viewPager_adapter = new ViewPagerAdapter(getChildFragmentManager(),getActivity().getApplicationContext());//Vi no duoc chua trong mot Fragment
         viewPager.setAdapter(viewPager_adapter);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -147,16 +131,6 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
                 profileUser.setNgaySinh(sharedPref.getString("fb_sharePre_login_birthday", ""));
                 profileUser.setSex(sharedPref.getString("fb_sharePre_login_gender", ""));
                 profileUser.setUserType(UserTypeEnum.Facebook);
-                String image = sharedPref.getString("fb_sharePre_login_imgURL", "");
-                try {
-                    urlimage = new URL(image);
-                    profilePic = BitmapFactory.decodeStream(urlimage.openConnection().getInputStream());
-                    profileUser.setPhoto(profilePic);
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
                 txtTenUser.setText(profileUser.getNameUser());
                 txtID.setText(profileUser.getId());
                 ID_LOGIN=1;
@@ -167,16 +141,36 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
             txtTenUser.setText(profileUser.getNameUser());
             txtID.setText(profileUser.getId() + "");
         }
+
+        SharedPreferences userAvatarSharedPref = getActivity().getSharedPreferences("session_user_avatar",Context.MODE_PRIVATE);
+        if(userAvatarSharedPref != null)
+        {
+            String image = userAvatarSharedPref.getString("remember_user_avatar","");
+
+            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),image);
+            String img_nhan = file.getAbsolutePath();
+            imgAnhdaidien.setImageBitmap(BitmapFactory.decodeFile(img_nhan));
+           // imgAnhdaidien.setImageDrawable(Drawable.createFromPath(path));
+//            File file = null;
+//                file = new File(Environment.getExternalStorageDirectory().getPath(),image);
+              Log.d("hinh nhan",file.getAbsolutePath());
+//            try {
+//                imgAnhdaidien.setImageBitmap(BitmapFactory.decodeStream(new FileInputStream(file)));
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+
+        }
         return view;
     }
 
 
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        getFragmentManager().putFragment(outState,FragmentUserMain.class.getName(),fragmentUserMain);
-    }
+//    @Override
+//    public void onSaveInstanceState(@NonNull Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        getFragmentManager().putFragment(outState,FragmentUserMain.class.getName(),fragmentUserMain);
+//    }
 
 
     @Override
@@ -262,14 +256,8 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         SoLuongVideo = soluong;
     }
 
-    @Override
-    public void GetDuLieuEditProfile(String tenuser, String ngaysinh, boolean gioitinh,Bitmap image) {
-        if (tenuser != null) {
-            profileUser.setNameUser(tenuser);
-            profileUser.setPhoto(image);
-        }
 
-    }
+
 
     @Override
     public void GetSoluongFollower(int soluong) {
@@ -279,5 +267,13 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     @Override
     public void GetSoluongFollowing(int soluong) {
         SoLuongFollowing = soluong;
+    }
+
+    @Override
+    public void GetDuLieuEditProfile(ProfileUser profileUser) {
+        if(profileUser != null)
+        {
+            imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
+        }
     }
 }

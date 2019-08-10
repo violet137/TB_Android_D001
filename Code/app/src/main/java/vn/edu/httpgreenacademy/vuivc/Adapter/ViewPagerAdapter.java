@@ -1,5 +1,6 @@
 package vn.edu.httpgreenacademy.vuivc.Adapter;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,12 +10,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentVideos;
+import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-
-    public ViewPagerAdapter(FragmentManager fm) {
+    Context context;
+    public ViewPagerAdapter(FragmentManager fm,Context context) {
         super(fm);
+        this.context = context;
     }
 
     @Override
@@ -41,9 +44,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0:
-                return "MY VIDEOS";
+                return context.getResources().getString(R.string.videos);
             case 1:
-                return "MY PHOTOS";
+                return context.getResources().getString(R.string.like);
         }
         return "";
     }

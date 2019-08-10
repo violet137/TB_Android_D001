@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
+import vn.edu.httpgreenacademy.vuivc.FragmentGif;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 import static com.facebook.AccessTokenManager.SHARED_PREFERENCES_NAME;
@@ -21,7 +25,6 @@ public class HomeFragment extends Fragment {
 
     ViewPager viewPagerHome;
     TabLayout tabLayoutHome;
-    TextView tvUserHome;
 
     @Nullable
     @Override
@@ -29,19 +32,14 @@ public class HomeFragment extends Fragment {
         View viewHome = inflater.inflate(R.layout.fragment_home,container,false);
         viewPagerHome = viewHome.findViewById(R.id.viewPagerHome);
         tabLayoutHome = viewHome.findViewById(R.id.tabLayoutHome);
-        tvUserHome = viewHome.findViewById(R.id.tvUserHome);
+
 
         HomePagerAdapter homePagerAdapter = new HomePagerAdapter(getActivity().getSupportFragmentManager());
         viewPagerHome.setAdapter(homePagerAdapter);
+        viewPagerHome.setOffscreenPageLimit(2);
         tabLayoutHome.setupWithViewPager(viewPagerHome);
 
-        // Get user login
-        SharedPreferences sharedPref = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name),Context.MODE_PRIVATE);
-        if(sharedPref != null)
-        {
-            String getFbUserName = sharedPref.getString("fb_sharePre_login_name", "");
-            tvUserHome.setText(getFbUserName);
-        }
+
         return viewHome;
     }
 }

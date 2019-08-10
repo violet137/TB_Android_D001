@@ -1,5 +1,6 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import vn.edu.httpgreenacademy.vuivc.Api.ApiUtils;
 import vn.edu.httpgreenacademy.vuivc.R;
@@ -25,27 +27,29 @@ public class VerticalVideoFragment extends Fragment {
     VerticalViewPager verticalviewpager;
     ArrayList<VideoModel> listVideo = new ArrayList<VideoModel>();
     VerticalPagerAdapter verticalPagerAdapter;
-    private int mPage;
-    private String mTitle;
+    int mNum;
 
-    public static VerticalVideoFragment newInstance(int page,String title)
-    {
+    /**
+     * Create a new instance of CountingFragment, providing "num"
+     * as an argument.
+     */
+    public static VerticalVideoFragment newInstance(int num) {
         VerticalVideoFragment verticalVideoFragment = new VerticalVideoFragment();
-        Bundle arg = new Bundle();
-        arg.putInt("page",page);
-        arg.putString("title",title);
-        verticalVideoFragment.setArguments(arg);
+        // Supply num input as an argument.
+        Bundle args = new Bundle();
+        args.putInt("num", num);
+        verticalVideoFragment.setArguments(args);
 
         return verticalVideoFragment;
     }
-    public VerticalVideoFragment(){
 
-    }
+    /**
+     * When creating, retrieve this instance's number from its arguments.
+     */
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPage = getArguments().getInt("page", 0);
-        mTitle = getArguments().getString("title");
+        mNum = getArguments() != null ? getArguments().getInt("num") : 1;
     }
 
     @Nullable
@@ -54,6 +58,7 @@ public class VerticalVideoFragment extends Fragment {
         View viewVerticalViewPager = inflater.inflate(R.layout.fragment_verticalvp, container, false);
 
         verticalviewpager = viewVerticalViewPager.findViewById(R.id.verticalviewpager);
+        Log.d("number", "" + mNum);
 
         ApiUtils.GetVideoService().GetVideoList().enqueue(new Callback<List<VideoModel>>() {
             @Override
@@ -74,8 +79,5 @@ public class VerticalVideoFragment extends Fragment {
             return viewVerticalViewPager;
 
         }
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
+
     }
