@@ -239,7 +239,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         {
             case 1:
                 LoginManager.getInstance().logOut();
-                getFragmentManager().beginTransaction().replace(android.R.id.content,new FragmentLogin()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.fragment,new FragmentLogin()).commit();
                 break;
             default:
                 break;
@@ -247,7 +247,7 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     }
 
     private void ChuyenFragment(Fragment fragment) {
-        getFragmentManager().beginTransaction().replace(android.R.id.content, fragment).addToBackStack("").commit();
+        getFragmentManager().beginTransaction().replace(R.id.fragment, fragment).addToBackStack("").commit();
     }
 
 

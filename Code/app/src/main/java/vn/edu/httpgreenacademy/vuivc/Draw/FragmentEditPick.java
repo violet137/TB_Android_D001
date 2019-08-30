@@ -112,7 +112,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                         Toast.LENGTH_LONG).show();
                 HomeFragment homeFragment = new HomeFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content,homeFragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment,homeFragment).commit();
                 break;
             case R.id.btCamera:
                 askPermissionAndCaptureVideo();

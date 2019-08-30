@@ -1,12 +1,10 @@
 package vn.edu.httpgreenacademy.vuivc.http_httpsRequest;
-
 import android.app.Application;
 import android.content.Context;
 import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 import android.view.Menu;
-
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,7 +20,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 
-public class AppController extends Application {
+public class AppController extends Application{
 
 
     public static final String TAG = AppController.class.getSimpleName();
@@ -57,6 +55,7 @@ public class AppController extends Application {
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);
         ForegroundListner.init(this);
+
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
     }
@@ -112,7 +111,7 @@ public class AppController extends Application {
 
     }
 
-  //  private void configSSL() {
+    //  private void configSSL() {
 //        CertificateFactory cf = null;
 //        try {
 //            cf = CertificateFactory.getInstance("X.509");
@@ -194,7 +193,7 @@ public class AppController extends Application {
 //        ///////
 //        sf = sslContext.getSocketFactory();
 //    }
-  //  }
+    //  }
 
 }
 

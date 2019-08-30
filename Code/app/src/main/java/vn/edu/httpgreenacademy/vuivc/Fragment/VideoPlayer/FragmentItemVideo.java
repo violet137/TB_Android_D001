@@ -153,7 +153,7 @@ public class FragmentItemVideo extends Fragment {
             @Override
             public void onClick(View v) {
                /* getFragmentManager().beginTransaction()
-                        .replace(android.R.id.content,new FragmentUserMain())
+                        .replace(R.id.fragment,new FragmentUserMain())
                         .addToBackStack("")
                         .commit();*/
 
