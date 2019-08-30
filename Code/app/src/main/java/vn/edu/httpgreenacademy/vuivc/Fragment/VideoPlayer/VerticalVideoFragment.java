@@ -1,5 +1,6 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import vn.edu.httpgreenacademy.vuivc.Api.ApiUtils;
 import vn.edu.httpgreenacademy.vuivc.R;
@@ -19,13 +21,17 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import vn.edu.httpgreenacademy.vuivc.http_httpsRequest.AsyncTaskCompleteListener;
 
 public class VerticalVideoFragment extends Fragment {
 
     VerticalViewPager verticalviewpager;
     ArrayList<VideoModel> listVideo = new ArrayList<VideoModel>();
     VerticalPagerAdapter verticalPagerAdapter;
+    int mNum;
+    private static VerticalVideoFragment verticalVideoFragment;
+
+    public VerticalVideoFragment() {
+    }
 
     @Nullable
     @Override
@@ -33,13 +39,13 @@ public class VerticalVideoFragment extends Fragment {
         View viewVerticalViewPager = inflater.inflate(R.layout.fragment_verticalvp, container, false);
 
         verticalviewpager = viewVerticalViewPager.findViewById(R.id.verticalviewpager);
+        Log.d("number", "" + mNum);
 
         ApiUtils.GetVideoService().GetVideoList().enqueue(new Callback<List<VideoModel>>() {
             @Override
             public void onResponse(Call<List<VideoModel>> call, Response<List<VideoModel>> response) {
                 if(response.isSuccessful()){
                     List<VideoModel> list = response.body();
-                    Log.d("asdasd",""+response);
                     listVideo = new ArrayList(list);
                     verticalPagerAdapter = new VerticalPagerAdapter(getFragmentManager(),listVideo);
                     verticalviewpager.setAdapter(verticalPagerAdapter);
@@ -54,4 +60,5 @@ public class VerticalVideoFragment extends Fragment {
             return viewVerticalViewPager;
 
         }
-}
+
+    }

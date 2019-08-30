@@ -1,7 +1,9 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -11,6 +13,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 
@@ -36,9 +41,10 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
     RadioButton rbNam,rbNu;
     TextView txtLuu,txt_ID;
     String gioitinh;
-    Bitmap bitmap;
+    Bitmap image;
     String tenUser,ngaySinh;
     boolean sex=true;
+    ProfileUser profileUser;
 
     TruyenThongTinUser truyenThongTinUser;
     public void FragmentEditProfile(TruyenThongTinUser truyenDuLieu) { //Bắn dữ liệu cho UserMain
@@ -64,14 +70,15 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
         rbNu.setOnClickListener(this);
         rbNam.setOnClickListener(this);
         txtLuu.setOnClickListener(this);
+        imgAnhDaiDien.setOnClickListener(this);
         //Nhan du lieu tu User Main
         Bundle bundle = getArguments();
-        ProfileUser profileUser = (ProfileUser) bundle.getSerializable("information");
+        profileUser = (ProfileUser) bundle.getSerializable("information");
         txt_ID.setText(profileUser.getId()+"");
         edt_ten.setText(profileUser.getNameUser());
         edt_ngaysinh.setText(profileUser.getNgaySinh());
 
-        if(profileUser.isSex())
+        if(profileUser.isSex().equalsIgnoreCase("male"))
         {
             CheckBuild(rbNam);
             rbNam.setChecked(true);
@@ -106,10 +113,10 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
                 sex = false;
                 break;
             case R.id.txt_Luu:
-                truyenThongTinUser.GetDuLieuEditProfile(edt_ten.getText().toString(),edt_ngaysinh.getText().toString(),sex,bitmap);
+                truyenThongTinUser.GetDuLieuEditProfile(profileUser);
                 getFragmentManager().popBackStack();
                 break;
-            case R.id.circle_crop:
+            case R.id.img_DoiAnh:
                 ChangeAnh();
                 break;
         }
@@ -128,20 +135,28 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
         {
             if(resultCode == RESULT_OK)
             {
-               bitmap = (Bitmap) data.getExtras().get("data");
-                imgAnhDaiDien.setImageBitmap(bitmap);
+               image = (Bitmap) data.getExtras().get("data");
+                profileUser.setPhoto(image);
+               imgAnhDaiDien.setImageBitmap(image);
             }
         }
         else if(requestCode ==200)
         {
-            if(resultCode==RESULT_OK)
+            if(resultCode==RESULT_OK) {
+                Uri imageUri = data.getData();
                 try {
-                    Uri imageUri = data.getData();
-                    bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
-                    imgAnhDaiDien.setImageBitmap(bitmap);
+                    image = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                imgAnhDaiDien.setImageBitmap(image);
+                profileUser.setPhoto(image);
+                SharedPreferences userAvatarSharedPreferences = getActivity().getSharedPreferences("session_user_avatar", Context.MODE_PRIVATE);
+                SharedPreferences.Editor userAvatarEditor = userAvatarSharedPreferences.edit();
+                userAvatarEditor.putString("remember_user_avatar",imageUri.getPath());
+                Log.d("hinh dai dien",imageUri.getPath());
+                userAvatarEditor.commit();
+            }
         }
     }
     private void CheckBuild(RadioButton radioButton) {

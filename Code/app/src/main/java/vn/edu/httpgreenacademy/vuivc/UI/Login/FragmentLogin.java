@@ -125,7 +125,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
                 link_user = jsonObject.getJSONObject("picture").getJSONObject("data").getString("url");
             }
 
-            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getString(R.string.fb_sharePre_Name),Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = getContext().getSharedPreferences(getString(R.string.fb_sharePre_Name),Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("fb_sharePre_login_status","" + true);
             editor.putString("fb_sharePre_login_id",jsonObject.getString("id"));

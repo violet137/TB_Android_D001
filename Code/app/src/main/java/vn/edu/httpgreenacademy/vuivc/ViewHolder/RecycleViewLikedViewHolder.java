@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 
+import com.squareup.picasso.Picasso;
+
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 

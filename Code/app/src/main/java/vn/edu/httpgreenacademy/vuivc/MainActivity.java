@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         // Tung task 4
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentLogin fragmentLogin = new FragmentLogin();
-        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentLogin).commit();
+        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentLogin).addToBackStack("").commit();
 }
 
     @Override

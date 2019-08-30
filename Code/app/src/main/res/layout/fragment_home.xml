@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/transparent"
+    android:background="@android:color/black"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-       android:id="@+id/tvUserHome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="abc"
-        />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayoutHome"
@@ -21,13 +12,15 @@
         android:layout_height="40dp"
         app:tabMode="fixed"
         app:tabGravity="fill"
+        app:tabIndicatorColor="@color/yellow"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/white"
         app:tabBackground="@android:color/transparent"
-        app:tabIndicatorColor="@android:color/transparent"
         app:tabIndicatorHeight="4dp"
         android:background="@android:color/transparent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserHome">
+        app:layout_constraintTop_toTopOf="parent">
 
     </android.support.design.widget.TabLayout>
 

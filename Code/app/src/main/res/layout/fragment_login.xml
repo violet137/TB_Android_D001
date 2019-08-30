@@ -15,7 +15,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/Txt_Chu"
         android:text="@string/Txt_Login"
-        android:textColor="@color/com_facebook_button_background_color_focused_disabled"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

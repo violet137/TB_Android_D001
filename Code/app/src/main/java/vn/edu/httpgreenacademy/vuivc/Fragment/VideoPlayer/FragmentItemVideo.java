@@ -1,6 +1,7 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -25,6 +26,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import vn.edu.httpgreenacademy.vuivc.Api.ApiUtils;
 import vn.edu.httpgreenacademy.vuivc.Fragment.Comment.Comment_Dialog_Fragmment;
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
@@ -86,6 +88,7 @@ public class FragmentItemVideo extends Fragment {
         ImageView imvMusic = v.findViewById(R.id.imvMusic);
         ImageView imvShare = v.findViewById(R.id.imvShare);
         ImageView imvComment = v.findViewById(R.id.imvComment);
+        ImageView imvAvatarUpload = v.findViewById(R.id.imvAvatarUpload);
         final TextView tvUploaderName = v.findViewById(R.id.tvUploaderName);
 
         // Show video caption
@@ -146,6 +149,16 @@ public class FragmentItemVideo extends Fragment {
             }
         });
 
+        imvAvatarUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* getFragmentManager().beginTransaction()
+                        .replace(android.R.id.content,new FragmentUserMain())
+                        .addToBackStack("")
+                        .commit();*/
+
+            }
+        });
 
 
         return v;
