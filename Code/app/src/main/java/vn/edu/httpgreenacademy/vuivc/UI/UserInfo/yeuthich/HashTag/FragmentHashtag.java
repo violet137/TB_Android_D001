@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 public class FragmentHashtag extends Fragment {
-    RecyclerView listYeuthichHashtag,listYeuThichHashTag;
+    RecyclerView listanh, listvideo;
     ArrayList<HashtagModel> dataHashtagvideo = new ArrayList<>();
     ArrayList<HashtagModel> dataHashtagIMG = new ArrayList<>();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hashtag, container, false);
-        listYeuthichHashtag = view.findViewById(R.id.listYeuthichHashtag);
-        listYeuThichHashTag = view.findViewById(R.id.listYeuThichHashTag);
+        listanh = view.findViewById(R.id.listYeuthichHashtag);
+        listvideo = view.findViewById(R.id.listYeuThichHashTag);
 
         dataHashtagvideo.clear();
         TypedArray video = getResources().obtainTypedArray(R.array.hinhanh);
@@ -42,15 +42,15 @@ public class FragmentHashtag extends Fragment {
             dataHashtagIMG.add(hashtagModel);
         }
 
-        listYeuThichHashTag.setLayoutManager(new GridLayoutManager(getContext(),3));
+        listvideo.setLayoutManager(new GridLayoutManager(getContext(),3));
         HashTagAdapterVideo hashTagAdapterVideo = new HashTagAdapterVideo(dataHashtagvideo,getActivity());
-        listYeuThichHashTag.setAdapter(hashTagAdapterVideo);
-        listYeuThichHashTag.setHasFixedSize(true);
+        listvideo.setAdapter(hashTagAdapterVideo);
+        listvideo.setHasFixedSize(true);
 
 
-        listYeuthichHashtag.setLayoutManager(new GridLayoutManager(getContext(),3));
+        listanh.setLayoutManager(new GridLayoutManager(getContext(),3));
         HashTagAdapterAnh hashTagAdapterAnh = new HashTagAdapterAnh(dataHashtagIMG,getActivity());
-        listYeuthichHashtag.setAdapter(hashTagAdapterAnh);
+        listanh.setAdapter(hashTagAdapterAnh);
 
 
 
