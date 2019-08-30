@@ -1,6 +1,7 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -151,7 +152,11 @@ public class FragmentItemVideo extends Fragment {
         imvAvatarUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getFragmentManager().beginTransaction().replace(android.R.id.content,new FragmentUserMain()).addToBackStack("").commit();
+               /* getFragmentManager().beginTransaction()
+                        .replace(android.R.id.content,new FragmentUserMain())
+                        .addToBackStack("")
+                        .commit();*/
+
             }
         });
 

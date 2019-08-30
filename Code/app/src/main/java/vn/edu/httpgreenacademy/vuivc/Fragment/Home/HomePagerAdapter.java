@@ -32,9 +32,9 @@ public class HomePagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0: return FragmentGif.newInstance(0);
-            case 1: return VerticalVideoFragment.newInstance(1);
-            default: return FragmentGif.newInstance(0);
+            case 0: return new FragmentGif();
+            case 1: return new VerticalVideoFragment();
+            default: return new FragmentGif();
         }
     }
 

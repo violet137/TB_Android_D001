@@ -28,28 +28,9 @@ public class VerticalVideoFragment extends Fragment {
     ArrayList<VideoModel> listVideo = new ArrayList<VideoModel>();
     VerticalPagerAdapter verticalPagerAdapter;
     int mNum;
+    private static VerticalVideoFragment verticalVideoFragment;
 
-    /**
-     * Create a new instance of CountingFragment, providing "num"
-     * as an argument.
-     */
-    public static VerticalVideoFragment newInstance(int num) {
-        VerticalVideoFragment verticalVideoFragment = new VerticalVideoFragment();
-        // Supply num input as an argument.
-        Bundle args = new Bundle();
-        args.putInt("num", num);
-        verticalVideoFragment.setArguments(args);
-
-        return verticalVideoFragment;
-    }
-
-    /**
-     * When creating, retrieve this instance's number from its arguments.
-     */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mNum = getArguments() != null ? getArguments().getInt("num") : 1;
+    public VerticalVideoFragment() {
     }
 
     @Nullable

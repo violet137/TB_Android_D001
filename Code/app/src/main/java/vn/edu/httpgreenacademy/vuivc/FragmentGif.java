@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,33 +19,12 @@ public class FragmentGif extends Fragment {
 
     RecyclerView recyclerView;
     GifAdapter adapter;
+    private static FragmentGif fragmentGif;
 
     int mNum;
 
-    /**
-     * Create a new instance of CountingFragment, providing "num"
-     * as an argument.
-     */
-    public static FragmentGif newInstance(int num) {
-        FragmentGif fragmentGif = new FragmentGif();
-        // Supply num input as an argument.
-        Bundle args = new Bundle();
-        args.putInt("num", num);
-        fragmentGif.setArguments(args);
-
-        return fragmentGif;
+    public FragmentGif() {
     }
-
-    /**
-     * When creating, retrieve this instance's number from its arguments.
-     */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mNum = getArguments() != null ? getArguments().getInt("num") : 0;
-    }
-
-
 
     @Nullable
     @Override
@@ -82,8 +62,6 @@ public class FragmentGif extends Fragment {
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
+
+
 }
