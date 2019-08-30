@@ -2,20 +2,17 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <VideoView
-        android:id="@+id/videoviewVertical"
+    <ImageView
+        android:id="@+id/imgViewVideoItem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/transparent"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-       />
+        />
 
     <TextView android:id="@+id/tvUploaderName"
         android:layout_width="match_parent"
@@ -46,9 +43,9 @@
         android:marqueeRepeatLimit="marquee_forever"
        android:scrollHorizontally="true"
         android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="@+id/videoviewVertical"
-        app:layout_constraintLeft_toLeftOf="@+id/videoviewVertical"
-        app:layout_constraintRight_toRightOf="@+id/videoviewVertical"
+        app:layout_constraintBottom_toBottomOf="@+id/imgViewVideoItem"
+        app:layout_constraintLeft_toLeftOf="@+id/imgViewVideoItem"
+        app:layout_constraintRight_toRightOf="@+id/imgViewVideoItem"
         />
 
     <ImageView

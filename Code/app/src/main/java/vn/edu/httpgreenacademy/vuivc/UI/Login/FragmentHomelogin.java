@@ -22,8 +22,8 @@ import com.facebook.login.widget.LoginButton;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 public class FragmentHomelogin extends Fragment implements View.OnClickListener {
-    TextView txtGoogle;
-    Button btLogin, btRegister;
+    TextView txtGoogle,tvTextRegisterBottom;
+    Button btLogin;
 
     //facebook
     LoginButton btnloginfacebook;
@@ -36,14 +36,14 @@ public class FragmentHomelogin extends Fragment implements View.OnClickListener 
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         txtGoogle = view.findViewById(R.id.txt_GoogLe_Home);
         btLogin = view.findViewById(R.id.bt_Login_Home);
-        btRegister = view.findViewById(R.id.bt_Register_Home);
+        tvTextRegisterBottom = view.findViewById(R.id.tvTextRegisterBottom);
 
 
         btnloginfacebook = view.findViewById(R.id.btn_login_facebook);
         btnloginfacebook.setBackgroundResource(R.drawable.bt_custom);
 
         txtGoogle.setOnClickListener(this);
-        btRegister.setOnClickListener(this);
+        tvTextRegisterBottom.setOnClickListener(this);
         btLogin.setOnClickListener(this);
 
 
@@ -86,7 +86,7 @@ public class FragmentHomelogin extends Fragment implements View.OnClickListener 
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(android.R.id.content, fragment_dialogLogin).addToBackStack("s").commit();
                 break;
-            case R.id.bt_Register_Home:
+            case R.id.tvTextRegisterBottom:
                 FragmentRegister fragment_register = new FragmentRegister();
                 FragmentManager fragmentManager1 = getActivity().getSupportFragmentManager();
                 fragmentManager1.beginTransaction().replace(android.R.id.content, fragment_register).addToBackStack("s").commit();
