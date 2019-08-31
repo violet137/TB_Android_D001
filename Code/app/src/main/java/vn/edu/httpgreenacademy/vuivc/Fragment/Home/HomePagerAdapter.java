@@ -27,7 +27,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0: return new FragmentGif();
-            case 1: return new VerticalVideoFragment();
+            case 1: return new FragmentUserMain();
         }
         return null;
     }
