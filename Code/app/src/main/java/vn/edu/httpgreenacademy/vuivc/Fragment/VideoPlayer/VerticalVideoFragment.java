@@ -8,39 +8,44 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import vn.edu.httpgreenacademy.vuivc.Api.ApiUtils;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.ViewPager.VerticalViewPager;
 import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
 import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class VerticalVideoFragment extends Fragment {
 
-    VerticalViewPager verticalviewpager;
     ArrayList<VideoModel> listVideo = new ArrayList<VideoModel>();
-    VerticalPagerAdapter verticalPagerAdapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View viewVerticalViewPager = inflater.inflate(R.layout.fragment_verticalvp, container, false);
+        final VerticalViewPager verticalviewpager = viewVerticalViewPager.findViewById(R.id.verticalviewpager);
 
-        verticalviewpager = viewVerticalViewPager.findViewById(R.id.verticalviewpager);
-
-        ApiUtils.GetVideoService().GetVideoList().enqueue(new Callback<List<VideoModel>>() {
+        ApiUtils.GetVideoService().GetVideoTempList().enqueue(new Callback<List<VideoModel>>() {
             @Override
             public void onResponse(Call<List<VideoModel>> call, Response<List<VideoModel>> response) {
                 if(response.isSuccessful()){
                     List<VideoModel> list = response.body();
-                    listVideo = new ArrayList(list);
-                    verticalPagerAdapter = new VerticalPagerAdapter(getFragmentManager(),listVideo);
-                    verticalviewpager.setAdapter(verticalPagerAdapter);
+                    listVideo.clear();
+                    if(list != null && list.size() > 0)
+                    {
+                        listVideo = new ArrayList(list);
+                        for(int i = 0; i < listVideo.size();i++)
+                        {
+                            Log.d("position", "" +
+                                    listVideo.get(i).getVideoId() + " - " +
+                                    listVideo.get(i).getVideoName());
+                        }
+                        verticalviewpager.setAdapter(new VerticalPagerAdapter(getFragmentManager(),listVideo));
+                    }
                 }
             }
 

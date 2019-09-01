@@ -1,6 +1,6 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
-import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,12 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import vn.edu.httpgreenacademy.vuivc.Api.ApiUtils;
+import vn.edu.httpgreenacademy.vuivc.Dialog.VideoDetailDialogFragment;
 import vn.edu.httpgreenacademy.vuivc.Fragment.Comment.Comment_Dialog_Fragmment;
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
@@ -28,35 +29,17 @@ import vn.edu.httpgreenacademy.vuivc.Dialog.VideoShareDialogFragment;
 
 public class FragmentItemVideo extends Fragment {
 
-    private static  String MY_VIDEO_POSITION = "0";
-    private static  String MY_VIDEO_NAME = "";
-    private static  String MY_VIDEO_UPLOADERID = "0";
-    private static  String MY_VIDEO_IMAGE_URL = "";
+    private VideoModel videoModelItem;
 
-    private int mVideoPosition;
-    private String mVideoName;
-    private int mVideoUploaderId;
-    private String mVideoImageURL;
-
-    public static VideoModel videoModelItem;
-
-    static FragmentItemVideo newInstance(int num, VideoModel videoModel) {
-        videoModelItem = videoModel;
+    static FragmentItemVideo newInstance(VideoModel videoModel, int position) {
         FragmentItemVideo f = new FragmentItemVideo();
-        MY_VIDEO_POSITION = "" + num;
-        MY_VIDEO_NAME = videoModel.getVideoName();
-        MY_VIDEO_UPLOADERID = "" + videoModel.getVideoUploaderId();
-        MY_VIDEO_IMAGE_URL = videoModel.getImageUrl();
+        f.videoModelItem = videoModel;
         return f;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mVideoPosition = Integer.parseInt(MY_VIDEO_POSITION);
-        mVideoName = MY_VIDEO_NAME;
-        mVideoUploaderId = Integer.parseInt(MY_VIDEO_UPLOADERID);
-        mVideoImageURL = MY_VIDEO_IMAGE_URL;
     }
 
 
@@ -69,34 +52,38 @@ public class FragmentItemVideo extends Fragment {
         ImageView imgViewVideoItem = v.findViewById(R.id.imgViewVideoItem);
         ImageView imvShare = v.findViewById(R.id.imvShare);
         ImageView imvComment = v.findViewById(R.id.imvComment);
-        //final TextView tvUploaderName = v.findViewById(R.id.tvUploaderName);
+        final TextView tvUploaderName = v.findViewById(R.id.tvUploaderName);
+        ImageView imvAvatarUpload = v.findViewById(R.id.imvAvatarUpload);
+
+        final String getVideoName = videoModelItem.getVideoName();
+        String getVideoImageURL = videoModelItem.getImageUrl();
+        final String getVideoURL = videoModelItem.getVideoUrl();
+        int getVideoUploaderId = videoModelItem.getVideoUploaderId();
 
         // Show video caption
-        tvVideoName.setText(mVideoName);
+        tvVideoName.setText(getVideoName);
+        imgViewVideoItem.setImageURI(Uri.parse(getVideoImageURL));
 
-//
-//        // Show video uploader
-//        ApiUtils.GetVideoService().GetProfileUser(mVideoUploaderId).enqueue(new Callback<ProfileUser>() {
-//            @Override
-//            public void onResponse(Call<ProfileUser> call, Response<ProfileUser> response) {
-//                if(response.isSuccessful()){
-//                    ProfileUser user = response.body();
-//                    tvUploaderName.setText(user.getNameUser());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ProfileUser> call, Throwable t) {
-//                Log.d("Error","" + t.getMessage());
-//            }
-//        });
+        // Show popup video view
+        imgViewVideoItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager fm = getChildFragmentManager();
+                VideoDetailDialogFragment videoDetailDialogFragment = VideoDetailDialogFragment.newInstance(
+                        R.layout.fragment_detail_video,getVideoURL,getVideoName);
+                videoDetailDialogFragment.show(fm, getVideoName);
+
+            }
+        });
 
         // Show popup share video
         imvShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fm = getChildFragmentManager();
-                VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("Share video with",R.layout.fragment_sharesocial_video,"",mVideoName);
+                VideoShareDialogFragment videoShareDialogFragment = VideoShareDialogFragment.newInstance("Share video with",
+                        R.layout.fragment_sharesocial_video,getVideoURL,getVideoName);
                 videoShareDialogFragment.show(fm, "Share video with");
             }
         });
@@ -110,7 +97,27 @@ public class FragmentItemVideo extends Fragment {
             }
         });
 
+        imvAvatarUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
+        // Show video uploader
+        ApiUtils.GetVideoService().GetProfileUser(getVideoUploaderId).enqueue(new Callback<ProfileUser>() {
+            @Override
+            public void onResponse(Call<ProfileUser> call, Response<ProfileUser> response) {
+                if(response.isSuccessful()){
+                    ProfileUser user = response.body();
+                    tvUploaderName.setText(user.getNameUser());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ProfileUser> call, Throwable t) {
+                Log.d("Error","" + t.getMessage());
+            }
+        });
 
         return v;
     }
