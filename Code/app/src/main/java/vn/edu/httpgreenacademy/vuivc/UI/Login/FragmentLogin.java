@@ -109,7 +109,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
             // Redirect to home fragment
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(android.R.id.content, new HomeFragment())
+                    .replace(R.id.fragment, new HomeFragment())
                     .commit();
 
         }
@@ -136,7 +136,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
 
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(android.R.id.content, new HomeFragment())
+                    .replace(R.id.fragment, new HomeFragment())
                     .commit();
 
         } catch (JSONException e) {
@@ -156,7 +156,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
         {
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(android.R.id.content, new HomeFragment())
+                    .replace(R.id.fragment, new HomeFragment())
                     .commit();
         }
     }

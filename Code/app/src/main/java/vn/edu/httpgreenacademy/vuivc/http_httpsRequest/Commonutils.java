@@ -6,8 +6,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
 

@@ -54,7 +54,7 @@ public class FragmentDialogLogin extends Fragment implements View.OnClickListene
             case R.id.BT_Register:
                 FragmentRegister fragment_register = new FragmentRegister();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content, fragment_register).addToBackStack("s").commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment, fragment_register).addToBackStack("s").commit();
                 break;
         }
     }

@@ -1,6 +1,5 @@
 package vn.edu.httpgreenacademy.vuivc.http_httpsRequest;
 
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
@@ -8,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+
 
 import java.util.List;
 import java.util.Timer;

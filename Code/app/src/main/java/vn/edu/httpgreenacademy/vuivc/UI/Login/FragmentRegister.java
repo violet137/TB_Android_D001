@@ -56,7 +56,7 @@ public class FragmentRegister extends Fragment implements View.OnClickListener, 
             case R.id.BT_Home_Register:
                 FragmentHomelogin fragment_home = new FragmentHomelogin();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content,fragment_home).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment,fragment_home).commit();
                 break;
         }
     }
@@ -67,7 +67,7 @@ public class FragmentRegister extends Fragment implements View.OnClickListener, 
         {
             FragmentLogin fragment_login = new FragmentLogin();
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(android.R.id.content,fragment_login).commit();
+            fragmentManager.beginTransaction().replace(R.id.fragment,fragment_login).commit();
         }
         else
         {

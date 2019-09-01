@@ -47,7 +47,7 @@ public class FragmentYeuThich extends Fragment implements View.OnClickListener {
             case R.id.imgCheAnh:
                 FragmentPickAVUICC fragmentPickAVUICC = new FragmentPickAVUICC();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content,fragmentPickAVUICC).addToBackStack("s").commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment,fragmentPickAVUICC).addToBackStack("s").commit();
                 break;
         }
     }

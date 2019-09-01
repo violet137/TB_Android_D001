@@ -40,12 +40,12 @@ public class FragmentDraw extends Fragment implements View.OnClickListener {
             case R.id.btloadimgphone:
                 FragmentEditPick fragmentEditPick = new FragmentEditPick();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content,fragmentEditPick).addToBackStack("s").commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment,fragmentEditPick).addToBackStack("s").commit();
                 break;
             case R.id.btloadimgsv:
                 FragmentPickAVUICC fragmentPickAVUICC = new FragmentPickAVUICC();
                 FragmentManager fragmentManager1 = getActivity().getSupportFragmentManager();
-                fragmentManager1.beginTransaction().replace(android.R.id.content,fragmentPickAVUICC).addToBackStack("s").commit();
+                fragmentManager1.beginTransaction().replace(R.id.fragment,fragmentPickAVUICC).addToBackStack("s").commit();
                 break;
         }
     }

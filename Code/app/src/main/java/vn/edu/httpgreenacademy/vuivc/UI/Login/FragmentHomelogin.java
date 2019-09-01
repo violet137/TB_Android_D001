@@ -84,12 +84,12 @@ public class FragmentHomelogin extends Fragment implements View.OnClickListener 
             case R.id.bt_Login_Home:
                 FragmentDialogLogin fragment_dialogLogin = new FragmentDialogLogin();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content, fragment_dialogLogin).addToBackStack("s").commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment, fragment_dialogLogin).addToBackStack("s").commit();
                 break;
             case R.id.bt_Register_Home:
                 FragmentRegister fragment_register = new FragmentRegister();
                 FragmentManager fragmentManager1 = getActivity().getSupportFragmentManager();
-                fragmentManager1.beginTransaction().replace(android.R.id.content, fragment_register).addToBackStack("s").commit();
+                fragmentManager1.beginTransaction().replace(R.id.fragment, fragment_register).addToBackStack("s").commit();
                 break;
             case R.id.txt_GoogLe_Home:
                 break;

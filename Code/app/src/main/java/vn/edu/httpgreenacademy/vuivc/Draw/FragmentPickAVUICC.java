@@ -67,7 +67,7 @@ public class FragmentPickAVUICC extends Fragment implements View.OnClickListener
                 fragmentEditPick.setArguments(bundle);
 
                 FragmentManager fragmentManager1 = getActivity().getSupportFragmentManager();
-                fragmentManager1.beginTransaction().replace(android.R.id.content, fragmentEditPick).addToBackStack("s").commit();
+                fragmentManager1.beginTransaction().replace(R.id.fragment, fragmentEditPick).addToBackStack("s").commit();
                 break;
         }
     }
