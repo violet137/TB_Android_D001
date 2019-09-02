@@ -38,12 +38,6 @@ public class VerticalVideoFragment extends Fragment {
                     if(list != null && list.size() > 0)
                     {
                         listVideo = new ArrayList(list);
-                        for(int i = 0; i < listVideo.size();i++)
-                        {
-                            Log.d("position", "" +
-                                    listVideo.get(i).getVideoId() + " - " +
-                                    listVideo.get(i).getVideoName());
-                        }
                         verticalviewpager.setAdapter(new VerticalPagerAdapter(getFragmentManager(),listVideo));
                     }
                 }

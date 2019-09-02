@@ -15,6 +15,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+
+import java.io.File;
+
+import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -63,6 +71,12 @@ public class FragmentItemVideo extends Fragment {
         // Show video caption
         tvVideoName.setText(getVideoName);
         imgViewVideoItem.setImageURI(Uri.parse(getVideoImageURL));
+//        Glide
+//                .with(getContext())
+//                .load(getVideoImageURL)
+//                .fitCenter()
+//                //.diskCacheStrategy(DiskCacheStrategy.SOURCE)
+//                .into(imgViewVideoItem);
 
         // Show popup video view
         imgViewVideoItem.setOnClickListener(new View.OnClickListener() {
