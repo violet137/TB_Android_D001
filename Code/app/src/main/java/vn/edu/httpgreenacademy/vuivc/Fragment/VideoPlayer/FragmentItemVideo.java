@@ -1,38 +1,25 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.constraint.Constraints;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
-
-import java.io.File;
-import java.io.IOException;
-
-import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import vn.edu.httpgreenacademy.vuivc.Api.ApiUtils;
-import vn.edu.httpgreenacademy.vuivc.Dialog.VideoDetailDialogFragment;
 import vn.edu.httpgreenacademy.vuivc.Fragment.Comment.Comment_Dialog_Fragmment;
-import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.Model.VideoModel;
@@ -86,12 +73,6 @@ public class FragmentItemVideo extends Fragment {
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 intent.setDataAndType(uri, "video/mp4");
                 startActivity(intent);
-
-//                FragmentManager fm = getChildFragmentManager();
-//                VideoDetailDialogFragment videoDetailDialogFragment = VideoDetailDialogFragment.newInstance(
-//                        R.layout.fragment_detail_video,getVideoURL,getVideoName);
-//                videoDetailDialogFragment.show(fm, getVideoName);
-
             }
         });
 
