@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        HomeFragment fragmentLogin = new HomeFragment();
+        FragmentLogin fragmentLogin = new FragmentLogin();
         fragmentManager.beginTransaction().replace(android.R.id.content,fragmentLogin).commit();
 }
 
