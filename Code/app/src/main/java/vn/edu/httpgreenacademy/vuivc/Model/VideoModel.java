@@ -47,8 +47,14 @@ public class VideoModel {
     @Expose
     private int NumberOfComment;
 
-    public VideoModel(int videoId, String videoName, String videoUrl, VideoTypeEnum videoType, int videoUploaderId, int numberOfLike, int numberOfShare, int numberOfComment) {
+    @SerializedName("ImageUrl")
+    @Expose
+    private String ImageUrl;
+
+
+    public VideoModel(int videoId, Date createdAt, String videoName, String videoUrl, VideoTypeEnum videoType, int videoUploaderId, int numberOfLike, int numberOfShare, int numberOfComment, String imageUrl) {
         VideoId = videoId;
+        this.createdAt = createdAt;
         VideoName = videoName;
         VideoUrl = videoUrl;
         this.videoType = videoType;
@@ -56,6 +62,7 @@ public class VideoModel {
         NumberOfLike = numberOfLike;
         NumberOfShare = numberOfShare;
         NumberOfComment = numberOfComment;
+        ImageUrl = imageUrl;
     }
 
     public int getVideoId() {
@@ -64,6 +71,14 @@ public class VideoModel {
 
     public void setVideoId(int videoId) {
         VideoId = videoId;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getVideoName() {
@@ -122,5 +137,11 @@ public class VideoModel {
         NumberOfComment = numberOfComment;
     }
 
+    public String getImageUrl() {
+        return ImageUrl;
+    }
 
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
+    }
 }

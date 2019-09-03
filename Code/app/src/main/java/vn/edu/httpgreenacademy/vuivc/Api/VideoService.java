@@ -16,4 +16,6 @@ public interface VideoService {
     @GET("api/v1/VuiVCUser/{id}")
     Call<ProfileUser> GetProfileUser(@Path("id") int id);
 
+    @GET("api/v1/VuiVCImage")
+    Call<List<VideoModel>> GetVideoTempList();
 }

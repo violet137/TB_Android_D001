@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -28,20 +29,19 @@ public class VerticalViewPager extends ViewPager {
 
         @Override
         public void transformPage(@NonNull View page, float position) {
+
             if (position < -1) {
                 page.setAlpha(0);
             } else if (position <= 1) {
                 page.setAlpha(1);
-
                 page.setTranslationX(page.getWidth() * -position);
-
                 float yPosition = position * page.getHeight();
                 page.setTranslationY(yPosition);
-            } else {
+            }
+            else {
                 page.setAlpha(0);
             }
         }
-
     }
 
     private MotionEvent swapXY(MotionEvent ev) {
