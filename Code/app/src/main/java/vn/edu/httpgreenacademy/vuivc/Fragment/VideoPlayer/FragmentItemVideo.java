@@ -1,5 +1,6 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,7 +22,9 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.io.File;
+import java.io.IOException;
 
+import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,11 +60,12 @@ public class FragmentItemVideo extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_item_video, container, false);
         TextView tvVideoName = v.findViewById(R.id.tvVideoName);
-        ImageView imgViewVideoItem = v.findViewById(R.id.imgViewVideoItem);
+        //ImageView imgViewVideoItem = v.findViewById(R.id.imgViewVideoItem);
         ImageView imvShare = v.findViewById(R.id.imvShare);
         ImageView imvComment = v.findViewById(R.id.imvComment);
         final TextView tvUploaderName = v.findViewById(R.id.tvUploaderName);
         ImageView imvAvatarUpload = v.findViewById(R.id.imvAvatarUpload);
+        final GifImageView gifImgViewVideoItem = v.findViewById(R.id.gifImgViewVideoItem);
 
         final String getVideoName = videoModelItem.getVideoName();
         String getVideoImageURL = videoModelItem.getImageUrl();
@@ -70,23 +74,23 @@ public class FragmentItemVideo extends Fragment {
 
         // Show video caption
         tvVideoName.setText(getVideoName);
-        imgViewVideoItem.setImageURI(Uri.parse(getVideoImageURL));
-//        Glide
-//                .with(getContext())
-//                .load(getVideoImageURL)
-//                .fitCenter()
-//                //.diskCacheStrategy(DiskCacheStrategy.SOURCE)
-//                .into(imgViewVideoItem);
+        new DownLoadImageTask(gifImgViewVideoItem).execute(getVideoImageURL);
 
-        // Show popup video view
-        imgViewVideoItem.setOnClickListener(new View.OnClickListener() {
+
+        // Show popup video viewrget = new GlideDrawableImageViewTarget(imageViewTarget);
+        gifImgViewVideoItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                FragmentManager fm = getChildFragmentManager();
-                VideoDetailDialogFragment videoDetailDialogFragment = VideoDetailDialogFragment.newInstance(
-                        R.layout.fragment_detail_video,getVideoURL,getVideoName);
-                videoDetailDialogFragment.show(fm, getVideoName);
+                Uri uri = Uri.parse(getVideoURL);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                intent.setDataAndType(uri, "video/mp4");
+                startActivity(intent);
+
+//                FragmentManager fm = getChildFragmentManager();
+//                VideoDetailDialogFragment videoDetailDialogFragment = VideoDetailDialogFragment.newInstance(
+//                        R.layout.fragment_detail_video,getVideoURL,getVideoName);
+//                videoDetailDialogFragment.show(fm, getVideoName);
 
             }
         });
