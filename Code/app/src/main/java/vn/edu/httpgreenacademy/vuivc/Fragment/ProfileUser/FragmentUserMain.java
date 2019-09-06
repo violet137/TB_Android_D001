@@ -2,21 +2,20 @@ package vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.graphics.PathUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,33 +28,20 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.facebook.Profile;
-import com.facebook.internal.ImageRequest;
-import com.facebook.login.LoginFragment;
 import com.facebook.login.LoginManager;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 
-import retrofit2.http.Url;
 import vn.edu.httpgreenacademy.vuivc.Adapter.ViewPagerAdapter;
 import vn.edu.httpgreenacademy.vuivc.Enum.UserTypeEnum;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowers;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing;
 import vn.edu.httpgreenacademy.vuivc.Fragment.AboutApp.FragmentAboutApp;
-import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
-import vn.edu.httpgreenacademy.vuivc.Interface.NhanDulieuTuUserMain;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenDuLieu;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenThongTinUser;
+import vn.edu.httpgreenacademy.vuivc.MainActivity;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
@@ -86,6 +72,25 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profileuser_main, container, false);
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener( new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event )
+            {
+                Log.d("Keyevent", ""+keyCode);
+                if( keyCode == KeyEvent.KEYCODE_BACK )
+                {
+                    getActivity().finish();
+                    getActivity().startActivity(new Intent(getActivity(),MainActivity.class));
+                    return true;
+                }
+                return false;
+            }
+        } );
+
         viewPager = view.findViewById(R.id.vp);
         tabLayout = view.findViewById(R.id.tabLayout);
         imgbtn_setting = view.findViewById(R.id.imgbtn_setting);
@@ -163,7 +168,6 @@ public class FragmentUserMain extends Fragment implements View.OnClickListener, 
         }
         return view;
     }
-
 
 
 //    @Override

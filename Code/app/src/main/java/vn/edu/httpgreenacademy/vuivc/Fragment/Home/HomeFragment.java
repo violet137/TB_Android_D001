@@ -9,6 +9,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +43,7 @@ public class HomeFragment extends Fragment {
                     getFragmentManager().beginTransaction()
                             .replace(android.R.id.content,fragmentUserMain)
                             .addToBackStack("Profile user").commit();
+
                     return true;
                 }
                 return false;

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,8 +32,8 @@ public class FragmentGif extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_layout,container,false);
         recyclerView=view.findViewById(R.id.recyclerView_gif);
-
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+        RecyclerView.LayoutManager  layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
 
 
 
@@ -41,8 +42,8 @@ public class FragmentGif extends Fragment {
                     public void run() {
                         adapter = new GifAdapter(getActivity(), new ArrayList<Gif>());
                         recyclerView.setAdapter(adapter);
-                        new GiphyTask(Helper.getGiphyQueryUrl("dragon",
-                                20, GiphyQueryBuilder.EndPoint.SEARCH, ""), new GiphyTask.Callback() {
+                        new GiphyTask(Helper.getGiphyQueryUrl("",
+                                20, GiphyQueryBuilder.EndPoint.TRENDS, ""), new GiphyTask.Callback() {
                             @Override
                             public void onResponse(List<Gif> gifs) {
                                 adapter.setGifs(gifs);
