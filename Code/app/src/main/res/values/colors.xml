@@ -17,4 +17,12 @@
     <color name="txtchuden">#000000</color>
     <color name="black">#201E1E</color>
     <color name="Xam_transparent">#11AEA2A2</color>
+    <color name="twitter_blue">#1da1f2</color>
+    <color name="deep_gray">#ff657786</color>
+    <color name="tab_selected">@color/twitter_blue</color>
+    <color name="selector">@drawable/tabselector</color>
+
+    <color name="startcolor">#006666</color>
+    <color name="midcolor">#777</color>
+    <color name="endcolor">#336666</color>
 </resources>

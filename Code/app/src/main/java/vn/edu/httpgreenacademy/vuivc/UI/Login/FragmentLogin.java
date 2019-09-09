@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -27,6 +28,7 @@ import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,9 +41,8 @@ import vn.edu.httpgreenacademy.vuivc.R;
 
 import static com.facebook.AccessTokenManager.SHARED_PREFERENCES_NAME;
 
-public class FragmentLogin extends Fragment implements  Login_Status {
+public class FragmentLogin extends Fragment implements  Login_Status{
     TextView Txt_Error;
-
     LoginButton btnloginfacebook;
     CallbackManager callbackManager;
     int KIEM_TRA_DANG_NHAP;
@@ -55,7 +56,6 @@ public class FragmentLogin extends Fragment implements  Login_Status {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-
 
         btnloginfacebook = (LoginButton)view.findViewById(R.id.btn_login_facebook);
         btnloginfacebook.setReadPermissions("email", "public_profile");
@@ -73,6 +73,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
                     Toast.makeText(getContext(), "Dang nhap thanh cong", Toast.LENGTH_LONG).show();
                     AccessToken accessToken = loginResult.getAccessToken();
                     String token = accessToken.getToken();
+
                     if(!token.isEmpty())
                     {
                         GraphRequest request = GraphRequest.newMeRequest(
@@ -92,6 +93,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
                     }
 
                 }
+
 
                 @Override
                 public void onCancel() {
@@ -146,7 +148,7 @@ public class FragmentLogin extends Fragment implements  Login_Status {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -160,4 +162,6 @@ public class FragmentLogin extends Fragment implements  Login_Status {
                     .commit();
         }
     }
+
+
 }
