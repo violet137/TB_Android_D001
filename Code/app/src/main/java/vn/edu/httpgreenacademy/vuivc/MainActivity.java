@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentLogin fragmentLogin = new FragmentLogin();
-        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentLogin).commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(android.R.id.content,new HomeFragment())
+                .addToBackStack(null)
+                .commit();
 }
 
     @Override

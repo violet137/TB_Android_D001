@@ -8,14 +8,12 @@ import android.widget.ImageView;
 import java.io.InputStream;
 import java.net.URL;
 
-import pl.droidsonroids.gif.GifImageView;
-import vn.edu.httpgreenacademy.vuivc.GifView;
+public class DownloadUrlForImageViewTask extends AsyncTask<String,Void, Bitmap>
+{
+     ImageView imageView;
 
-public class DownLoadImageTask extends AsyncTask<String,Void, Bitmap> {
-
-    GifImageView gifImageView;
-    public DownLoadImageTask(GifImageView gifImageView){
-        this.gifImageView = gifImageView;
+    public DownloadUrlForImageViewTask(ImageView imageView){
+        this.imageView = imageView;
     }
 
     @Override
@@ -25,13 +23,13 @@ public class DownLoadImageTask extends AsyncTask<String,Void, Bitmap> {
         try{
             InputStream is = new URL(urlOfImage).openStream();
             logo = BitmapFactory.decodeStream(is);
-        }catch(Exception e){ // Catch the download exception
+        }catch(Exception e){
             e.printStackTrace();
         }
         return logo;
     }
 
     protected void onPostExecute(Bitmap result){
-        gifImageView.setImageBitmap(result);
+        imageView.setImageBitmap(result);
     }
 }

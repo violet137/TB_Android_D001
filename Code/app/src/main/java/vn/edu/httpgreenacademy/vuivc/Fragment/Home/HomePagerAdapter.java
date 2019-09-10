@@ -13,6 +13,7 @@ import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
 import vn.edu.httpgreenacademy.vuivc.FragmentGif;
 import vn.edu.httpgreenacademy.vuivc.R;
+import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
 

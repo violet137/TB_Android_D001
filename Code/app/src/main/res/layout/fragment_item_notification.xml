@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/transparent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardViewNotificationAvatar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgViewNotificationAvatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_video_avatar" />
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvNotificationUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tho an ca rot"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/cardViewNotificationAvatar"
+        app:layout_constraintLeft_toRightOf="@+id/cardViewNotificationAvatar"
+        ></TextView>
+
+    <TextView
+        android:id="@+id/tvNotificationContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="abcfdfsdf"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewNotificationAvatar"
+        app:layout_constraintLeft_toLeftOf="@+id/tvNotificationUserName"
+        app:layout_constraintRight_toRightOf="@+id/tvNotificationUserName"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotificationUserName"></TextView>
+
+
+    <View
+        android:id="@+id/viewNotificationItem"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:layout_margin="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotificationContent"></View>
+
+</android.support.constraint.ConstraintLayout>

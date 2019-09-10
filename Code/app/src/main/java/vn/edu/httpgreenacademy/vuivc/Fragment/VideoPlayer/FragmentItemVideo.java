@@ -1,6 +1,7 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.File;
 
 import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
@@ -60,7 +63,6 @@ public class FragmentItemVideo extends Fragment {
         int getVideoUploaderId = videoModelItem.getVideoUploaderId();
 
         // Show video caption
-        tvVideoName.setText(getVideoName);
         new DownLoadImageTask(gifImgViewVideoItem).execute(getVideoImageURL);
 
 

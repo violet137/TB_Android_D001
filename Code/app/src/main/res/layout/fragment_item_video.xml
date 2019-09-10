@@ -57,7 +57,7 @@
         android:layout_height="match_parent"
         app:layout_constraintDimensionRatio="1:1"
         android:background="@color/black"
-        android:src="@drawable/anhche1"
+        android:src="@drawable/icon_loading"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvVideoName"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -103,14 +103,14 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardViewVideoAvatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toTopOf="@+id/gifImgViewVideoItem"
         app:layout_constraintRight_toRightOf="@+id/gifImgViewVideoItem"
         app:layout_constraintBottom_toBottomOf="@+id/gifImgViewVideoItem"
-        app:cardCornerRadius="15dp"
         >
 
         <ImageView

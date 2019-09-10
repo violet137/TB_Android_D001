@@ -34,7 +34,6 @@ public class VerticalVideoFragment extends Fragment {
             public void onResponse(Call<List<VideoModel>> call, Response<List<VideoModel>> response) {
                 if(response.isSuccessful()){
                     List<VideoModel> list = response.body();
-                    listVideo.clear();
                     if(list != null && list.size() > 0)
                     {
                         listVideo = new ArrayList(list);

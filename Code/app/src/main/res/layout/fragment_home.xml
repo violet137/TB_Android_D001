@@ -34,12 +34,18 @@
     </android.support.v4.view.ViewPager>
 
 
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
    <android.support.design.widget.BottomNavigationView
        android:id="@+id/viewHomeBottomNavigation"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:background="@drawable/gradient_bottom_bg"
+       app:itemTextAppearanceActive="@color/yellow"
        app:itemTextColor="@color/white"
        app:itemIconTint="@color/white"
        app:menu="@menu/menu_bottom_navigation"
