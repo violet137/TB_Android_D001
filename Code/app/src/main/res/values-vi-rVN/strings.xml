@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vui VC</string>
+    <string name="app_name">vuivc</string>
     <string name="Txt_Google">Đăng Nhập bằng Google+</string>
     <string name="Txt_Facebook" translatable="false">Đăng Nhập Bằng Facebook</string>
     <string name="Txt_Login">Bạn đã có tài khoản? Sign in</string>

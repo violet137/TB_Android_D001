@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vui VC</string>
+    <string name="app_name">vuivc</string>
     <string name="Txt_Facebook" translatable="false">Login With Facebook</string>
     <string name="Txt_Google" translatable="false">Login With Google+</string>
     <string name="Txt_Login">Login</string>

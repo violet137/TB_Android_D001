@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vui VC</string>
+    <string name="app_name">vuivc</string>
     <string name="Txt_Facebook">Login With Facebook</string>
     <string name="Txt_Google">Login With Google+</string>
     <string name="facebook_app_id" translatable="false">2260493494173421</string>
