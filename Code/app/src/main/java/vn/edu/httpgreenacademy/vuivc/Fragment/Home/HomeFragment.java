@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,7 @@ public class HomeFragment extends Fragment {
         viewPagerHome.setOffscreenPageLimit(2);
         tabLayoutHome.setupWithViewPager(viewPagerHome);
 <<<<<<< Updated upstream
+<<<<<<< HEAD
 
 =======
         viewHomeBottomNavigation.enableItemShiftingMode(false);
@@ -62,6 +64,26 @@ public class HomeFragment extends Fragment {
                 if (menuItem.getItemId() == R.id.navigation_profile) {
                     Intent intent = new Intent(getActivity(), ProfileUser_Activity.class);
                     startActivity(intent);
+=======
+
+=======
+        viewHomeBottomNavigation.enableItemShiftingMode(false);
+        viewHomeBottomNavigation.enableAnimation(false);
+        viewHomeBottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.navigation_profile) {
+<<<<<<< HEAD
+                    Intent intent = new Intent(getActivity(), ProfileUser_Activity.class);
+                    startActivity(intent);
+=======
+                    FragmentUserMain fragmentUserMain = new FragmentUserMain();
+                    getFragmentManager().beginTransaction()
+                            .replace(android.R.id.content,fragmentUserMain)
+                            .addToBackStack("Profile user").commit();
+
+>>>>>>> beefe2283a34784b2a1f08cdbc25c03d40cfed40
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f
                     return true;
                 }
                 return false;

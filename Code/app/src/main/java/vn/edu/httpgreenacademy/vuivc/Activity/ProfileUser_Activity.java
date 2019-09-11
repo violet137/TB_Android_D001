@@ -6,16 +6,38 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+=======
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+=======
+import android.os.Bundle;
+>>>>>>> beefe2283a34784b2a1f08cdbc25c03d40cfed40:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Fragment/ProfileUser/FragmentUserMain.java
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 import android.support.v4.app.FragmentTransaction;
+=======
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+import android.support.v4.app.FragmentTransaction;
+=======
+>>>>>>> beefe2283a34784b2a1f08cdbc25c03d40cfed40:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Fragment/ProfileUser/FragmentUserMain.java
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+=======
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+=======
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+>>>>>>> beefe2283a34784b2a1f08cdbc25c03d40cfed40:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Fragment/ProfileUser/FragmentUserMain.java
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -36,9 +58,18 @@ import vn.edu.httpgreenacademy.vuivc.Enum.UserTypeEnum;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowers;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing;
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentEditProfile;
+=======
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentEditProfile;
+=======
+import vn.edu.httpgreenacademy.vuivc.Fragment.AboutApp.FragmentAboutApp;
+>>>>>>> beefe2283a34784b2a1f08cdbc25c03d40cfed40:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Fragment/ProfileUser/FragmentUserMain.java
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenDuLieu;
 import vn.edu.httpgreenacademy.vuivc.Interface.TruyenThongTinUser;
+import vn.edu.httpgreenacademy.vuivc.MainActivity;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
@@ -63,9 +94,51 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
     private String mTitle;
 
     @Override
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_profileuser_main);
+=======
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_profileuser_main);
+=======
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_profileuser_main, container, false);
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener( new View.OnKeyListener()
+        {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event )
+            {
+                Log.d("Keyevent", ""+keyCode);
+                if( keyCode == KeyEvent.KEYCODE_BACK )
+                {
+                    getActivity().finish();
+                    getActivity().startActivity(new Intent(getActivity(),MainActivity.class));
+                    return true;
+                }
+                return false;
+            }
+        } );
+
+        viewPager = view.findViewById(R.id.vp);
+        tabLayout = view.findViewById(R.id.tabLayout);
+        imgbtn_setting = view.findViewById(R.id.imgbtn_setting);
+        txt_SoLuongVideo = view.findViewById(R.id.txt_SoLuongVideo);
+        txt_SoluongFollower = view.findViewById(R.id.txt_SoLuongFollowers);
+        txt_SoluongFollowing = view.findViewById(R.id.txt_SoLuongFollowing);
+        imgAnhdaidien = view.findViewById(R.id.imgAnhUser);
+        txtTenUser = view.findViewById(R.id.txtTenUser);
+        txtID = view.findViewById(R.id.txtID);
+        line1 = view.findViewById(R.id.line1);
+        line2 = view.findViewById(R.id.line2);
+        line3 = view.findViewById(R.id.line3);
+>>>>>>> beefe2283a34784b2a1f08cdbc25c03d40cfed40:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Fragment/ProfileUser/FragmentUserMain.java
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 
         imgbtn_setting = findViewById(R.id.imgbtn_setting);
         txt_SoLuongVideo = findViewById(R.id.txt_SoLuongVideo);
@@ -143,6 +216,20 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
         }*/
     }
 
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+=======
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
+=======
+
+//    @Override
+//    public void onSaveInstanceState(@NonNull Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//        getFragmentManager().putFragment(outState,FragmentUserMain.class.getName(),fragmentUserMain);
+//    }
+
+
+>>>>>>> beefe2283a34784b2a1f08cdbc25c03d40cfed40:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Fragment/ProfileUser/FragmentUserMain.java
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -215,8 +302,13 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
             getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment,"editprofile").addToBackStack("back").commit();
 
         }
+<<<<<<< HEAD:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
 
 
+=======
+
+
+>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f:Code/app/src/main/java/vn/edu/httpgreenacademy/vuivc/Activity/ProfileUser_Activity.java
         @Override
         public void GetSoluongVideo(int soluong) {
             SoLuongVideo = soluong;
