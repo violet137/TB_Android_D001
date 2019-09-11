@@ -3,10 +3,6 @@ package vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.HashTag;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
