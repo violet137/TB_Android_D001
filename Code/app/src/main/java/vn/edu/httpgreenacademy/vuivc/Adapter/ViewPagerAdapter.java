@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
-import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentVideos;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;

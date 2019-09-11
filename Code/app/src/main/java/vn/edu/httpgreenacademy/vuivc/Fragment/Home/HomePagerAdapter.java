@@ -11,10 +11,8 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import vn.edu.httpgreenacademy.vuivc.Fragment.AboutApp.FragmentAboutApp;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowing;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
-import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.VideoPlayer.VerticalVideoFragment;
 import vn.edu.httpgreenacademy.vuivc.FragmentGif;
 import vn.edu.httpgreenacademy.vuivc.R;

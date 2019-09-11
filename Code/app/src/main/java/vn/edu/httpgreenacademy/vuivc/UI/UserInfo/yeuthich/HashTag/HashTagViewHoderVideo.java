@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
+
 import vn.edu.httpgreenacademy.vuivc.R;
 
 public class HashTagViewHoderVideo extends RecyclerView.ViewHolder {
