@@ -20,7 +20,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +32,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -44,7 +41,6 @@ import vn.edu.httpgreenacademy.vuivc.R;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class FragmentEditPick extends Fragment implements View.OnClickListener {
     ImageView imganhche, imgbackedit, imgok;
@@ -237,8 +233,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), "Action Failed", Toast.LENGTH_SHORT).show();
             }
         }
-        if(requestCode == 102)
-        {
+        if (requestCode == 102) {
             checkAndRequestPermissions();
         }
 
@@ -548,9 +543,10 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     private void askPermissionAndCaptureVideo() {
         if (Build.VERSION.SDK_INT >= 23) {
             int readPermission = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE);
+            int cameraPermission = ActivityCompat.checkSelfPermission(getContext(),Manifest.permission.CAMERA);
             int writePermission = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            if (writePermission != PackageManager.PERMISSION_GRANTED || readPermission != PackageManager.PERMISSION_GRANTED) {
-                this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 102);
+            if (writePermission != PackageManager.PERMISSION_GRANTED || readPermission != PackageManager.PERMISSION_GRANTED || cameraPermission!= PackageManager.PERMISSION_GRANTED) {
+                this.requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.CAMERA}, 102);
                 return;
             }
         }
@@ -570,7 +566,9 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     private void checkAndRequestPermissions() {
         String[] permissions = new String[]{
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.READ_EXTERNAL_STORAGE
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA
+
         };
         List<String> listPermissionsNeeded = new ArrayList<>();
         for (String permission : permissions) {
