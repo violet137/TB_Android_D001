@@ -50,23 +50,24 @@ public class GifViewHolder extends RecyclerView.ViewHolder {
         Thread thread1=new Thread(new Runnable() {
             @Override
             public void run() {
+                Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).fitCenter().into(previewImage);
                 Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).centerCrop().into(previewImage);
                 gifView.setVisibility(View.VISIBLE);
                 gifView.start(gif.getPreviewMp4Url());
             }
         });
 
-        Thread thread2=new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).fitCenter().into(previewImage);
-                gifView.setVisibility(View.VISIBLE);
-                gifView.start(gif.getPreviewMp4Url());
-            }
-        });
+//        Thread thread2=new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Glide.with(itemView.getContext()).load(gif.getPreviewImageUrl()).fitCenter().into(previewImage);
+//                gifView.setVisibility(View.VISIBLE);
+//                gifView.start(gif.getPreviewMp4Url());
+//            }
+//        });
 
         thread1.run();
-        thread2.run();
+//        thread2.run();
 
         gifView.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("NewApi")

@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import com.facebook.login.LoginFragment;
+
+import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
 
 public class MainActivity extends AppCompatActivity {

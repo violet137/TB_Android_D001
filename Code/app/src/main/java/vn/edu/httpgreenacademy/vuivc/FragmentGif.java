@@ -43,7 +43,7 @@ public class FragmentGif extends Fragment {
                         adapter = new GifAdapter(getActivity(), new ArrayList<Gif>());
                         recyclerView.setAdapter(adapter);
                         new GiphyTask(Helper.getGiphyQueryUrl("",
-                                20, GiphyQueryBuilder.EndPoint.TRENDS, ""), new GiphyTask.Callback() {
+                                5, GiphyQueryBuilder.EndPoint.TRENDS, ""), new GiphyTask.Callback() {
                             @Override
                             public void onResponse(List<Gif> gifs) {
                                 adapter.setGifs(gifs);
