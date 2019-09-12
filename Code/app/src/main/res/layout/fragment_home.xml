@@ -35,10 +35,6 @@
 
     </android.support.v4.view.ViewPager>
 
-<<<<<<< Updated upstream
-=======
-
-
    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
        android:id="@+id/viewHomeBottomNavigation"
        android:layout_width="match_parent"
@@ -53,6 +49,4 @@
        app:layout_constraintBottom_toBottomOf="parent"
        />
 
-
->>>>>>> Stashed changes
 </android.support.constraint.ConstraintLayout>
