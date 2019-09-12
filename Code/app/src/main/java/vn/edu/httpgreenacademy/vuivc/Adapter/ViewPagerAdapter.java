@@ -27,9 +27,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return new FragmentVideos();
             case 1:
                 return new FragmentYeuThich();
-            default:
-                return null;
         }
+        return new FragmentVideos();
     }
 
     @Override

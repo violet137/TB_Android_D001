@@ -6,7 +6,7 @@
         />
     <item
         android:id="@+id/itfavourite"
-        android:title="@string/yeuthich"
+        android:title="Chế ảnh"
         />
     <item
         android:id="@+id/logout"

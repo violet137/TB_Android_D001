@@ -32,6 +32,7 @@ import java.io.File;
 import java.net.URL;
 
 import vn.edu.httpgreenacademy.vuivc.Adapter.ViewPagerAdapter;
+import vn.edu.httpgreenacademy.vuivc.Draw.FragmentDraw;
 import vn.edu.httpgreenacademy.vuivc.Enum.UserTypeEnum;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDanhSachFollowers;
@@ -42,7 +43,6 @@ import vn.edu.httpgreenacademy.vuivc.Interface.TruyenThongTinUser;
 import vn.edu.httpgreenacademy.vuivc.ModelUser.ProfileUser;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
-import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;
 
 public class ProfileUser_Activity extends AppCompatActivity implements View.OnClickListener, TruyenDuLieu, TruyenThongTinUser {
 
@@ -160,7 +160,7 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
                                 ChuyenFragment(fragmentEditProfile);
                                 break;
                             case R.id.itfavourite:
-                                ChuyenFragment(new FragmentYeuThich());
+                                ChuyenFragment(new FragmentDraw());
                                 break;
                             case R.id.logout:
                                 AlertDialog.Builder logout_dialog = new AlertDialog.Builder(getApplicationContext());
