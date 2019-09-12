@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 public class GifAdapter extends RecyclerView.Adapter<GifViewHolder> {
-    Activity activity;
+    static Activity activity;
 
     static List<Gif> gifs;
 
@@ -24,7 +24,8 @@ public class GifAdapter extends RecyclerView.Adapter<GifViewHolder> {
     @Override
     public GifViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View v = LayoutInflater.from(activity).inflate(R.layout.item_gif, parent, false);
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_gif, parent, false);
         return new GifViewHolder(v, activity);
     }
 
