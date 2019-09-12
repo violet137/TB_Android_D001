@@ -5,12 +5,8 @@
         android:title="@string/editprofile"
         />
     <item
-        android:id="@+id/about"
-        android:title="@string/about"
-        />
-    <item
         android:id="@+id/itfavourite"
-        android:title="@string/yeuthich"
+        android:title="Chế ảnh"
         />
     <item
         android:id="@+id/logout"
