@@ -1,6 +1,7 @@
 package vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -106,13 +107,17 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
                 gioitinh = rbNam.getText().toString();
                 sex = true;
                 CheckBuild(rbNam);
+                profileUser.setSex(rbNam.getText().toString());
                 break;
             case R.id.rb_nu:
                 gioitinh = rbNu.getText().toString();
                 CheckBuild(rbNu);
                 sex = false;
+                profileUser.setSex(rbNu.getText().toString());
                 break;
             case R.id.txt_Luu:
+                profileUser.setNameUser(edt_ten.getText().toString());
+                profileUser.setNgaySinh(edt_ngaysinh.getText().toString());
                 truyenThongTinUser.GetDuLieuEditProfile(profileUser);
                 getFragmentManager().popBackStack();
                 break;
@@ -131,9 +136,10 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode,resultCode,data);
         if(requestCode == 100)
         {
-            if(resultCode == RESULT_OK)
+            if(resultCode == Activity.RESULT_OK)
             {
                image = (Bitmap) data.getExtras().get("data");
                 profileUser.setPhoto(image);
@@ -151,11 +157,11 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
                 }
                 imgAnhDaiDien.setImageBitmap(image);
                 profileUser.setPhoto(image);
-                SharedPreferences userAvatarSharedPreferences = getActivity().getSharedPreferences("session_user_avatar", Context.MODE_PRIVATE);
+             /*   SharedPreferences userAvatarSharedPreferences = getActivity().getSharedPreferences("session_user_avatar", Context.MODE_PRIVATE);
                 SharedPreferences.Editor userAvatarEditor = userAvatarSharedPreferences.edit();
                 userAvatarEditor.putString("remember_user_avatar",imageUri.getPath());
                 Log.d("hinh dai dien",imageUri.getPath());
-                userAvatarEditor.commit();
+                userAvatarEditor.commit();*/
             }
         }
     }
@@ -182,6 +188,7 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
             radioButton.invalidate(); //could not be necessary
         }
     }
+
 
 }
 

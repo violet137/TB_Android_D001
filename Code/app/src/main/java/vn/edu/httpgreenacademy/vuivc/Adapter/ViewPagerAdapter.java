@@ -7,8 +7,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
+import vn.edu.httpgreenacademy.vuivc.Draw.FragmentDraw;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentLiked;
-import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentUserMain;
 import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentVideos;
 import vn.edu.httpgreenacademy.vuivc.R;
 import vn.edu.httpgreenacademy.vuivc.UI.UserInfo.yeuthich.FragmentYeuThich;
@@ -27,10 +27,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new FragmentVideos();
             case 1:
-                return new FragmentYeuThich();
-            default:
-                return null;
+                return new FragmentDraw();
         }
+        return new FragmentVideos();
     }
 
     @Override

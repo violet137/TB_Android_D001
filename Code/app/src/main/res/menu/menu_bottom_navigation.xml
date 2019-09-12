@@ -11,7 +11,7 @@
         android:id="@+id/navigation_message"
         android:title="Message"
         android:tooltipText="Message"
-        android:icon="@drawable/icon_bottom_message"></item>
+        android:icon="@drawable/chatwhite"></item>
 
     <item
         android:id="@+id/navigation_profile"
