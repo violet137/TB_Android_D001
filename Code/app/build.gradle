@@ -54,19 +54,6 @@ dependencies {
     // Card view
     implementation "com.android.support:cardview-v7:$supportVersion"
     implementation "com.squareup.picasso:picasso:2.71828"
-
-//<<<<<<< Updated upstream
-//=======
     implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.2'
-
-//<<<<<<< HEAD
-//    //Firebase
-//=======
-//    //Firebase
-//>>>>>>> df31fef4cf55d8603a8b118f4fd747e8302e3f4f
-//    implementation 'com.google.firebase:firebase-database:19.0.0'
-//    implementation 'com.google.firebase:firebase-auth:19.0.0'
-//    implementation 'com.google.firebase:firebase-storage:19.0.0'
-//    implementation 'com.google.android.gms:play-services-gcm:+'
-//>>>>>>> Stashed changes
+    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.2'
 }

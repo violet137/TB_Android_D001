@@ -10,11 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity
             android:name=".Activity.ProfileUser_Activity"
             android:screenOrientation="portrait">
 
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
