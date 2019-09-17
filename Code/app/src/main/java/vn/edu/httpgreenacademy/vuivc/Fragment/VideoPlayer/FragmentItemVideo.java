@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,7 +63,13 @@ public class FragmentItemVideo extends Fragment {
 
         // Show video caption
         tvVideoName.setText(getVideoName);
-        new DownLoadImageTask(gifImgViewVideoItem).execute(getVideoImageURL);
+        Glide
+                .with(getContext())
+                .load(getVideoImageURL)
+                //.load("https://media.giphy.com/media/duzpaTbCUy9Vu/giphy.gif")
+                .centerCrop()
+                .into(gifImgViewVideoItem);
+        //new DownLoadImageTask(gifImgViewVideoItem).execute(getVideoImageURL);
 
 
         // Show popup video viewrget = new GlideDrawableImageViewTarget(imageViewTarget);
