@@ -35,7 +35,7 @@ public class FragmentHomelogin extends Fragment implements View.OnClickListener 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         txtGoogle = view.findViewById(R.id.txt_GoogLe_Home);
-        btLogin = view.findViewById(R.id.bt_Login_Home);
+        btLogin = view.findViewById(R.id.btn_Login_Home);
         tvTextRegisterBottom = view.findViewById(R.id.tvTextRegisterBottom);
 
 
@@ -81,7 +81,7 @@ public class FragmentHomelogin extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_Login_Home:
+            case R.id.btn_Login_Home:
                 FragmentDialogLogin fragment_dialogLogin = new FragmentDialogLogin();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(android.R.id.content, fragment_dialogLogin).addToBackStack("s").commit();
