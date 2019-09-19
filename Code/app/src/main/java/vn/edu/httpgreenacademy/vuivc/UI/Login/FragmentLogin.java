@@ -3,13 +3,10 @@ package vn.edu.httpgreenacademy.vuivc.UI.Login;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,29 +14,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.Profile;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
-
 import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
-import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 import vn.edu.httpgreenacademy.vuivc.R;
-
-import static com.facebook.AccessTokenManager.SHARED_PREFERENCES_NAME;
+import vn.edu.httpgreenacademy.vuivc.Utils.Interface.Login_Status;
 
 public class FragmentLogin extends Fragment implements  Login_Status{
     TextView Txt_Error;
