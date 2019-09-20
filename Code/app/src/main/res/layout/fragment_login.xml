@@ -10,19 +10,31 @@
       android:id="@+id/tvTitleLoginHome"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="VUI VC"
       android:gravity="center_vertical|center_horizontal"
-      android:textSize="30dp"
+      android:text="VUI VC"
       android:textColor="@color/white"
+      android:textSize="30dp"
       android:textStyle="bold"
-      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toTopOf="@+id/lineLoginBottom"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintBottom_toTopOf="@+id/lineLoginBottom"
-      />
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.3" />
+
+  <ImageView
+      android:id="@+id/imvLogo"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/picture1"
+      android:layout_marginTop="10dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvTitleLoginHome"
+      >
+  </ImageView>
 
     <Button
-        android:id="@+id/bt_Login_Home"
+        android:id="@+id/btn_Login_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/Txt_Chu"
@@ -30,7 +42,7 @@
         android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleLoginHome" />
+        app:layout_constraintTop_toBottomOf="@+id/imvLogo" />
 
     <TextView
         android:id="@+id/tvLoginOr"
@@ -40,9 +52,9 @@
         android:textColor="@color/white"
         android:gravity="center_horizontal|center_vertical"
         android:textSize="20dp"
-        app:layout_constraintRight_toRightOf="@+id/bt_Login_Home"
-        app:layout_constraintLeft_toLeftOf="@+id/bt_Login_Home"
-        app:layout_constraintTop_toBottomOf="@+id/bt_Login_Home"
+        app:layout_constraintRight_toRightOf="@+id/btn_Login_Home"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_Login_Home"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Login_Home"
         />
 
     <com.facebook.login.widget.LoginButton
@@ -88,6 +100,7 @@
     </TextView>
 
     <TextView
+        android:id="@+id/tvCamKet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -101,15 +114,13 @@
         >
     </TextView>
 
-
-
     <View
         android:id="@+id/lineLoginBottom"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvTextRegisterBottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvTextRegisterBottom"
         android:background="@color/white"
         >
     </View>
