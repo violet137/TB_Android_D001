@@ -137,7 +137,7 @@ public class FragmentEditProfile extends Fragment implements View.OnClickListene
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
-        if(requestCode == 100)
+        if(requestCode == 300)
         {
             if(resultCode == Activity.RESULT_OK)
             {

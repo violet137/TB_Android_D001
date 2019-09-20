@@ -221,6 +221,11 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                     break;
             }
         }
+        if(requestCode == RQS_IMAGE1)
+        {
+            source1 = data.getData();
+            txtChoLoadAnh.setText(source1.toString());
+        }
 
         if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
@@ -236,11 +241,6 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
         }
         if (requestCode == 102) {
             checkAndRequestPermissions();
-        }
-        FragmentEditProfile fragmentEditProfile = (FragmentEditProfile) getActivity().getSupportFragmentManager().findFragmentByTag("editprofile");
-        if(fragmentEditProfile != null)
-        {
-            fragmentEditProfile.onActivityResult(requestCode,resultCode,data);
         }
 
 
