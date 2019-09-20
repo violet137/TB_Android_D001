@@ -2,20 +2,12 @@ package vn.edu.httpgreenacademy.vuivc.Activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
-import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -28,10 +20,8 @@ import android.widget.TextView;
 
 import com.facebook.login.LoginManager;
 
-import java.io.File;
 import java.net.URL;
 
-import vn.edu.httpgreenacademy.vuivc.Adapter.ViewPagerAdapter;
 import vn.edu.httpgreenacademy.vuivc.Draw.FragmentDraw;
 import vn.edu.httpgreenacademy.vuivc.Enum.UserTypeEnum;
 import vn.edu.httpgreenacademy.vuivc.Fragment.DanhSach.FragmentDSVideo;
@@ -53,9 +43,9 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
     ProfileUser profileUser;
     FragmentDanhSachFollowers fragmentDanhSachFollowers = new FragmentDanhSachFollowers();
     FragmentDanhSachFollowing fragmentDanhSachFollowing = new FragmentDanhSachFollowing();
-    public TextView txt_SoLuongVideo, txt_SoluongFollower, txt_SoluongFollowing, txtTenUser, txtID,txtSex, txtDate;
+    public TextView txt_SoLuongVideo, txt_SoluongFollower, txt_SoluongFollowing, txtTenUser, txtID, txtSex, txtDate;
     FragmentDSVideo fragmentdsVideos = new FragmentDSVideo();
-    int SoluongFollower,SoLuongFollowing,SoLuongVideo;
+    int SoluongFollower, SoLuongFollowing, SoLuongVideo;
     int ID_LOGIN;
     URL urlimage;
     Bitmap profilePic;
@@ -80,9 +70,9 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
         line2 = findViewById(R.id.line2);
         line3 = findViewById(R.id.line3);
         profileUser = new ProfileUser();
-        SoluongFollower =profileUser.getNumFollower();
+        SoluongFollower = profileUser.getNumFollower();
         SoLuongFollowing = profileUser.getNumFollowing();
-        SoLuongVideo =profileUser.getNumVideo();
+        SoLuongVideo = profileUser.getNumVideo();
 
         imgbtn_setting.setOnClickListener(this);
         line1.setOnClickListener(this);
@@ -92,18 +82,16 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
         fragmentEditProfile.FragmentEditProfile(this);//lắng nghe du lieu tu Edit profile
         fragmentDanhSachFollowers.TruyensoluongFollowers(this);
         fragmentDanhSachFollowing.TruyensoluongFollowing(this);
-        txt_SoluongFollower.setText(SoluongFollower+"");
-        txt_SoluongFollowing.setText(SoLuongFollowing+"");
-        txt_SoLuongVideo.setText(SoLuongVideo+"");
+        txt_SoluongFollower.setText(SoluongFollower + "");
+        txt_SoluongFollowing.setText(SoLuongFollowing + "");
+        txt_SoLuongVideo.setText(SoLuongVideo + "");
 
 
         // Get user login
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(getString(R.string.fb_sharePre_Name), Context.MODE_PRIVATE);
-        if(sharedPref != null)
-        {
+        if (sharedPref != null) {
             String facebookUserId = sharedPref.getString("fb_sharePre_login_id", "");
-            if(!facebookUserId.isEmpty())
-            {
+            if (!facebookUserId.isEmpty()) {
                 profileUser.setNameUser(sharedPref.getString("fb_sharePre_login_name", ""));
                 profileUser.setId(sharedPref.getString("fb_sharePre_login_email", ""));
                 profileUser.setNgaySinh(sharedPref.getString("fb_sharePre_login_birthday", ""));
@@ -111,11 +99,9 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
                 profileUser.setUserType(UserTypeEnum.Facebook);
                 txtTenUser.setText(profileUser.getNameUser());
                 txtID.setText(profileUser.getId());
-                ID_LOGIN=1;
+                ID_LOGIN = 1;
             }
-        }
-        else
-        {
+        } else {
             txtTenUser.setText(profileUser.getNameUser());
             txtID.setText(profileUser.getId() + "");
             txtSex.setText("---");
@@ -155,7 +141,7 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
                         switch (menuItem.getItemId()) {
                             case R.id.iteditprofile:
                                 Bundle bundle = new Bundle();
-                                bundle.putSerializable("information",profileUser);
+                                bundle.putSerializable("information", profileUser);
                                 fragmentEditProfile.setArguments(bundle);
                                 ChuyenFragment(fragmentEditProfile);
                                 break;
@@ -211,8 +197,9 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
                 break;
         }
     }
-    private void ChuyenFragment (Fragment fragment){
-        getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment,"editprofile").addToBackStack("back").commit();
+
+    private void ChuyenFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().add(android.R.id.content, fragment, "editprofile").addToBackStack("back").commit();
 
     }
 
@@ -225,7 +212,7 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void GetSoluongFollower(int soluong) {
-        SoluongFollower =soluong;
+        SoluongFollower = soluong;
     }
 
     @Override
@@ -235,29 +222,27 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void GetDuLieuEditProfile(ProfileUser profileUser) {
-        if(profileUser != null)
-        {
-            if(profileUser.getPhoto() != null) {
+        if (profileUser != null) {
+            if (profileUser.getPhoto() != null) {
                 imgAnhdaidien.setImageBitmap(profileUser.getPhoto());
-            }
-            else
+            } else
                 imgAnhdaidien.setImageResource(R.drawable.user);
-            txtTenUser.setText(profileUser.getNameUser().toString()+"");
+            txtTenUser.setText(profileUser.getNameUser().toString() + "");
             txtSex.setText(profileUser.isSex().toString());
             txtDate.setText(profileUser.getNgaySinh().toString());
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        FragmentEditProfile fragmentEditProfile = (FragmentEditProfile) getSupportFragmentManager().findFragmentByTag("editprofile");
-        if(fragmentEditProfile != null)
-        {
-            fragmentEditProfile.onActivityResult(requestCode,resultCode,data);
-        }
-
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        FragmentEditProfile fragmentEditProfile = (FragmentEditProfile) getSupportFragmentManager().findFragmentByTag("editprofile");
+//        if(fragmentEditProfile != null)
+//        {
+//            fragmentEditProfile.onActivityResult(requestCode,resultCode,data);
+//        }
+//
+//    }
 }
 
 

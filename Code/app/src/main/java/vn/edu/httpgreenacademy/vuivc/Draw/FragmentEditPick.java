@@ -20,7 +20,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,18 +32,16 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
+import vn.edu.httpgreenacademy.vuivc.Fragment.ProfileUser.FragmentEditProfile;
 import vn.edu.httpgreenacademy.vuivc.R;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class FragmentEditPick extends Fragment implements View.OnClickListener {
     ImageView imganhche, imgbackedit, imgok;
@@ -112,7 +109,7 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                         Toast.LENGTH_LONG).show();
                 HomeFragment homeFragment = new HomeFragment();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(android.R.id.content,homeFragment).commit();
+                fragmentManager.beginTransaction().replace(android.R.id.content, homeFragment).commit();
                 break;
             case R.id.btCamera:
                 askPermissionAndCaptureVideo();
@@ -237,9 +234,13 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), "Action Failed", Toast.LENGTH_SHORT).show();
             }
         }
-        if(requestCode == 102)
-        {
+        if (requestCode == 102) {
             checkAndRequestPermissions();
+        }
+        FragmentEditProfile fragmentEditProfile = (FragmentEditProfile) getActivity().getSupportFragmentManager().findFragmentByTag("editprofile");
+        if(fragmentEditProfile != null)
+        {
+            fragmentEditProfile.onActivityResult(requestCode,resultCode,data);
         }
 
 
@@ -584,19 +585,19 @@ public class FragmentEditPick extends Fragment implements View.OnClickListener {
     }
 
 
-    private void saveImageGallery(Bitmap finalbimap){
+    private void saveImageGallery(Bitmap finalbimap) {
         String root = Environment.getExternalStorageDirectory().toString();
-        File myDir = new File(root+"/saveImageVuiVCC");
+        File myDir = new File(root + "/saveImageVuiVCC");
         myDir.mkdirs();
         Random generator = new Random();
         int n = 10000;
         n = generator.nextInt(n);
-        String imageName= "Image-"+ n +".jpg";
-        File file = new File(myDir,imageName);
+        String imageName = "Image-" + n + ".jpg";
+        File file = new File(myDir, imageName);
         if (file.exists()) file.delete();
         try {
             FileOutputStream out = new FileOutputStream(file);
-            finalbimap.compress(Bitmap.CompressFormat.JPEG,90,out);
+            finalbimap.compress(Bitmap.CompressFormat.JPEG, 90, out);
             String resizeCoolerImagePath = file.getAbsolutePath();
             out.flush();
             out.close();
