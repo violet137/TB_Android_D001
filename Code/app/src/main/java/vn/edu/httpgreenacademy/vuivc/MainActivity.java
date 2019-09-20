@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Chan Hong task 4
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentLogin fragmentLogin = new FragmentLogin();
+        HomeFragment fragmentLogin = new HomeFragment();
         fragmentManager.beginTransaction().replace(android.R.id.content,fragmentLogin).addToBackStack("").commit();
 }
 
