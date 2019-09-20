@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
+import vn.edu.httpgreenacademy.vuivc.Fragment.Home.HomeFragment;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentDialogLogin;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentHomelogin;
 import vn.edu.httpgreenacademy.vuivc.UI.Login.FragmentLogin;
@@ -15,11 +16,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//         Chan Hong task 4
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentHomelogin fragmentHomelogin = new FragmentHomelogin();
-        fragmentManager.beginTransaction().replace(android.R.id.content, fragmentHomelogin).addToBackStack("").commit();
+        HomeFragment fragmentLogin = new HomeFragment();
+        fragmentManager.beginTransaction().replace(android.R.id.content,fragmentLogin).addToBackStack("").commit();
     }
 
     @Override
@@ -29,6 +28,4 @@ public class MainActivity extends AppCompatActivity {
             fragment.onActivityResult(requestCode, resultCode, data);
         }
     }
-
-
 }

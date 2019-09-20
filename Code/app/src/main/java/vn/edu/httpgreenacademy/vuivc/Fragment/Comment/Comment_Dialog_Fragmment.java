@@ -28,8 +28,7 @@ import vn.edu.httpgreenacademy.vuivc.R;
 public class Comment_Dialog_Fragmment extends DialogFragment {
 
 
-    ImageView imageViewQuit;
-    RecyclerView recyclerView;
+   RecyclerView recyclerViewComment;
     ArrayList<UserModel> userModelArrayList = new ArrayList<>();
     EditText editTextComment;
     TextView tvTotalCommentItem;
@@ -38,67 +37,36 @@ public class Comment_Dialog_Fragmment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-//        final Dialog dialog = new Dialog(getActivity());
-//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
-//        return dialog;
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater=getActivity().getLayoutInflater();
         View view= inflater.inflate(R.layout.comment_fragment,null, false);
 
-        imageViewQuit = view.findViewById(R.id.imageViewQuit);
-        recyclerView= view.findViewById(R.id.recyclerViewComment);
+        recyclerViewComment = view.findViewById(R.id.recyclerViewComment);
         tvTotalCommentItem = view.findViewById(R.id.tvTotalCommentItem);
 
-        imageViewQuit.setOnClickListener(new View.OnClickListener() {
+        userModelArrayList.clear();
+        userModelArrayList.add(new UserModel("Boy handsome","Nụ cười ấy, chết mất thôi",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Kênh giao tiếp","Cho xin link nhạc", R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Nhi","Chất nhất quả đất",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Bé Kòi","Dễ thương quá",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Thanh niên nghiêm túc","Con nhà người ta chưa bao giờ làm tôi thất vọng",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Tiểu hồ ly","Hóng nhiều clip như thế này nữa",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("user123456789","Cute xỉu",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Q.K","Làm sao quay chậm đoạn cuối được ạ",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Trần Khánh Ly","Ước gì mình được như cô ấy",R.drawable.icon_video_avatar));
+        userModelArrayList.add(new UserModel("Phong","Sáng tạo",R.drawable.icon_video_avatar));
+        Comment_RecyclerView_Adapter comment_recyclerView_adapter = new Comment_RecyclerView_Adapter(userModelArrayList);
+        recyclerViewComment.setAdapter(comment_recyclerView_adapter);
+        recyclerViewComment.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
+
+        tvTotalCommentItem.setText("" + userModelArrayList.size() + " bình luận");
+        tvTotalCommentItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getFragmentManager().popBackStack();
             }
         });
-
-        userModelArrayList.add(new UserModel("Tung","em co biet gi dau",R.drawable.icon_video_avatar));
-        userModelArrayList.add(new UserModel("Anh Duy","Server sap roi ae oi", R.drawable.icon_video_avatar));
-        userModelArrayList.add(new UserModel("Chi Hong","May chu ban gai lo lieu qua",R.drawable.icon_video_avatar));
-
-        Comment_RecyclerView_Adapter comment_recyclerView_adapter = new Comment_RecyclerView_Adapter(userModelArrayList);
-        recyclerView.setAdapter(comment_recyclerView_adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-
-        tvTotalCommentItem.setText("" + userModelArrayList.size() + " bình luận");
-
         builder.setView(view);
         return builder.create();
     }
-
-//    @Nullable
-//    @Override
-//    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//
-//        View view = inflater.inflate(R.layout.comment_fragment,container,false);
-//
-//        imageViewQuit = view.findViewById(R.id.imageViewQuit);
-//        recyclerView= view.findViewById(R.id.recyclerViewComment);
-//        tvTotalCommentItem = view.findViewById(R.id.tvTotalCommentItem);
-//
-//        imageViewQuit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getFragmentManager().popBackStack();
-//            }
-//        });
-//
-//        userModelArrayList.add(new UserModel("Tung","em co biet gi dau",R.drawable.icon_video_avatar));
-//        userModelArrayList.add(new UserModel("Anh Duy","Server sap roi ae oi", R.drawable.icon_video_avatar));
-//        userModelArrayList.add(new UserModel("Chi Hong","May chu ban gai lo lieu qua",R.drawable.icon_video_avatar));
-//
-//        Comment_RecyclerView_Adapter comment_recyclerView_adapter = new Comment_RecyclerView_Adapter(userModelArrayList);
-//        recyclerView.setAdapter(comment_recyclerView_adapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false));
-//
-//        tvTotalCommentItem.setText("" + userModelArrayList.size() + " bình luận");
-//        return view;
-//
-//    }
 }

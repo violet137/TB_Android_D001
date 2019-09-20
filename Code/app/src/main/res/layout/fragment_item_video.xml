@@ -54,12 +54,10 @@
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImgViewVideoItem"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintDimensionRatio="1:1"
-        android:background="@color/black"
-        android:src="@drawable/anhche1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvVideoName"
+        app:layout_constraintTop_toBottomOf="@+id/tvUploaderName"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
