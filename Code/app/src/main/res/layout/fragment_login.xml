@@ -34,7 +34,7 @@
   </ImageView>
 
     <Button
-        android:id="@+id/bt_Login_Home"
+        android:id="@+id/btn_Login_Home"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/Txt_Chu"
@@ -52,9 +52,9 @@
         android:textColor="@color/white"
         android:gravity="center_horizontal|center_vertical"
         android:textSize="20dp"
-        app:layout_constraintRight_toRightOf="@+id/bt_Login_Home"
-        app:layout_constraintLeft_toLeftOf="@+id/bt_Login_Home"
-        app:layout_constraintTop_toBottomOf="@+id/bt_Login_Home"
+        app:layout_constraintRight_toRightOf="@+id/btn_Login_Home"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_Login_Home"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Login_Home"
         />
 
     <com.facebook.login.widget.LoginButton
