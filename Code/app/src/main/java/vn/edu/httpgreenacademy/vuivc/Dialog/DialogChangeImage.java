@@ -52,7 +52,7 @@ public class DialogChangeImage extends DialogFragment {
 
     private void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        getActivity().startActivityForResult(intent,100);
+        getActivity().startActivityForResult(intent,300);
     }
 
 }
