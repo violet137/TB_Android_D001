@@ -16,6 +16,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
@@ -62,6 +63,7 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
     Bitmap profilePic;
     private int mPage;
     private String mTitle;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +98,8 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
         txt_SoluongFollower.setText(SoluongFollower+"");
         txt_SoluongFollowing.setText(SoLuongFollowing+"");
         txt_SoLuongVideo.setText(SoLuongVideo+"");
+
+        context = ProfileUser_Activity.this;
 
 
         // Get user login
@@ -164,7 +168,7 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
                                 ChuyenFragment(new FragmentDraw());
                                 break;
                             case R.id.logout:
-                                AlertDialog.Builder logout_dialog = new AlertDialog.Builder(getApplicationContext());
+                                AlertDialog.Builder logout_dialog = new AlertDialog.Builder(new ContextThemeWrapper(context,R.style.Theme_AppCompat_DayNight_NoActionBar));
                                 logout_dialog.setMessage("Do you want to log out ?");
                                 logout_dialog.setPositiveButton("No", new DialogInterface.OnClickListener() {
                                     @Override
@@ -177,8 +181,8 @@ public class ProfileUser_Activity extends AppCompatActivity implements View.OnCl
                                         CheckIDLogin(ID_LOGIN);
                                     }
                                 });
-                                AlertDialog alertDialog = logout_dialog.create();
-                                alertDialog.show();
+                                AlertDialog dialog = logout_dialog.create();
+                                dialog.show();
                                 break;
                         }
                         return true;
